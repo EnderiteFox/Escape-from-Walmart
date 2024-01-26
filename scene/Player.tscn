@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://script/Player.gd" id="1_e4vtd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eihgl"]
+height = 1.65
 
-[node name="CharacterBody3D" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_e4vtd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
