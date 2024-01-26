@@ -42,7 +42,7 @@ func process_input(_delta: float) -> void:
 	
 	# Jumping
 	if is_on_floor():
-		if Input.is_action_just_pressed("movement_jump"):
+		if Input.is_action_just_pressed("Jump"):
 			velocity.y = JUMP_SPEED
 	
 	# Capturing/Freeing the cursor
@@ -53,7 +53,7 @@ func process_input(_delta: float) -> void:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 	# Sprinting
-	is_sprinting = Input.is_action_pressed("movement_sprint")
+	is_sprinting = Input.is_action_pressed("Sprint")
 
 
 func process_movement(delta) -> void:
