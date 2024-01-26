@@ -1,7 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7k5fybfdeq18"]
+[gd_scene load_steps=9 format=3 uid="uid://c7k5fybfdeq18"]
 
 [ext_resource type="PackedScene" uid="uid://b1nxn8tsdd7h5" path="res://scene/Player.tscn" id="1_okkrq"]
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
+[ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
+[ext_resource type="PackedScene" uid="uid://btt3pghiu4cxa" path="res://scene/enemy_template.tscn" id="4_cvlem"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_tkfbf"]
+vertices = PackedVector3Array(-24.5, 1, -24.5, -24.5, 1, 24.5, 24.5, 1, 24.5, 24.5, 1, -24.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xpf0"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_evx2m"]
+size = Vector3(50, 1, 50)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8nte3"]
 size = Vector3(3, 3, 3)
@@ -9,11 +21,31 @@ size = Vector3(3, 3, 3)
 [node name="LevelTemplate" type="Node3D"]
 script = ExtResource("1_wsonj")
 
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_tkfbf")
+
+[node name="Map" type="Node3D" parent="NavigationRegion3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Map"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Map/StaticBody3D"]
+shape = SubResource("BoxShape3D_3xpf0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Map/StaticBody3D"]
+mesh = SubResource("BoxMesh_evx2m")
+
 [node name="EndTrigger" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndTrigger"]
 shape = SubResource("BoxShape3D_8nte3")
 
 [node name="Player" parent="." instance=ExtResource("1_okkrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.29687, 1.28229, 7.42441)
+
+[node name="EnemyContainer" type="Node3D" parent="."]
+script = ExtResource("3_6iiux")
+
+[node name="EnemyTemplate" parent="EnemyContainer" instance=ExtResource("4_cvlem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.238, 0.5, -20.868)
 
 [connection signal="body_entered" from="EndTrigger" to="." method="_on_end_trigger_body_entered"]
