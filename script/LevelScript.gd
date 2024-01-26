@@ -12,6 +12,9 @@ func _process(delta: float) -> void:
 func _on_end_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D and body.name == "Player":
 		end_level()
+
+func _on_enemy_hit_player(enemy: Enemy) -> void:
+	pass
 	
 func end_level() -> void:
-	pass
+	print("Hello")

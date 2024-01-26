@@ -1,10 +1,13 @@
 extends Node3D
+class_name Enemy
 
 @export var SPEED: int = 20
 @export var HEARING_RANGE: int = 20
 @export var VIEW_RANGE: int = 20
+@export var DAMAGE: int = 20
 
 @onready var NavRegion: NavigationRegion3D = $"../../NavigationRegion3D"
+@onready var HitBox: Area3D = $Area3D
 @onready var NavAgent: NavigationAgent3D = $NavigationAgent3D
 @onready var Player: Player = $"../../Player"
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://btt3pghiu4cxa"]
 
-[ext_resource type="Script" path="res://Enemy.gd" id="1_wvtgr"]
+[ext_resource type="Script" path="res://script/Enemy.gd" id="1_k838h"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bigy7"]
 height = 3.0
@@ -17,7 +17,7 @@ color_ramp = SubResource("Gradient_x40kx")
 noise = SubResource("FastNoiseLite_6y0ij")
 
 [node name="EnemyTemplate" type="Node3D"]
-script = ExtResource("1_wvtgr")
+script = ExtResource("1_k838h")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -27,7 +27,13 @@ shape = SubResource("CylinderShape3D_bigy7")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+visible = false
 billboard = 1
 texture = SubResource("NoiseTexture2D_o46e0")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="View" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="View"]
