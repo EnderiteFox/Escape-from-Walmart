@@ -1,7 +1,10 @@
 extends Control
 
+
+@onready var level = preload("res://scene/level_template.tscn")
+
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://level/0_Basement.tscn")
+	get_tree().change_scene_to_packed(level)
 	
 func _on_credits_pressed():
 	get_tree().change_scene_to_file("res://scene/CREDITS/GodotCredits.tscn")
