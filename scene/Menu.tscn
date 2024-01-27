@@ -1,30 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://blqgknc71l1vc"]
+[gd_scene load_steps=3 format=3 uid="uid://blqgknc71l1vc"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_vu7oi"]
+[ext_resource type="Texture2D" uid="uid://gdso0bopub5l" path="res://image/menu_background.png" id="2_d4itf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_vu7oi")
 
+[node name="MenuBackground" type="Sprite2D" parent="."]
+position = Vector2(977.5, 548)
+scale = Vector2(1.54922, 1.57222)
+texture = ExtResource("2_d4itf")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 63.0
+offset_top = 189.0
+offset_right = 692.0
+offset_bottom = 854.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 200
 text = "Play"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 150
 text = "Credits"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
