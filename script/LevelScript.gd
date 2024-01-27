@@ -6,6 +6,8 @@ class_name Level
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var Map: Map = $NavigationRegion3D/Map
 
+var allOrbs: bool = false
+
 func _ready() -> void:
 	player = preload("res://scene/Player.tscn").instantiate()
 	add_child(player)
@@ -15,6 +17,7 @@ func _ready() -> void:
 		$EnemyContainer.add_child(enemy)
 		enemy.global_position = Map.ENEMIES_SPAWN[i]
 	NavRegion.bake_navigation_mesh()
+	Map.all_orbs_collected.connect(on_all_orbs_collected)
 
 func _process(delta: float) -> void:
 	player.healthDisplay.update_orb_count(Map.collected_orbs, Map.TOTAL_ORBS)
@@ -30,6 +33,9 @@ func on_enemy_hit_player(enemy: Enemy) -> void:
 
 func _on_death() -> void:
 	print("You're dead")
+	
+func on_all_orbs_collected() -> void:
+	player.healthDisplay.on_orbs_collected()
 	
 func end_level() -> void:
 	print("Bye")

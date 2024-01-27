@@ -21,10 +21,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sphere"]
 light_color = Color(0.862745, 0, 0.878431, 1)
-light_energy = 3.0
-light_indirect_energy = 3.0
-light_volumetric_fog_energy = 3.0
-omni_range = 0.6
+light_energy = 2.0
+light_indirect_energy = 2.0
+light_volumetric_fog_energy = 2.0
+omni_range = 0.3
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere"]
 mesh = SubResource("SphereMesh_gjmys")

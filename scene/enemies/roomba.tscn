@@ -1,11 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnshohnhcbeyy"]
+[gd_scene load_steps=4 format=3 uid="uid://dnshohnhcbeyy"]
 
 [ext_resource type="Script" path="res://script/Enemy.gd" id="1_ekq4u"]
 [ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="2_w05fj"]
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_bigy7"]
-height = 3.0
-radius = 0.711
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tekm7"]
 height = 3.0
@@ -19,10 +15,6 @@ FOV = 360.0
 
 [node name="Model" parent="." instance=ExtResource("2_w05fj")]
 transform = Transform3D(-1.48905e-09, 0, 0.0340654, 0, 0.0340654, 0, -0.0340654, 0, -1.48905e-09, 0, 0, 0)
-
-[node name="PhysicsHitbox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
-shape = SubResource("CylinderShape3D_bigy7")
 
 [node name="AttackHitbox" type="Area3D" parent="."]
 

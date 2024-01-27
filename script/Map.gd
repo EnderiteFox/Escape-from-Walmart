@@ -1,6 +1,7 @@
 extends Node3D
 class_name Map
 
+signal all_orbs_collected
 
 @export_range(0, 100, 1, "or_greater") var map_x_width: int
 @export_range(0, 100, 1, "or_greater") var map_z_width: int
@@ -34,3 +35,5 @@ func _ready() -> void:
 func _on_orb_pickup(orb: PickupOrb) -> void:
 	collected_orbs += 1
 	orb.queue_free()
+	if collected_orbs == TOTAL_ORBS:
+		all_orbs_collected.emit()
