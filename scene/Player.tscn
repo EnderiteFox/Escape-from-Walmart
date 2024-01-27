@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1nxn8tsdd7h5"]
+[gd_scene load_steps=4 format=3 uid="uid://b1nxn8tsdd7h5"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_e4vtd"]
+[ext_resource type="PackedScene" uid="uid://bdgsh5gdbg01q" path="res://scene/health_display.tscn" id="2_4csxi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eihgl"]
 height = 1.65
@@ -15,3 +16,5 @@ shape = SubResource("CapsuleShape3D_eihgl")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera" type="Camera3D" parent="Pivot"]
+
+[node name="HealthDisplay" parent="." instance=ExtResource("2_4csxi")]

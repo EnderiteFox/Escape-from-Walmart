@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://c7k5fybfdeq18"]
+
+[ext_resource type="PackedScene" uid="uid://b1nxn8tsdd7h5" path="res://scene/Player.tscn" id="1_okkrq"]
+[ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
+[ext_resource type="Script" path="res://script/Map.gd" id="2_6bvyt"]
+[ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
+[ext_resource type="PackedScene" uid="uid://btt3pghiu4cxa" path="res://scene/enemy_template.tscn" id="4_cvlem"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_tkfbf"]
+vertices = PackedVector3Array(3.75, 1, -4.5, 5.25, 1, -4.5, 5, 1, -24.25, 3.25, 1, -4, 3.75, 1, -4.5, 5, 1, -24.25, -24.25, 1, -24.25, -24.25, 1, -2, -24.25, 1, -2, 3.25, 1, -2, 3.25, 1, -4, 5.25, 1, -4.5, 8, 1, -4.5, 8.25, 1, -24.25, 5, 1, -24.25, 10, 1, -4, 10, 1, -2.5, 24.25, 1, -2.75, 9.5, 1, -4.5, 10, 1, -4, 24.25, 1, -2.75, 24.25, 1, -24.25, 8.25, 1, -24.25, 8.25, 1, -24.25, 8, 1, -4.5, 9.5, 1, -4.5, 4.75, 5.5, -3, 4.75, 5.5, 15.75, 8.5, 5.5, 15.75, 8.5, 5.5, -3, 5, 1, -2.75, 5, 1, 15.5, 8.25, 1, 15.5, 8.25, 1, -2.75, 9.5, 1, 17.25, 5.75, 1, 17.25, 5.75, 1, 24.25, 10, 1, 16.75, 9.5, 1, 17.25, 5.75, 1, 24.25, 24.25, 1, 24.25, 10, 1, 16.75, 24.25, 1, 24.25, 24.25, 1, -2.75, 10, 1, -2.5, 5.75, 1, 24.25, 5.75, 1, 17.25, 3.75, 1, 17.25, 5.75, 1, 24.25, 3.75, 1, 17.25, 3.25, 1, 16.75, -24.25, 1, 24.25, 3.25, 1, 16.75, 3.25, 1, -2, -24.25, 1, -2, -24.25, 1, 24.25)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(6, 3, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(17, 16, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 18, 22), PackedInt32Array(25, 24, 23), PackedInt32Array(29, 28, 26), PackedInt32Array(26, 28, 27), PackedInt32Array(33, 32, 30), PackedInt32Array(30, 32, 31), PackedInt32Array(36, 35, 34), PackedInt32Array(38, 37, 39), PackedInt32Array(39, 37, 40), PackedInt32Array(44, 43, 41), PackedInt32Array(41, 43, 42), PackedInt32Array(47, 46, 45), PackedInt32Array(49, 48, 50), PackedInt32Array(50, 48, 51), PackedInt32Array(53, 52, 54), PackedInt32Array(54, 52, 55)]
+agent_radius = 0.75
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3xpf0"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_evx2m"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a3ek7"]
+size = Vector3(5, 5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a144u"]
+size = Vector3(5, 5, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8nte3"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_08qxv"]
+size = Vector3(3, 3, 3)
+
+[node name="LevelTemplate" type="Node3D"]
+script = ExtResource("1_wsonj")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_tkfbf")
+
+[node name="Map" type="Node3D" parent="NavigationRegion3D"]
+script = ExtResource("2_6bvyt")
+map_x_width = 50
+map_z_width = 50
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Map"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Map/StaticBody3D"]
+shape = SubResource("BoxShape3D_3xpf0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Map/StaticBody3D"]
+mesh = SubResource("BoxMesh_evx2m")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.55601, 2.5, 6.47983)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Map/StaticBody3D2"]
+shape = SubResource("BoxShape3D_a3ek7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/Map/StaticBody3D2"]
+mesh = SubResource("BoxMesh_a144u")
+
+[node name="EndTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.5151, 1.83756, -19.2274)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndTrigger"]
+shape = SubResource("BoxShape3D_8nte3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EndTrigger"]
+mesh = SubResource("BoxMesh_08qxv")
+
+[node name="Player" parent="." instance=ExtResource("1_okkrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71841, 1.28229, 14.2598)
+
+[node name="EnemyContainer" type="Node3D" parent="."]
+script = ExtResource("3_6iiux")
+metadata/_edit_lock_ = true
+
+[node name="EnemyTemplate" parent="EnemyContainer" instance=ExtResource("4_cvlem")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9925, 0.5, -14.5847)
+SPEED = 10
+
+[connection signal="body_entered" from="EndTrigger" to="." method="_on_end_trigger_body_entered"]

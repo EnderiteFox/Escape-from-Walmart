@@ -3,26 +3,32 @@ class_name Player
 
 
 const GRAVITY: float = -24.8
-const MAX_SPEED: float = 20
-const JUMP_SPEED: float = 18
-const ACCEL: float = 4.5
+const MAX_SPEED: float = 10
+const ACCEL: float = 2.25
 
-const MAX_SPRINT_SPEED: float = 30
-const SPRINT_ACCEL: float = 18
+const MAX_SPRINT_SPEED: float = 15
+const SPRINT_ACCEL: float = 9
 var is_sprinting: bool = false
 
 var dir: Vector3 = Vector3()
+var health: int = MAX_HEALTH
 
 const DEACCEL: float = 16
 const MAX_SLOPE_ANGLE: float = 40
+const MAX_HEALTH: int = 100
 
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
+@onready var healthDisplay: HealthDisplay = $HealthDisplay
 
 var MOUSE_SENSITIVITY: float = 0.15
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func _process(delta: float) -> void:
+	$HealthDisplay/HBoxContainer/Label.text = "PV: " + str(health) + "/" + str(MAX_HEALTH)
+	$HealthDisplay/HBoxContainer/TextureProgressBar.value = health
 	
 func _physics_process(delta: float) -> void:
 	process_input(delta)
@@ -40,11 +46,6 @@ func process_input(_delta: float) -> void:
 	# Basis vectors are already normalized
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
-	
-	# Jumping
-	if is_on_floor():
-		if Input.is_action_just_pressed("Jump"):
-			velocity.y = JUMP_SPEED
 	
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -90,3 +91,7 @@ func _input(event: InputEvent) -> void:
 		var camera_rot: Vector3 = Pivot.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -90, 90)
 		Pivot.rotation_degrees = camera_rot
+
+func damage(damageAmount: int) -> void:
+	health -= damageAmount
+	healthDisplay.on_player_hurt()
