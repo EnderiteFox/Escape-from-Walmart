@@ -53,6 +53,22 @@ Sprint={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
 ]
 }
+Camera_Left={
+"deadzone": 0.5,
+"events": []
+}
+Camera_Right={
+"deadzone": 0.5,
+"events": []
+}
+Camera_Up={
+"deadzone": 0.5,
+"events": []
+}
+Camera_Down={
+"deadzone": 0.5,
+"events": []
+}
 
 [navigation]
 
