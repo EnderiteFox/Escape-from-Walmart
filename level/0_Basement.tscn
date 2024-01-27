@@ -295,18 +295,6 @@ shape = SubResource("BoxShape3D_xyck4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
 mesh = SubResource("BoxMesh_bcisy")
 
-[node name="Main Light" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
-visible = false
-light_energy = 2.0
-light_indirect_energy = 1.5
-light_size = 5.0
-light_bake_mode = 1
-shadow_enabled = true
-omni_range = 177.909
-omni_attenuation = 1.56917
-metadata/_edit_lock_ = true
-
 [node name="PickupOrbs" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -653,7 +641,7 @@ metadata/_edit_lock_ = true
 [node name="PLAYER" type="Node3D" parent="Spawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.855, 0, -17.754)
 
-[node name="END_TRIGGER" type="Node3D" parent="Spawns"]
+[node name="END_DOOR" type="Node3D" parent="Spawns"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.255, 9.53674e-07, -0.479481)
 
 [node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]

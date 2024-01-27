@@ -1,7 +1,7 @@
 extends Node3D
 class_name Level
 
-@onready var EndTrigger: Area3D = $EndTrigger
+@onready var exitDoor: ExitDoor = $ExitDoor
 @onready var player: Player
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var Map: Map = $NavigationRegion3D/Map
@@ -18,13 +18,12 @@ func _ready() -> void:
 		enemy.global_position = Map.ENEMIES_SPAWN[i]
 	NavRegion.bake_navigation_mesh()
 	Map.all_orbs_collected.connect(on_all_orbs_collected)
+	exitDoor.DoorMesh = Map.EXIT_DOOR_MESH
+	exitDoor.global_position = Map.END_DOOR_SPAWN
+	exitDoor.global_rotation = Map.END_DOOR_ROTATION
 
 func _process(delta: float) -> void:
 	player.healthDisplay.update_orb_count(Map.collected_orbs, Map.TOTAL_ORBS)
-
-func _on_end_trigger_body_entered(body: Node3D) -> void:
-	if body is CharacterBody3D and body.name == "Player":
-		end_level()
 
 func on_enemy_hit_player(enemy: Enemy) -> void:
 	player.damage(enemy.DAMAGE)
@@ -36,6 +35,4 @@ func _on_death() -> void:
 	
 func on_all_orbs_collected() -> void:
 	player.healthDisplay.on_orbs_collected()
-	
-func end_level() -> void:
-	print("Bye")
+	exitDoor.open()

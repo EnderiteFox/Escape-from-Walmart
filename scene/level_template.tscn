@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7k5fybfdeq18"]
+[gd_scene load_steps=7 format=3 uid="uid://c7k5fybfdeq18"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
 [ext_resource type="PackedScene" uid="uid://b45cj1ux3lcsj" path="res://level/0_Basement.tscn" id="2_b6431"]
 [ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
+[ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="4_boqfy"]
 
 [sub_resource type="Environment" id="Environment_scepk"]
 ambient_light_source = 2
@@ -19,13 +20,7 @@ geometry_parsed_geometry_type = 1
 cell_size = 0.15
 cell_height = 0.15
 agent_height = 3.0
-agent_radius = 1.25
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_8nte3"]
-size = Vector3(3, 3, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_08qxv"]
-size = Vector3(3, 3, 3)
+agent_radius = 1.0
 
 [node name="LevelTemplate" type="Node3D"]
 script = ExtResource("1_wsonj")
@@ -38,17 +33,9 @@ navigation_mesh = SubResource("NavigationMesh_tkfbf")
 
 [node name="Map" parent="NavigationRegion3D" instance=ExtResource("2_b6431")]
 
-[node name="EndTrigger" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.9744, 1.83756, -19.1086)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndTrigger"]
-shape = SubResource("BoxShape3D_8nte3")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EndTrigger"]
-mesh = SubResource("BoxMesh_08qxv")
-
 [node name="EnemyContainer" type="Node3D" parent="."]
 script = ExtResource("3_6iiux")
 metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="EndTrigger" to="." method="_on_end_trigger_body_entered"]
+[node name="ExitDoor" parent="." instance=ExtResource("4_boqfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, 0, 0)
