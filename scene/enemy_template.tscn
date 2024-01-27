@@ -37,3 +37,14 @@ texture = SubResource("NoiseTexture2D_o46e0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="View"]
+
+[node name="FOVDisplayTest" type="RayCast3D" parent="View"]
+target_position = Vector3(0, 0, -5)
+
+[node name="FOVDisplayTest2" type="RayCast3D" parent="View"]
+transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
+target_position = Vector3(0, 0, -5)
+
+[node name="FOVDisplayTest3" type="RayCast3D" parent="View"]
+transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
+target_position = Vector3(0, 0, -5)
