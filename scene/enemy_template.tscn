@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://btt3pghiu4cxa"]
+[gd_scene load_steps=4 format=3 uid="uid://btt3pghiu4cxa"]
 
 [ext_resource type="Script" path="res://script/Enemy.gd" id="1_k838h"]
 
@@ -9,16 +9,6 @@ radius = 1.0
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tekm7"]
 height = 3.0
 radius = 1.75
-
-[sub_resource type="Gradient" id="Gradient_x40kx"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_6y0ij"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_o46e0"]
-width = 400
-height = 400
-color_ramp = SubResource("Gradient_x40kx")
-noise = SubResource("FastNoiseLite_6y0ij")
 
 [node name="EnemyTemplate" type="StaticBody3D"]
 script = ExtResource("1_k838h")
@@ -34,11 +24,6 @@ shape = SubResource("CylinderShape3D_bigy7")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CylinderShape3D_tekm7")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-billboard = 1
-texture = SubResource("NoiseTexture2D_o46e0")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.1
 
@@ -46,23 +31,6 @@ target_desired_distance = 0.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="View"]
-
-[node name="FOVDisplayTest" type="RayCast3D" parent="View"]
-target_position = Vector3(0, 0, -5)
-
-[node name="FOVDisplayTest2" type="RayCast3D" parent="View"]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 0, 0, 0)
-target_position = Vector3(0, 0, -5)
-
-[node name="FOVDisplayTest3" type="RayCast3D" parent="View"]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, 0, 0, 0)
-target_position = Vector3(0, 0, -5)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-light_energy = 5.0
-shadow_enabled = true
-omni_range = 10.0
 
 [connection signal="body_entered" from="AttackHitbox" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="AttackHitbox" to="." method="_on_attack_hitbox_body_exited"]

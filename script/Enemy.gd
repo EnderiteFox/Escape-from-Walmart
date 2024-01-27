@@ -1,11 +1,19 @@
 extends StaticBody3D
 class_name Enemy
 
+
+@export_category("EnemyStats")
 @export var SPEED: int = 20
 @export var HEARING_RANGE: int = 20
 @export var VIEW_RANGE: int = 20
 @export var DAMAGE: int = 20
 @export var FOV: float = 60
+
+
+@export_category("AnimationConfig")
+@export var WALKING_ANIMATION_NAME: String = ""
+@export var WALKING_ANIMATION_SPEED: float = 1.0
+
 
 @onready var NavRegion: NavigationRegion3D = $"../../NavigationRegion3D"
 @onready var ViewRayCast: RayCast3D = $View/RayCast3D
@@ -14,9 +22,12 @@ class_name Enemy
 @onready var PlayerEyes: Node3D = $"../../Player/Pivot"
 @onready var Map: Map = $"../../NavigationRegion3D/Map"
 @onready var Level: Level = $"../.."
+@onready var animationPlayer: AnimationPlayer = $"Model/AnimationPlayer"
+
 
 const ABANDON_TARGET_DISTANCE: float = 1.75
 const STUN_TIME: float = 2.0
+
 
 var lastPlayerPos: Vector3
 var targetPos: Vector3
@@ -25,7 +36,13 @@ var chasePlayer: bool = false
 var remainingStunTime: float = -1
 var inAttackHitbox: Array[Node3D]
 
+
 func _ready() -> void:
+	if animationPlayer != null:
+		var animation: Animation = animationPlayer.get_animation(WALKING_ANIMATION_NAME)
+		if animation != null:
+			animation.loop_mode = Animation.LOOP_LINEAR
+		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
 	lastPlayerPos = Player.global_position
 
 func _process(delta: float) -> void:
@@ -37,6 +54,8 @@ func _process(delta: float) -> void:
 			if body is Player:
 				_stun()
 				Level.on_enemy_hit_player(self)
+	if animationPlayer != null and not animationPlayer.is_playing() and not _is_stunned():
+		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
 
 func _move(delta: float) -> void:
 	if _is_stunned():
@@ -75,7 +94,6 @@ func _see_player() -> void:
 		and _player_is_in_fov()
 	lastPlayerPos = Vector3(Player.global_position) if sees_player else lastPlayerPos
 	chasePlayer = chasePlayer or sees_player
-	$OmniLight3D.light_color = Color.RED if sees_player else Color.WHITE
 
 func _player_is_in_fov() -> bool:
 	var direction := Vector3.FORWARD
@@ -103,6 +121,8 @@ func _is_stunned() -> bool:
 	return remainingStunTime > 0
 
 func _stun() -> void:
+	if animationPlayer != null:
+		animationPlayer.pause()
 	remainingStunTime = STUN_TIME
 
 func _physics_process(delta: float) -> void:

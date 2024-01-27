@@ -12,10 +12,13 @@ var is_sprinting: bool = false
 
 var dir: Vector3 = Vector3()
 var health: int = MAX_HEALTH
+var timeSinceLastRegen: float = 0.0
 
 const DEACCEL: float = 16
 const MAX_SLOPE_ANGLE: float = 40
 const MAX_HEALTH: int = 100
+const REGEN_TIME: float = 1.0
+const REGEN_AMOUNT: int = 1
 
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
@@ -29,6 +32,11 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$HealthDisplay/HBoxContainer/Label.text = "PV: " + str(health) + "/" + str(MAX_HEALTH)
 	$HealthDisplay/HBoxContainer/TextureProgressBar.value = health
+	timeSinceLastRegen += delta
+	if timeSinceLastRegen > REGEN_TIME:
+		health += REGEN_AMOUNT
+		timeSinceLastRegen = 0.0
+	health = clamp(health, 0, MAX_HEALTH)
 	
 func _physics_process(delta: float) -> void:
 	process_input(delta)
@@ -94,4 +102,5 @@ func _input(event: InputEvent) -> void:
 
 func damage(damageAmount: int) -> void:
 	health -= damageAmount
+	timeSinceLastRegen = 0.0
 	healthDisplay.on_player_hurt()
