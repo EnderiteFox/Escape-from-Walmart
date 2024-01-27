@@ -296,13 +296,68 @@ mesh = SubResource("BoxMesh_bcisy")
 
 [node name="Main Light" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
+visible = false
 light_energy = 2.0
 light_indirect_energy = 1.5
+light_size = 5.0
 light_bake_mode = 1
 shadow_enabled = true
 omni_range = 177.909
 omni_attenuation = 1.56917
 metadata/_edit_lock_ = true
+
+[node name="SecondaryLights" type="Node3D" parent="."]
+visible = false
+
+[node name="SecondaryLight" type="OmniLight3D" parent="SecondaryLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8633, 12.8797, 18.9179)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_size = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 177.909
+omni_attenuation = 1.56917
+omni_shadow_mode = 0
+
+[node name="SecondaryLight2" type="OmniLight3D" parent="SecondaryLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9157, 12.8797, 18.9179)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_size = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 177.909
+omni_attenuation = 1.56917
+omni_shadow_mode = 0
+
+[node name="SecondaryLight3" type="OmniLight3D" parent="SecondaryLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8633, 12.8797, -18.8285)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_size = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 177.909
+omni_attenuation = 1.56917
+omni_shadow_mode = 0
+
+[node name="SecondaryLight4" type="OmniLight3D" parent="SecondaryLights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.9157, 12.8797, -18.8285)
+light_energy = 0.5
+light_indirect_energy = 0.5
+light_size = 5.0
+light_bake_mode = 1
+shadow_enabled = true
+distance_fade_enabled = true
+omni_range = 177.909
+omni_attenuation = 1.56917
+omni_shadow_mode = 0
+
+[node name="PickupOrbs" type="Node3D" parent="."]
 
 [node name="Spawns" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
