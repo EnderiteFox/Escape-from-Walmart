@@ -15,6 +15,7 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_tkfbf"]
+geometry_parsed_geometry_type = 1
 cell_size = 0.15
 cell_height = 0.15
 agent_height = 3.0

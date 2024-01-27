@@ -24,21 +24,12 @@ func _ready() -> void:
 			continue
 		ENEMIES_SPAWN.append(spawn.global_position)
 	TOTAL_ORBS = 0
-	for node in _get_all_orbs($PickupOrbs):
+	for node in $PickupOrbs.get_children():
 		if not node is PickupOrb:
 			continue
 		var orb: PickupOrb = node as PickupOrb
 		orb.orb_pickup.connect(_on_orb_pickup)
 		TOTAL_ORBS += 1
-
-func _get_all_orbs(node: Node) -> Array[Node]:
-	var array: Array[Node] = node.get_children()
-	var iteratedArray: Array[Node] = Array(array)
-	for orb in iteratedArray:
-		if not orb is PickupOrb:
-			array.erase(orb)
-			array.append_array(_get_all_orbs(orb))
-	return array
 
 func _on_orb_pickup(orb: PickupOrb) -> void:
 	collected_orbs += 1
