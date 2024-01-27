@@ -12,8 +12,10 @@ class_name Enemy
 @onready var NavAgent: NavigationAgent3D = $NavigationAgent3D
 @onready var Player: Player = $"../../Player"
 @onready var PlayerEyes: Node3D = $"../../Player/Pivot"
+@onready var Map: Map = $"../../NavigationRegion3D/Map"
 
 const FOV: float = 60
+const ABANDON_TARGET_DISTANCE: float = 0.5
 
 var lastPlayerPos: Vector3
 var targetPos: Vector3
@@ -33,26 +35,30 @@ func _move(delta: float) -> void:
 		_random_walk(delta)
 		
 func _chase_player(delta: float) -> void:
-	NavAgent.target_position = Player.global_position
-	var destination: Vector3 = NavAgent.get_next_path_position()
-	var directionVector: Vector3 = destination - self.global_position
-	directionVector.y = 0
-	directionVector = directionVector.normalized()
-	directionVector *= delta * SPEED
-	self.look_at(self.global_position + directionVector)
-	self.global_position += directionVector
+	if lastPlayerPos.distance_to(self.global_position) <= ABANDON_TARGET_DISTANCE:
+		chasePlayer = false
+		return
+	_move_to_point(delta, Player.global_position)
+
+func _get_random_map_point() -> Vector3:
+	var x_coord: float = randf_range(-Map.map_x_width / 2, Map.map_x_width / 2)
+	var z_coord: float = randf_range(-Map.map_z_width / 2, Map.map_z_width / 2)
+	return NavigationServer3D \
+		.map_get_closest_point(NavRegion.get_navigation_map(), Vector3(x_coord, 0, z_coord))
 
 func _random_walk(delta: float) -> void:
-	pass
+	if targetPos.distance_to(self.global_position) <= ABANDON_TARGET_DISTANCE:
+		targetPos = _get_random_map_point()
+	_move_to_point(delta, targetPos)
 
 func _see_player() -> void:
 	ViewRayCast.target_position = ViewRayCast.to_local(PlayerEyes.global_position)
 	ViewRayCast.force_raycast_update()
 	var sees_player: bool = ViewRayCast.is_colliding() and ViewRayCast.get_collider() is Player
 	sees_player = sees_player and ($View.global_position - \
-		Player.global_position).length() <= VIEW_RANGE \
+		PlayerEyes.global_position).length() <= VIEW_RANGE \
 		and _player_is_in_fov()
-	lastPlayerPos = Player.global_position if sees_player else lastPlayerPos
+	lastPlayerPos = Vector3(Player.global_position) if sees_player else lastPlayerPos
 	chasePlayer = chasePlayer or sees_player
 
 func _player_is_in_fov() -> bool:
@@ -64,6 +70,16 @@ func _player_is_in_fov() -> bool:
 	var angle: float = acos(direction.dot(playerDirection))
 	angle = rad_to_deg(abs(angle))
 	return angle <= FOV
+
+func _move_to_point(delta: float, target: Vector3) -> void:
+	NavAgent.target_position = target
+	var destination: Vector3 = NavAgent.get_next_path_position()
+	var directionVector: Vector3 = destination - self.global_position
+	directionVector.y = 0
+	directionVector = directionVector.normalized()
+	directionVector *= delta * SPEED
+	self.look_at(self.global_position + directionVector)
+	self.global_position += directionVector
 
 func _physics_process(delta: float) -> void:
 	pass
