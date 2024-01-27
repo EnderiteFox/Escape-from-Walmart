@@ -63,6 +63,13 @@ var credits = [
 		"Human resource",
 		"El Profesor"
 	],[
+		"Heart Maker",
+		"ZOLDIK"
+	],[
+		"Ad engineer (not Active Directory engineer)",
+		"El Profesor",
+		"Thaan"
+	],[
 		"Music contributor",
 		"FlameOfChange",
 		"Thaan",
@@ -70,9 +77,6 @@ var credits = [
 		"Drecland",
 		"Sam_baribal",
 		"Djé Ricane",
-		"El Profesor"
-	],[
-		"Ad engineer (not Active Directory engineer)",
 		"El Profesor"
 	],[
 		"Made with Godot Engine <3",
@@ -121,7 +125,7 @@ func _process(delta):
 	if lines.size() > 0:
 		for l in lines:
 			l.set_global_position(l.get_global_position() - Vector2(0, scroll_speed))
-			if l.get_global_position().y < l.get_line_height():
+			if l.get_global_position().y + 150 < l.get_line_height():
 				lines.erase(l)
 				l.queue_free()
 	elif started:
