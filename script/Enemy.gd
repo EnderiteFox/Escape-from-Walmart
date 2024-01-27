@@ -13,6 +13,8 @@ class_name Enemy
 @export_category("AnimationConfig")
 @export var WALKING_ANIMATION_NAME: String = ""
 @export var WALKING_ANIMATION_SPEED: float = 1.0
+@export var ATTACK_ANIMATION_NAME: String = ""
+@export var ATTACK_ANIMATION_SPEED: float = 1.0
 
 
 @onready var NavRegion: NavigationRegion3D = $"../../NavigationRegion3D"
@@ -39,6 +41,7 @@ var inAttackHitbox: Array[Node3D]
 
 func _ready() -> void:
 	if animationPlayer != null:
+		animationPlayer.animation_changed.connect(_on_animation_change)
 		var animation: Animation = animationPlayer.get_animation(WALKING_ANIMATION_NAME)
 		if animation != null:
 			animation.loop_mode = Animation.LOOP_LINEAR
@@ -54,6 +57,11 @@ func _process(delta: float) -> void:
 			if body is Player:
 				_stun()
 				Level.on_enemy_hit_player(self)
+				if animationPlayer != null:
+					if animationPlayer.get_animation(ATTACK_ANIMATION_NAME) != null:
+						animationPlayer.play(ATTACK_ANIMATION_NAME, -1, ATTACK_ANIMATION_SPEED)
+						if animationPlayer.get_animation(WALKING_ANIMATION_NAME) != null:
+							animationPlayer.animation_set_next(ATTACK_ANIMATION_NAME, WALKING_ANIMATION_NAME)
 	if animationPlayer != null and not animationPlayer.is_playing() and not _is_stunned():
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
 
@@ -133,3 +141,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_attack_hitbox_body_exited(body: Node3D) -> void:
 	inAttackHitbox.erase(body)
+
+func _on_animation_change(oldAnimation: String, newAnimation: String) -> void:
+	if oldAnimation == ATTACK_ANIMATION_NAME:
+		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)

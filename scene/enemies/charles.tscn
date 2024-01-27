@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ciagkmgi2pfge"]
 
 [ext_resource type="Script" path="res://script/Enemy.gd" id="1_ad5da"]
-[ext_resource type="PackedScene" uid="uid://cirbb8eknrhe3" path="res://mesh/enemies/charles/Charles.glb" id="2_ev1sc"]
+[ext_resource type="PackedScene" uid="uid://cf7yfrwxy6u8r" path="res://mesh/enemies/charles/Charles.glb" id="2_ev1sc"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bigy7"]
 height = 3.0
@@ -17,11 +17,12 @@ SPEED = 10
 VIEW_RANGE = 30
 DAMAGE = 60
 FOV = 80.0
-WALKING_ANIMATION_NAME = "CharlesAction"
-WALKING_ANIMATION_SPEED = 2.0
+WALKING_ANIMATION_NAME = "Actions réservées]"
+WALKING_ANIMATION_SPEED = 1.5
+ATTACK_ANIMATION_NAME = "CharlesAttack"
 
 [node name="Model" parent="." instance=ExtResource("2_ev1sc")]
-transform = Transform3D(-0.612542, 0, 5.35501e-08, 0, 0.612542, 0, -5.35501e-08, 0, -0.612542, 0, 4, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 4, 0)
 
 [node name="PhysicsHitbox" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
