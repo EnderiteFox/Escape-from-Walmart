@@ -25,6 +25,7 @@ const REGEN_AMOUNT: int = 1
 @onready var healthDisplay: HealthDisplay = $HealthDisplay
 
 var MOUSE_SENSITIVITY: float = 0.15
+const RIGHT_STICK_SENSITIVITY: float = 2
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -54,6 +55,12 @@ func process_input(_delta: float) -> void:
 	# Basis vectors are already normalized
 	dir += -cam_xform.basis.z * input_movement_vector.y
 	dir += cam_xform.basis.x * input_movement_vector.x
+	
+	
+	var camera_movement_vector: Vector2 = Vector2()
+	camera_movement_vector = Input.get_vector("Camera_Right", "Camera_Left", "Camera_Down", "Camera_Up")
+	Pivot.rotate_x(deg_to_rad(camera_movement_vector.y * RIGHT_STICK_SENSITIVITY))
+	self.rotate_y(deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY))
 	
 	# Capturing/Freeing the cursor
 	if Input.is_action_just_pressed("ui_cancel"):
