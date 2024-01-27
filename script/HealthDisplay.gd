@@ -17,3 +17,6 @@ func _process(delta: float) -> void:
 
 func on_player_hurt() -> void:
 	hurtTimeLeft = HURT_DISPLAY_TIME
+
+func update_orb_count(collectedCount: int, totalCount: int) -> void:
+	$OrbCountLabel.text = "Collected: " + str(collectedCount) + "/" + str(totalCount)

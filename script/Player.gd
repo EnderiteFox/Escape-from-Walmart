@@ -57,8 +57,8 @@ func process_input(_delta: float) -> void:
 	dir += cam_xform.basis.x * input_movement_vector.x
 	
 	
-	var camera_movement_vector: Vector2 = Vector2()
-	camera_movement_vector = Input.get_vector("Camera_Right", "Camera_Left", "Camera_Down", "Camera_Up")
+	var camera_movement_vector: Vector2 = Input.get_vector( \
+		"Camera_Right", "Camera_Left", "Camera_Down", "Camera_Up")
 	Pivot.rotate_x(deg_to_rad(camera_movement_vector.y * RIGHT_STICK_SENSITIVITY))
 	self.rotate_y(deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY))
 	

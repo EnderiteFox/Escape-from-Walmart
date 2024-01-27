@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdgsh5gdbg01q"]
+[gd_scene load_steps=7 format=3 uid="uid://bdgsh5gdbg01q"]
 
 [ext_resource type="Texture2D" uid="uid://cl7x4kjfennsx" path="res://texture/health_bar_background.png" id="1_7hv7k"]
 [ext_resource type="Script" path="res://script/HealthDisplay.gd" id="1_uj3yb"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cqf0px0fkc0hj" path="res://texture/hurt_overlay.png" id="3_ns282"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xdu56"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_2fsn7"]
 font_size = 32
 
 [node name="HealthDisplay" type="Control"]
@@ -48,3 +51,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ns282")
+
+[node name="OrbCountLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -208.0
+offset_bottom = 45.0
+grow_horizontal = 0
+text = "Collected: 0/0"
+label_settings = SubResource("LabelSettings_2fsn7")

@@ -17,7 +17,7 @@ func _ready() -> void:
 	NavRegion.bake_navigation_mesh()
 
 func _process(delta: float) -> void:
-	pass
+	player.healthDisplay.update_orb_count(Map.collected_orbs, Map.TOTAL_ORBS)
 
 func _on_end_trigger_body_entered(body: Node3D) -> void:
 	if body is CharacterBody3D and body.name == "Player":
