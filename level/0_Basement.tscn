@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b45cj1ux3lcsj"]
+[gd_scene load_steps=21 format=3 uid="uid://b45cj1ux3lcsj"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_wcm05"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="2_xxwx0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="4_4j168"]
 [ext_resource type="PackedScene" uid="uid://c5xcdai0orq70" path="res://mesh/props/wooden_door/wooden_door.glb" id="4_yvgkc"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_spwsk"]
+[ext_resource type="Material" uid="uid://cf44di2gydqac" path="res://texture/basements_texture/ceiling/wallmaterial.tres" id="6_dh1nr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wkckl"]
 size = Vector3(44, 1, 40)
@@ -21,18 +22,38 @@ size = Vector3(15.067, 4.0434, 1.994)
 size = Vector3(44, 15, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_fgwdu"]
+material = ExtResource("6_dh1nr")
 size = Vector3(44, 15, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_safey"]
 size = Vector3(1, 15, 40)
 
 [sub_resource type="BoxMesh" id="BoxMesh_vk4c3"]
+material = ExtResource("6_dh1nr")
 size = Vector3(1, 15, 40)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xyck4"]
 size = Vector3(44, 1, 40)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p4uo1"]
+load_path = "res://.godot/imported/asphalt_04_disp_1k.png-c56722bdf5d1af8f6aa4a744aa539a05.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_02w1j"]
+load_path = "res://.godot/imported/asphalt_04_diff_1k.jpg-e3c1cada011dcb6de0ffad3e4e275886.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_antmo"]
+load_path = "res://.godot/imported/asphalt_04_ao_1k.jpg-1af9a2d6fd51b73a3f8907459b14de6c.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0v7bk"]
+albedo_texture = SubResource("CompressedTexture2D_p4uo1")
+roughness_texture = SubResource("CompressedTexture2D_antmo")
+emission_enabled = true
+emission_energy_multiplier = 0.23
+emission_texture = SubResource("CompressedTexture2D_02w1j")
+uv1_scale = Vector3(1, 1, -0.77)
+
 [sub_resource type="BoxMesh" id="BoxMesh_bcisy"]
+material = SubResource("StandardMaterial3D_0v7bk")
 size = Vector3(44, 1, 40)
 
 [node name="Map" type="Node3D"]
