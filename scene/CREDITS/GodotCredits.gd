@@ -70,7 +70,7 @@ var credits = [
 		"El Profesor",
 		"Thaan"
 	],[
-		"Valério Damidot",
+		"D&CO Producer",
 		"Azrotho",
 		"Endersteve_gamer"
 	],[
