@@ -70,6 +70,9 @@ var credits = [
 		"El Profesor",
 		"Thaan"
 	],[
+		"Valério Damidot",
+		"Azrotho"
+	],[
 		"Music contributor",
 		"FlameOfChange",
 		"Thaan",
