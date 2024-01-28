@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dajclue682smh"
-path="res://.godot/imported/floor_tiles_06_disp_1k.png-3c2b6a52497f8d376926c06bf47754df.ctex"
+uid="uid://c8dtpmxcx2443"
+path="res://.godot/imported/yellow_plaster_disp_1k.png-ce4698b71d0cc8f9353e7be10120fa83.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/wallmart/floor/floor_tiles_06_disp_1k.png"
-dest_files=["res://.godot/imported/floor_tiles_06_disp_1k.png-3c2b6a52497f8d376926c06bf47754df.ctex"]
+source_file="res://texture/wall_textures/yellow_plaster/yellow_plaster_disp_1k.png"
+dest_files=["res://.godot/imported/yellow_plaster_disp_1k.png-ce4698b71d0cc8f9353e7be10120fa83.ctex"]
 
 [params]
 

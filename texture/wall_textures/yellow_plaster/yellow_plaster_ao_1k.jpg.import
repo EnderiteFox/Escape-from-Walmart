@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://diwwqf4pjeviq"
-path="res://.godot/imported/yellow_plaster_arm_1k.jpg-cd6c58852c0e6dd29f8c03ff8d37a893.ctex"
+uid="uid://bty6p0yclc7oc"
+path="res://.godot/imported/yellow_plaster_ao_1k.jpg-0b7bf482785a0d5750ae4ca19406651f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/wallmart/wall/yellow_plaster_arm_1k.jpg"
-dest_files=["res://.godot/imported/yellow_plaster_arm_1k.jpg-cd6c58852c0e6dd29f8c03ff8d37a893.ctex"]
+source_file="res://texture/wall_textures/yellow_plaster/yellow_plaster_ao_1k.jpg"
+dest_files=["res://.godot/imported/yellow_plaster_ao_1k.jpg-0b7bf482785a0d5750ae4ca19406651f.ctex"]
 
 [params]
 
