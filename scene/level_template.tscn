@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
 [ext_resource type="PackedScene" uid="uid://b45cj1ux3lcsj" path="res://level/0_Basement.tscn" id="2_b6431"]
 [ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
-[ext_resource type="PackedScene" path="res://scene/exit_door.tscn" id="4_boqfy"]
+[ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="4_boqfy"]
 
 [sub_resource type="Environment" id="Environment_scepk"]
 ambient_light_source = 2
