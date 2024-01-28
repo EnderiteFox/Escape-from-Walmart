@@ -5,10 +5,13 @@ class_name Level
 @onready var player: Player
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
-@onready var roombaScene: PackedScene = preload("res://scene/enemies/roomba.tscn")
+@onready var roombaScene: PackedScene = preload("res://scene/enemies/roomba_evil.tscn")
+
+const ROOMBA_SPAWN_TIME: float = 1.0
 
 var map: Map
 var allOrbs: bool = false
+var timeSinceOpen: float = 0.0
 
 func _ready() -> void:
 	map = LevelManager.get_current_level().instantiate()
@@ -29,8 +32,16 @@ func _ready() -> void:
 	audioStreamPlayer.volume_db = map.AMBIENCE_MUSIC_VOLUME
 	audioStreamPlayer.play()
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	player.healthDisplay.update_orb_count(map.collected_orbs, map.TOTAL_ORBS)
+	if exitDoor.is_opened and timeSinceOpen >= 0.0:
+		timeSinceOpen += delta
+	if timeSinceOpen >= ROOMBA_SPAWN_TIME:
+		timeSinceOpen = -1
+		var roomba: Enemy = roombaScene.instantiate()
+		$EnemyContainer.add_child(roomba)
+		roomba.global_position = exitDoor.global_position
+		
 
 func on_enemy_hit_player(enemy: Enemy) -> void:
 	player.damage(enemy.DAMAGE)
@@ -48,6 +59,3 @@ func on_all_orbs_collected() -> void:
 		audioStreamPlayer.stream = map.DAY_MUSIC
 		audioStreamPlayer.volume_db = map.DAY_MUSIC_VOLUME
 		audioStreamPlayer.play()
-	var roomba: Enemy = roombaScene.instantiate()
-	$EnemyContainer.add_child(roomba)
-	roomba.global_position = exitDoor.global_position

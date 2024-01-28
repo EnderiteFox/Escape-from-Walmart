@@ -12,7 +12,6 @@ signal all_orbs_collected
 @export var DAY_MUSIC: AudioStream
 @export var DAY_MUSIC_VOLUME: float = 1
 
-
 var PLAYER_SPAWN: Vector3
 var ENEMIES_SPAWN: PackedVector3Array
 var END_DOOR_SPAWN: Vector3
@@ -38,6 +37,7 @@ func _ready() -> void:
 		var orb: PickupOrb = node as PickupOrb
 		orb.orb_pickup.connect(_on_orb_pickup)
 		TOTAL_ORBS += 1
+	TOTAL_ORBS = 1
 
 func _on_orb_pickup(orb: PickupOrb) -> void:
 	collected_orbs += 1
