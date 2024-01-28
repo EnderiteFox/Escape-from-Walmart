@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://ca53lab0axwlu"]
+[gd_scene load_steps=11 format=3 uid="uid://ca53lab0axwlu"]
 
 [ext_resource type="PackedScene" uid="uid://cmmk31d282i46" path="res://scene/CREDITS/GodotCredits.tscn" id="1_0oedv"]
+[ext_resource type="Script" path="res://scene/CREDITS/Credits.gd" id="1_md342"]
 [ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/CREDITS/CreditsBasement.tscn" id="2_2h03d"]
 [ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_igu3h"]
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_xg73y"]
@@ -15,19 +16,85 @@ ssil_enabled = true
 sdfgi_use_occlusion = true
 volumetric_fog_density = 0.1
 
+[sub_resource type="Animation" id="Animation_jrl1n"]
+resource_name = "walking_roomba"
+length = 60.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/WalkingRoomba:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6, 7, 12, 13, 18, 19),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.70074e-15, 0), Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0), Vector3(0, 3.14159, 0), Vector3(0, 3.14159, 0), Vector3(0, 4.71239, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map/WalkingRoomba:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 7.5, 11, 14, 17, 20, 23),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0.473585, 7.70703), Vector3(20, 0.473585, 7.70703), Vector3(20, 0.473585, 7.70703), Vector3(20, 0.473585, -12.7333), Vector3(20, 0.473585, -12.7333), Vector3(0, 0.473585, -12.7333), Vector3(0, 0.473585, -12.7333), Vector3(0, 0.473585, 7.26672)]
+}
+
+[sub_resource type="Animation" id="Animation_budo8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/WalkingRoomba:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.70074e-15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map/WalkingRoomba:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.473585, 7.70703)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_836hy"]
+_data = {
+"RESET": SubResource("Animation_budo8"),
+"walking_roomba": SubResource("Animation_jrl1n")
+}
+
 [node name="Credits" type="Node3D"]
+script = ExtResource("1_md342")
 
 [node name="Credits" parent="." instance=ExtResource("1_0oedv")]
 
 [node name="Map" parent="." instance=ExtResource("2_2h03d")]
 
-[node name="Sketchfab_Scene" parent="Map" instance=ExtResource("3_igu3h")]
+[node name="PinkRoomba" parent="Map" instance=ExtResource("3_igu3h")]
 transform = Transform3D(-0.0102606, 0, -0.0281908, 0, 0.03, 0, 0.0281908, 0, -0.0102606, 4.623, 4.516, 5.354)
 
-[node name="Sketchfab_Scene2" parent="Map" instance=ExtResource("4_xg73y")]
+[node name="WalkingRoomba" parent="Map" instance=ExtResource("3_igu3h")]
+transform = Transform3D(0.03, 0, 1.11022e-16, 0, 0.03, 0, -1.11022e-16, 0, 0.03, 0, 0.473585, 7.70703)
+
+[node name="RedRoomba" parent="Map" instance=ExtResource("4_xg73y")]
 transform = Transform3D(-0.0152261, 0, -0.0258489, 0, 0.03, 0, 0.0258489, 0, -0.0152261, 5.286, 4.886, 5.177)
 
-[node name="Sketchfab_Scene3" parent="Map" instance=ExtResource("5_xyf62")]
+[node name="BlueRoomba" parent="Map" instance=ExtResource("5_xyf62")]
 transform = Transform3D(-0.0174211, 0, -0.0244235, 0, 0.03, 0, 0.0244235, 0, -0.0174211, 6.06049, 4.52613, 5.25892)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -35,3 +102,8 @@ transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_d0jh2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_836hy")
+}

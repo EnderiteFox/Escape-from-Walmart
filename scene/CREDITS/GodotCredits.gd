@@ -33,7 +33,7 @@ var lines := []
 
 var credits = [
 	[
-		"Fait par la Team Sénégal"
+		"Réalisée par la Team Sénégal"
 	],[
 		"Artistic director",
 		"Thaan"
@@ -43,7 +43,8 @@ var credits = [
 	],[
 		"Sound Designer",
 		"Drecland",
-		"FlameOfChange"
+		"FlameOfChange",
+		"Thaan"
 	],[
 		"Pixel Graphist",
 		"Drecland"
@@ -63,16 +64,19 @@ var credits = [
 		"Human resource",
 		"El Profesor"
 	],[
-		"Heart Maker",
-		"ZOLDIK"
-	],[
 		"Ad engineer (not Active Directory engineer)",
 		"El Profesor",
 		"Thaan"
 	],[
+		"Ad Artist",
+		"FlameofChange"
+	],[
 		"D&CO Producer",
 		"Azrotho",
 		"Endersteve_gamer"
+	],[
+		"Heart Maker",
+		"ZOLDIK"
 	],[
 		"Music contributor",
 		"FlameOfChange",
@@ -100,12 +104,20 @@ var credits = [
 		" ",
 		"Grocery store Shelf by mizorri93 (Sketchfab)",
 		" ",
-		"Crate box by KloWorks"
-	],[
+		"Crate box by KloWorks (Sketchfab)",
+		" ",
+		"Tent by alexxx_xarchenko (Sketchfab)",
+		" ",
+		"Greek Pillar by Lazanja (Sketchfab)"
+],[
 		"Made with Godot Engine <3",
 		"https://godotengine.org/license",
 		""
-	],
+	],[
+		"Credit made by",
+		"Thaan",
+		"Azrotho"
+	]
 ]
 
 func _ready():
