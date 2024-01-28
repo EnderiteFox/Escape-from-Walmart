@@ -2,7 +2,7 @@ extends Node
 
 @onready var levelLoader: PackedScene = preload("res://scene/level_template.tscn")
 @onready var mainMenu: PackedScene = preload("res://scene/Menu.tscn")
-@onready var credits: PackedScene = preload("res://scene/CREDITS/GodotCredits.tscn")
+@onready var credits: PackedScene = preload("res://scene/CREDITS/Credits.tscn")
 @onready var deathScreen: PackedScene = preload("res://scene/death_screen.tscn")
 @onready var levels: Array[PackedScene] = [
 	preload("res://level/0_Basement.tscn"),

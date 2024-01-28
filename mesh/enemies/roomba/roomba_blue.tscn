@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2r1uyucnuvj6"]
+
+[ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="1_medh4"]
+[ext_resource type="Texture2D" uid="uid://phadbjg1h8va" path="res://mesh/enemies/roomba/roomba_1.png" id="2_ffmh2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3taal"]
+resource_name = "rumbi_eyes"
+transparency = 4
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0.811765, 0.811765, 1)
+albedo_texture = ExtResource("2_ffmh2")
+albedo_texture_msdf = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_c1j6x"]
+_surfaces = [{
+"aabb": AABB(17.322, -9.45406, 3.26482, 2.25998, 18.8121, 7.06791),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0),
+"name": "rumbi_eyes",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(22, 252, 127, 157, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 22, 252, 127, 157, 255, 255, 0, 0, 188, 11, 0, 0, 0, 0, 0, 0, 255, 255, 200, 98, 0, 0, 0, 0, 255, 255, 200, 98, 255, 255, 0, 0, 188, 11, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tjt81"]
+resource_name = "Sketchfab_Scene_rumbi_eyes_0"
+_surfaces = [{
+"aabb": AABB(17.322, -9.45406, 3.26482, 2.25998, 18.8121, 7.06791),
+"attribute_data": PackedByteArray(55, 5, 158, 5, 224, 248, 183, 5, 199, 248, 96, 249, 30, 5, 71, 249, 55, 5, 158, 5, 224, 248, 183, 5, 199, 248, 96, 249, 30, 5, 71, 249),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray(0, 0, 2, 0, 1, 0, 0, 0, 3, 0, 2, 0, 4, 0, 6, 0, 5, 0, 4, 0, 7, 0, 6, 0),
+"material": SubResource("StandardMaterial3D_3taal"),
+"name": "rumbi_eyes",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(22, 252, 127, 157, 0, 0, 88, 35, 0, 0, 255, 255, 0, 0, 87, 35, 0, 0, 255, 255, 255, 255, 88, 35, 22, 252, 127, 157, 255, 255, 88, 35, 188, 11, 0, 0, 0, 0, 27, 49, 255, 255, 200, 98, 0, 0, 27, 49, 255, 255, 200, 98, 255, 255, 27, 49, 188, 11, 0, 0, 255, 255, 27, 49, 190, 46, 133, 34, 190, 46, 133, 34, 190, 46, 133, 34, 190, 46, 133, 34, 85, 38, 90, 51, 84, 38, 90, 51, 85, 38, 90, 51, 85, 38, 90, 51)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_c1j6x")
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_medh4")]
+
+[node name="rumbi_eyes_0" parent="Sketchfab_model/Root/rumbi_eyes" index="0"]
+mesh = SubResource("ArrayMesh_tjt81")

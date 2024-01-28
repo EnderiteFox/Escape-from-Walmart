@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca53lab0axwlu"]
+
+[ext_resource type="PackedScene" uid="uid://cmmk31d282i46" path="res://scene/CREDITS/GodotCredits.tscn" id="1_0oedv"]
+[ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/CREDITS/CreditsBasement.tscn" id="2_2h03d"]
+[ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_igu3h"]
+[ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_xg73y"]
+[ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_xyf62"]
+
+[sub_resource type="Environment" id="Environment_d0jh2"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+volumetric_fog_density = 0.1
+
+[node name="Credits" type="Node3D"]
+
+[node name="Credits" parent="." instance=ExtResource("1_0oedv")]
+
+[node name="Map" parent="." instance=ExtResource("2_2h03d")]
+
+[node name="Sketchfab_Scene" parent="Map" instance=ExtResource("3_igu3h")]
+transform = Transform3D(-0.0102606, 0, -0.0281908, 0, 0.03, 0, 0.0281908, 0, -0.0102606, 4.623, 4.516, 5.354)
+
+[node name="Sketchfab_Scene2" parent="Map" instance=ExtResource("4_xg73y")]
+transform = Transform3D(-0.0152261, 0, -0.0258489, 0, 0.03, 0, 0.0258489, 0, -0.0152261, 5.286, 4.886, 5.177)
+
+[node name="Sketchfab_Scene3" parent="Map" instance=ExtResource("5_xyf62")]
+transform = Transform3D(-0.0174211, 0, -0.0244235, 0, 0.03, 0, 0.0244235, 0, -0.0174211, 6.06049, 4.52613, 5.25892)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.681998, 0, -0.731354, 0, 1, 0, 0.731354, 0, 0.681998, 3.714, 5, 7.37)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_d0jh2")
