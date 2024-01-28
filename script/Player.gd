@@ -60,8 +60,8 @@ func process_input(_delta: float) -> void:
 	var camera_movement_vector: Vector2 = Input.get_vector( \
 		"Camera_Right", "Camera_Left", "Camera_Down", "Camera_Up")
 	Pivot.rotate_x(deg_to_rad(camera_movement_vector.y * RIGHT_STICK_SENSITIVITY))
-	Pivot.rotation.x = -PI/2 if Pivot.rotation.x < -PI/2 else Pivot.rotation.x
-	Pivot.rotation.x = PI/2 if Pivot.rotation.x > PI/2 else Pivot.rotation.x
+	Pivot.rotation.x = -PI/2 + 0.05 if Pivot.rotation.x < -PI/2 + 0.05 else Pivot.rotation.x
+	Pivot.rotation.x = PI/2 - 0.05 if Pivot.rotation.x > PI/2 - 0.05 else Pivot.rotation.x
 	self.rotate_y(deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY))
 	
 	# Capturing/Freeing the cursor
@@ -106,7 +106,7 @@ func _input(event: InputEvent) -> void:
 		self.rotate_y(-deg_to_rad(event.relative.x * MOUSE_SENSITIVITY))
 		
 		var camera_rot: Vector3 = Pivot.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -90, 90)
+		camera_rot.x = clamp(camera_rot.x, -89, 89)
 		Pivot.rotation_degrees = camera_rot
 
 func damage(damageAmount: int) -> void:

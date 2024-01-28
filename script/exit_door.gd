@@ -9,15 +9,22 @@ var is_opened: bool = false
 var is_player_in_area = false
 
 func _ready() -> void:
-	var leftDoor: Node3D = DoorMesh.instantiate()
-	leftDoor.rotation.y = -90
+	change_door_mesh(preload("res://mesh/props/wooden_door/wooden_door.glb"))
+
+func change_door_mesh(doorMesh: PackedScene) -> void:
+	if doorMesh == null:
+		print("ERROR: No exit door mesh found")
+		return
+	animationPlayer.play("RESET")
+	var leftDoor: Node3D = doorMesh.instantiate()
 	$LeftMeshPivot.add_child(leftDoor)
 	leftDoor.position.x = 1
+	leftDoor.rotation.y = -PI/2
 	
-	var rightDoor: Node3D = DoorMesh.instantiate()
-	rightDoor.rotation.y = 90
+	var rightDoor: Node3D = doorMesh.instantiate()
 	$RightMeshPivot.add_child(rightDoor)
 	rightDoor.position.x = -1
+	rightDoor.rotation.y = PI/2
 
 func _process(delta: float) -> void:
 	if is_opened and is_player_in_area:

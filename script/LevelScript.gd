@@ -18,7 +18,7 @@ func _ready() -> void:
 		enemy.global_position = Map.ENEMIES_SPAWN[i]
 	NavRegion.bake_navigation_mesh()
 	Map.all_orbs_collected.connect(on_all_orbs_collected)
-	exitDoor.DoorMesh = Map.EXIT_DOOR_MESH
+	exitDoor.change_door_mesh(Map.EXIT_DOOR_MESH)
 	exitDoor.global_position = Map.END_DOOR_SPAWN
 	exitDoor.global_rotation = Map.END_DOOR_ROTATION
 

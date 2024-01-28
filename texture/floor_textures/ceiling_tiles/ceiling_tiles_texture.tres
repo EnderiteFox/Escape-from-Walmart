@@ -1,0 +1,25 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://dmvtl2hqqa280"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56ki6"]
+load_path = "res://.godot/imported/ceiling_tiles_texture_0.jpg-62162e8052336a7e02573b06e6fd9ea4.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gfux5"]
+load_path = "res://.godot/imported/ceiling_tiles_texture_1.png-98daa74d310a8d55083b4d6bc5b79f7f.s3tc.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_11a8g"]
+load_path = "res://.godot/imported/ceiling_tiles_texture_2.png-9f49702adabe6db8f3e98f708aa6c86c.s3tc.ctex"
+
+[resource]
+resource_name = "Part1Mtl"
+cull_mode = 2
+albedo_texture = SubResource("CompressedTexture2D_56ki6")
+metallic = 1.0
+metallic_texture = SubResource("CompressedTexture2D_gfux5")
+metallic_texture_channel = 2
+roughness_texture = SubResource("CompressedTexture2D_gfux5")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = SubResource("CompressedTexture2D_11a8g")
+uv1_scale = Vector3(200, 125, 200)
+uv1_triplanar_sharpness = 11.3137
+uv1_world_triplanar = true
