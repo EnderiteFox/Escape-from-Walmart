@@ -71,7 +71,8 @@ var credits = [
 		"Thaan"
 	],[
 		"Valério Damidot",
-		"Azrotho"
+		"Azrotho",
+		"Endersteve_gamer"
 	],[
 		"Music contributor",
 		"FlameOfChange",
@@ -81,6 +82,25 @@ var credits = [
 		"Sam_baribal",
 		"Djé Ricane",
 		"El Profesor"
+	],[
+		"3D Models used:",
+		"Shrek 3D Model From The Third Game",
+		"by seifashmawi (Sketchfab)",
+		" ",
+		"Human by aaron.kalvin (Sketchfab)",
+		" ",
+		"Wii Fit Trainer by SAB64 (DevianArt)",
+		" ",
+		"Roomba by Macwithav (Sketchfab)",
+		" ",
+		"Charles (Choo Choo Charles) by cthulhu903 (Sketchfab)",
+		"(edited by Azrotho)",
+		" ",
+		"shelf by metal.and.wooden.furniture (Sketchfab)",
+		" ",
+		"Grocery store Shelf by mizorri93 (Sketchfab)",
+		" ",
+		"Crate box by KloWorks"
 	],[
 		"Made with Godot Engine <3",
 		"https://godotengine.org/license",
