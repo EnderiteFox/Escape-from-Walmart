@@ -20,11 +20,11 @@ class_name Enemy
 @onready var NavRegion: NavigationRegion3D = $"../../NavigationRegion3D"
 @onready var ViewRayCast: RayCast3D = $View/RayCast3D
 @onready var NavAgent: NavigationAgent3D = $NavigationAgent3D
-@onready var Player: Player = $"../../Player"
+@onready var player: Player = $"../../Player"
 @onready var PlayerEyes: Node3D = $"../../Player/Pivot"
-@onready var Map: Map = $"../../NavigationRegion3D/Map"
-@onready var Level: Level = $"../.."
-@onready var animationPlayer: AnimationPlayer = $"Model/AnimationPlayer"
+@onready var map: Map = $"../../NavigationRegion3D/Map"
+@onready var level: Level = $"../.."
+@onready var animationPlayer: AnimationPlayer = get_node_or_null("Model/AnimationPlayer")
 
 
 const ABANDON_TARGET_DISTANCE: float = 1.75
@@ -46,7 +46,7 @@ func _ready() -> void:
 		if animation != null:
 			animation.loop_mode = Animation.LOOP_LINEAR
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
-	lastPlayerPos = Player.global_position
+	lastPlayerPos = player.global_position
 
 func _process(delta: float) -> void:
 	remainingStunTime -= delta
@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 		for body in inAttackHitbox:
 			if body is Player:
 				_stun()
-				Level.on_enemy_hit_player(self)
+				level.on_enemy_hit_player(self)
 				if animationPlayer != null:
 					if animationPlayer.get_animation(ATTACK_ANIMATION_NAME) != null:
 						animationPlayer.play(ATTACK_ANIMATION_NAME, -1, ATTACK_ANIMATION_SPEED)
@@ -80,8 +80,8 @@ func _chase_player(delta: float) -> void:
 	_move_to_point(delta, lastPlayerPos)
 
 func _get_random_map_point() -> Vector3:
-	var x_coord: float = randf_range(-Map.map_x_width / 2.0, Map.map_x_width / 2.0)
-	var z_coord: float = randf_range(-Map.map_z_width / 2.0, Map.map_z_width / 2.0)
+	var x_coord: float = randf_range(-map.map_x_width / 2.0, map.map_x_width / 2.0)
+	var z_coord: float = randf_range(-map.map_z_width / 2.0, map.map_z_width / 2.0)
 	return NavigationServer3D \
 		.map_get_closest_point(NavRegion.get_navigation_map(), Vector3(x_coord, 0, z_coord))
 
@@ -100,7 +100,7 @@ func _see_player() -> void:
 	sees_player = sees_player and ($View.global_position - \
 		PlayerEyes.global_position).length() <= VIEW_RANGE \
 		and _player_is_in_fov()
-	lastPlayerPos = Vector3(Player.global_position) if sees_player else lastPlayerPos
+	lastPlayerPos = Vector3(player.global_position) if sees_player else lastPlayerPos
 	chasePlayer = chasePlayer or sees_player
 
 func _player_is_in_fov() -> bool:
@@ -133,15 +133,12 @@ func _stun() -> void:
 		animationPlayer.pause()
 	remainingStunTime = STUN_TIME
 
-func _physics_process(delta: float) -> void:
-	pass
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	inAttackHitbox.append(body)
 
 func _on_attack_hitbox_body_exited(body: Node3D) -> void:
 	inAttackHitbox.erase(body)
 
-func _on_animation_change(oldAnimation: String, newAnimation: String) -> void:
+func _on_animation_change(oldAnimation: String, _newAnimation: String) -> void:
 	if oldAnimation == ATTACK_ANIMATION_NAME:
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)

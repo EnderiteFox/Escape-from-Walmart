@@ -26,7 +26,7 @@ func change_door_mesh(doorMesh: PackedScene) -> void:
 	rightDoor.position.x = -1
 	rightDoor.rotation.y = PI/2
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if is_opened and is_player_in_area:
 		on_player_exit()
 		

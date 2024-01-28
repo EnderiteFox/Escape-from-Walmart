@@ -24,7 +24,7 @@ func _ready() -> void:
 	exitDoor.global_position = map.END_DOOR_SPAWN
 	exitDoor.global_rotation = map.END_DOOR_ROTATION
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	player.healthDisplay.update_orb_count(map.collected_orbs, map.TOTAL_ORBS)
 
 func on_enemy_hit_player(enemy: Enemy) -> void:

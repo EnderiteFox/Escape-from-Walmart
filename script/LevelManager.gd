@@ -12,7 +12,7 @@ var currentLevel: int = 0
 var deathCount: int = 0
 var debugMode: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("DebugMode"):
 		debugMode = not debugMode
 
