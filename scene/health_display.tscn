@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bdgsh5gdbg01q"]
+[gd_scene load_steps=8 format=3 uid="uid://bdgsh5gdbg01q"]
 
 [ext_resource type="Texture2D" uid="uid://cl7x4kjfennsx" path="res://texture/health_bar_background.png" id="1_7hv7k"]
 [ext_resource type="Script" path="res://script/HealthDisplay.gd" id="1_uj3yb"]
@@ -9,6 +9,9 @@
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fsn7"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_hm85x"]
 font_size = 32
 
 [node name="HealthDisplay" type="Control"]
@@ -62,3 +65,11 @@ offset_bottom = 45.0
 grow_horizontal = 0
 text = "Collected: 0/0"
 label_settings = SubResource("LabelSettings_2fsn7")
+
+[node name="DebugModeDisplay" type="Label" parent="."]
+visible = false
+layout_mode = 1
+offset_right = 248.0
+offset_bottom = 45.0
+text = "Debug Mode On"
+label_settings = SubResource("LabelSettings_hm85x")

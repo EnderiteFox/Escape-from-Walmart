@@ -113,3 +113,5 @@ func damage(damageAmount: int) -> void:
 	health -= damageAmount
 	timeSinceLastRegen = 0.0
 	healthDisplay.on_player_hurt()
+	if health <= 0 and not LevelManager.debugMode:
+		LevelManager.on_death()

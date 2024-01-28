@@ -10,6 +10,7 @@ var hurtTimeLeft: float = -1
 var timeSinceComplete: float = -1
 
 func _process(delta: float) -> void:
+	$DebugModeDisplay.visible = LevelManager.debugMode
 	if hurtTimeLeft >= 0.0:
 		hurtOverlay.self_modulate.a = lerp(1.0, 0.0, \
 			(HURT_DISPLAY_TIME - hurtTimeLeft) / HURT_DISPLAY_TIME)
