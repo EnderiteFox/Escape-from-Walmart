@@ -10,4 +10,6 @@ roughness_texture = ExtResource("3_uu1v5")
 emission_enabled = true
 emission_energy_multiplier = 0.23
 emission_texture = ExtResource("2_t0tlg")
-uv1_scale = Vector3(2.933, 1, -0.77)
+uv1_scale = Vector3(29.33, 10, -7.7)
+uv1_triplanar_sharpness = 0.196146
+uv1_world_triplanar = true

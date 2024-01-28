@@ -50,7 +50,7 @@ roughness_texture = SubResource("CompressedTexture2D_antmo")
 emission_enabled = true
 emission_energy_multiplier = 0.23
 emission_texture = SubResource("CompressedTexture2D_02w1j")
-uv1_scale = Vector3(1, 1, -0.77)
+uv1_scale = Vector3(10, 10, -7.7)
 
 [sub_resource type="BoxMesh" id="BoxMesh_bcisy"]
 material = SubResource("StandardMaterial3D_0v7bk")
