@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GGJ Game"
+config/name="Escape From Wallmart"
 run/main_scene="res://scene/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Icone/icone.png"
