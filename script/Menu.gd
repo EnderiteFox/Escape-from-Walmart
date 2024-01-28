@@ -3,6 +3,9 @@ extends Control
 
 @onready var level = preload("res://scene/level_template.tscn")
 
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
 func _on_play_pressed():
 	get_tree().change_scene_to_packed(level)
 	

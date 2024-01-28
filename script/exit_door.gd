@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 		on_player_exit()
 		
 func on_player_exit() -> void:
-	pass
+	LevelManager.on_level_finish()
 
 func open() -> void:
 	is_opened = true
