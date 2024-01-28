@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://0dtagoii8ll6"
-path="res://.godot/imported/Level2_03_D.ogg-cf462ee9b6e9b2dacd6c4b9a72f173b5.oggvorbisstr"
+path="res://.godot/imported/Level2_03_D.ogg-34e155a7bb11d483a9b0e436ec2ad54d.oggvorbisstr"
 
 [deps]
 
-source_file="res://Level2_03_D.ogg"
-dest_files=["res://.godot/imported/Level2_03_D.ogg-cf462ee9b6e9b2dacd6c4b9a72f173b5.oggvorbisstr"]
+source_file="res://voicelines/Pack 1/Level2_03_D.ogg"
+dest_files=["res://.godot/imported/Level2_03_D.ogg-34e155a7bb11d483a9b0e436ec2ad54d.oggvorbisstr"]
 
 [params]
 
