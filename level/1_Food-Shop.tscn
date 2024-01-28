@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfsecw1pneqa5"]
+[gd_scene load_steps=17 format=3 uid="uid://bpvkviy4k0nh6"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
 [ext_resource type="PackedScene" uid="uid://c5xcdai0orq70" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
+[ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="5_ss0sl"]
 [ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="7_i27nn"]
 
@@ -45,6 +46,576 @@ AMBIENCE_MUSIC = ExtResource("4_vue4g")
 
 [node name="PickupOrbs" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="PickupOrb" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, -13.8852)
+
+[node name="PickupOrb2" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, -11.2775)
+
+[node name="PickupOrb3" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, -9.42241)
+
+[node name="PickupOrb4" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, -6.81469)
+
+[node name="PickupOrb5" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, -4.41646)
+
+[node name="PickupOrb6" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, 3.37294)
+
+[node name="PickupOrb7" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, 5.98066)
+
+[node name="PickupOrb8" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, 7.83575)
+
+[node name="PickupOrb9" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, 10.4435)
+
+[node name="PickupOrb10" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2015, -1.01396, 12.8417)
+
+[node name="PickupOrb11" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, -13.8852)
+
+[node name="PickupOrb12" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, -11.2775)
+
+[node name="PickupOrb13" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, -9.42241)
+
+[node name="PickupOrb14" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, -6.81469)
+
+[node name="PickupOrb15" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, -4.41646)
+
+[node name="PickupOrb16" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, 3.37294)
+
+[node name="PickupOrb17" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, 5.98066)
+
+[node name="PickupOrb18" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, 7.83575)
+
+[node name="PickupOrb19" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, 10.4435)
+
+[node name="PickupOrb20" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0378, -1.01396, 12.8417)
+
+[node name="PickupOrb21" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, -13.8852)
+
+[node name="PickupOrb22" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, -11.2775)
+
+[node name="PickupOrb23" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, -9.42241)
+
+[node name="PickupOrb24" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, -6.81469)
+
+[node name="PickupOrb25" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, -4.41646)
+
+[node name="PickupOrb26" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, 3.37294)
+
+[node name="PickupOrb27" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, 5.98066)
+
+[node name="PickupOrb28" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, 7.83575)
+
+[node name="PickupOrb29" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, 10.4435)
+
+[node name="PickupOrb30" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.1489, -1.01396, 12.8417)
+
+[node name="PickupOrb31" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, -13.8852)
+
+[node name="PickupOrb32" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, -11.2775)
+
+[node name="PickupOrb33" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, -9.42241)
+
+[node name="PickupOrb34" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, -6.81469)
+
+[node name="PickupOrb35" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, -4.41646)
+
+[node name="PickupOrb36" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, 3.37294)
+
+[node name="PickupOrb37" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, 5.98066)
+
+[node name="PickupOrb38" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, 7.83575)
+
+[node name="PickupOrb39" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, 10.4435)
+
+[node name="PickupOrb40" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9852, -1.01396, 12.8417)
+
+[node name="PickupOrb41" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, -13.8852)
+
+[node name="PickupOrb42" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, -11.2775)
+
+[node name="PickupOrb43" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, -9.42241)
+
+[node name="PickupOrb44" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, -6.81469)
+
+[node name="PickupOrb45" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, -4.41646)
+
+[node name="PickupOrb46" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, 3.37294)
+
+[node name="PickupOrb47" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, 5.98066)
+
+[node name="PickupOrb48" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, 7.83575)
+
+[node name="PickupOrb49" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, 10.4435)
+
+[node name="PickupOrb50" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1397, -1.01396, 12.8417)
+
+[node name="PickupOrb51" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, -13.8852)
+
+[node name="PickupOrb52" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, -11.2775)
+
+[node name="PickupOrb53" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, -9.42241)
+
+[node name="PickupOrb54" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, -6.81469)
+
+[node name="PickupOrb55" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, -4.41646)
+
+[node name="PickupOrb56" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, 3.37294)
+
+[node name="PickupOrb57" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, 5.98066)
+
+[node name="PickupOrb58" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, 7.83575)
+
+[node name="PickupOrb59" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, 10.4435)
+
+[node name="PickupOrb60" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.97599, -1.01396, 12.8417)
+
+[node name="PickupOrb61" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, -13.8852)
+
+[node name="PickupOrb62" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, -11.2775)
+
+[node name="PickupOrb63" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, -9.42241)
+
+[node name="PickupOrb64" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, -6.81469)
+
+[node name="PickupOrb65" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, -4.41646)
+
+[node name="PickupOrb66" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, 3.37294)
+
+[node name="PickupOrb67" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, 5.98066)
+
+[node name="PickupOrb68" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, 7.83575)
+
+[node name="PickupOrb69" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, 10.4435)
+
+[node name="PickupOrb70" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.08713, -1.01396, 12.8417)
+
+[node name="PickupOrb71" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, -13.8852)
+
+[node name="PickupOrb72" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, -11.2775)
+
+[node name="PickupOrb73" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, -9.42241)
+
+[node name="PickupOrb74" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, -6.81469)
+
+[node name="PickupOrb75" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, -4.41646)
+
+[node name="PickupOrb76" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, 3.37294)
+
+[node name="PickupOrb77" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, 5.98066)
+
+[node name="PickupOrb78" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, 7.83575)
+
+[node name="PickupOrb79" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, 10.4435)
+
+[node name="PickupOrb80" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.92343, -1.01396, 12.8417)
+
+[node name="PickupOrb81" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, -13.8852)
+
+[node name="PickupOrb82" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, -11.2775)
+
+[node name="PickupOrb83" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, -9.42241)
+
+[node name="PickupOrb84" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, -6.81469)
+
+[node name="PickupOrb85" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, -4.41646)
+
+[node name="PickupOrb86" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, 3.37294)
+
+[node name="PickupOrb87" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, 5.98066)
+
+[node name="PickupOrb88" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, 7.83575)
+
+[node name="PickupOrb89" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, 10.4435)
+
+[node name="PickupOrb90" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.79111, -1.01396, 12.8417)
+
+[node name="PickupOrb91" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, -13.8852)
+
+[node name="PickupOrb92" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, -11.2775)
+
+[node name="PickupOrb93" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, -9.42241)
+
+[node name="PickupOrb94" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, -6.81469)
+
+[node name="PickupOrb95" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, -4.41646)
+
+[node name="PickupOrb96" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, 3.37294)
+
+[node name="PickupOrb97" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, 5.98066)
+
+[node name="PickupOrb98" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, 7.83575)
+
+[node name="PickupOrb99" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, 10.4435)
+
+[node name="PickupOrb100" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.95481, -1.01396, 12.8417)
+
+[node name="PickupOrb101" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, -13.8852)
+
+[node name="PickupOrb102" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, -11.2775)
+
+[node name="PickupOrb103" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, -9.42241)
+
+[node name="PickupOrb104" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, -6.81469)
+
+[node name="PickupOrb105" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, -4.41646)
+
+[node name="PickupOrb106" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, 3.37294)
+
+[node name="PickupOrb107" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, 5.98066)
+
+[node name="PickupOrb108" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, 7.83575)
+
+[node name="PickupOrb109" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, 10.4435)
+
+[node name="PickupOrb110" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.84367, -1.01396, 12.8417)
+
+[node name="PickupOrb111" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, -13.8852)
+
+[node name="PickupOrb112" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, -11.2775)
+
+[node name="PickupOrb113" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, -9.42241)
+
+[node name="PickupOrb114" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, -6.81469)
+
+[node name="PickupOrb115" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, -4.41646)
+
+[node name="PickupOrb116" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, 3.37294)
+
+[node name="PickupOrb117" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, 5.98066)
+
+[node name="PickupOrb118" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, 7.83575)
+
+[node name="PickupOrb119" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, 10.4435)
+
+[node name="PickupOrb120" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0074, -1.01396, 12.8417)
+
+[node name="PickupOrb121" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, -13.8852)
+
+[node name="PickupOrb122" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, -11.2775)
+
+[node name="PickupOrb123" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, -9.42241)
+
+[node name="PickupOrb124" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, -6.81469)
+
+[node name="PickupOrb125" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, -4.41646)
+
+[node name="PickupOrb126" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, 3.37294)
+
+[node name="PickupOrb127" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, 5.98066)
+
+[node name="PickupOrb128" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, 7.83575)
+
+[node name="PickupOrb129" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, 10.4435)
+
+[node name="PickupOrb130" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8529, -1.01396, 12.8417)
+
+[node name="PickupOrb131" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, -13.8852)
+
+[node name="PickupOrb132" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, -11.2775)
+
+[node name="PickupOrb133" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, -9.42241)
+
+[node name="PickupOrb134" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, -6.81469)
+
+[node name="PickupOrb135" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, -4.41646)
+
+[node name="PickupOrb136" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 3.37294)
+
+[node name="PickupOrb137" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 5.98066)
+
+[node name="PickupOrb138" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 7.83575)
+
+[node name="PickupOrb139" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 10.4435)
+
+[node name="PickupOrb140" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 12.8417)
+
+[node name="PickupOrb141" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -13.8852)
+
+[node name="PickupOrb142" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -11.2775)
+
+[node name="PickupOrb143" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -9.42241)
+
+[node name="PickupOrb144" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -6.81469)
+
+[node name="PickupOrb145" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -4.41646)
+
+[node name="PickupOrb146" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 3.37294)
+
+[node name="PickupOrb147" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 5.98066)
+
+[node name="PickupOrb148" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 7.83575)
+
+[node name="PickupOrb149" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 10.4435)
+
+[node name="PickupOrb150" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 12.8417)
+
+[node name="PickupOrb151" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -13.8852)
+
+[node name="PickupOrb152" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -11.2775)
+
+[node name="PickupOrb153" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -9.42241)
+
+[node name="PickupOrb154" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -6.81469)
+
+[node name="PickupOrb155" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -4.41646)
+
+[node name="PickupOrb156" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 3.37294)
+
+[node name="PickupOrb157" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 5.98066)
+
+[node name="PickupOrb158" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 7.83575)
+
+[node name="PickupOrb159" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 10.4435)
+
+[node name="PickupOrb160" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 12.8417)
+
+[node name="PickupOrb161" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0166, -1.01396, 12.8417)
+
+[node name="PickupOrb162" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -13.8852)
+
+[node name="PickupOrb163" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -11.2775)
+
+[node name="PickupOrb164" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -9.42241)
+
+[node name="PickupOrb165" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -6.81469)
+
+[node name="PickupOrb166" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, -4.41646)
+
+[node name="PickupOrb167" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 3.37294)
+
+[node name="PickupOrb168" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 5.98066)
+
+[node name="PickupOrb169" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 7.83575)
+
+[node name="PickupOrb170" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 10.4435)
+
+[node name="PickupOrb171" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9054, -1.01396, 12.8417)
+
+[node name="PickupOrb172" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -13.8852)
+
+[node name="PickupOrb173" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -11.2775)
+
+[node name="PickupOrb174" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -9.42241)
+
+[node name="PickupOrb175" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -6.81469)
+
+[node name="PickupOrb176" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, -4.41646)
+
+[node name="PickupOrb177" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 3.37294)
+
+[node name="PickupOrb178" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 5.98066)
+
+[node name="PickupOrb179" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 7.83575)
+
+[node name="PickupOrb180" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0691, -1.01396, 10.4435)
+
+[node name="PickupOrb181" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.439815, -1.01396, 10.4435)
+
+[node name="PickupOrb182" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.01775, -1.07483, 11.0861)
+
+[node name="PickupOrb183" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.95164, -2.62748, -13.8852)
+
+[node name="PickupOrb184" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.43791, -1.01396, -10.5074)
+
+[node name="PickupOrb185" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.17248, -1.09931, -10.4819)
+
+[node name="PickupOrb186" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.49299, -1.01396, -6.81469)
+
+[node name="PickupOrb187" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0216213, -1.01396, -8.42866)
+
+[node name="PickupOrb189" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723884, -1.01396, 5.98066)
+
+[node name="PickupOrb190" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.723884, -1.01396, 7.83575)
+
+[node name="PickupOrb191" parent="PickupOrbs" instance=ExtResource("5_0brsb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.94905, -1.01396, 10.4435)
 
 [node name="Spawns" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
