@@ -647,9 +647,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.855, 0, -17.754)
 [node name="END_DOOR" type="Node3D" parent="Spawns"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.45, 0, 15.967)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Spawns/END_DOOR"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.740683, 1.39673)
-
 [node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]
 
 [node name="Enemy1" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
