@@ -1,17 +1,20 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpvkviy4k0nh6"]
+[gd_scene load_steps=25 format=3 uid="uid://bpvkviy4k0nh6"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
-[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
+[ext_resource type="PackedScene" uid="uid://c5xcdai0orq70" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="3_y48lx"]
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="AudioStream" uid="uid://m5op13c2mtnv" path="res://music/level_musics/1-Food_Shop_Day.ogg" id="5_ei4qd"]
 [ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="5_ss0sl"]
-[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="6_pwg8p"]
+[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/floor_textures/floor_tiles/floor.tres" id="6_pwg8p"]
 [ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="7_i27nn"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="7_o8glr"]
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="12_4hk65"]
+[ext_resource type="Texture2D" uid="uid://c4x7fcjaw67ox" path="res://image/ad/image3.png" id="13_rh3u7"]
+[ext_resource type="Texture2D" uid="uid://dffui8arflekl" path="res://image/ad/image4.png" id="14_cqvww"]
+[ext_resource type="Texture2D" uid="uid://c6wuavfh584xo" path="res://image/ad/image5.png" id="15_ux02a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr3tw"]
 size = Vector3(37, 1, 35)
@@ -1568,3 +1571,15 @@ shape = SubResource("BoxShape3D_0erll")
 
 [node name="WindowWall" parent="Walls" instance=ExtResource("12_4hk65")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 17.3333)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1219, -17.4716)
+texture = ExtResource("13_rh3u7")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0491287, 0, 0.998793, 0, 1, 0, -0.998793, 0, -0.0491287, -18.438, 2.10856, 0)
+texture = ExtResource("14_cqvww")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2621, 2.4136, -0.320348)
+texture = ExtResource("15_ux02a")

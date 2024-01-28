@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://xob6di4eecjr"]
+[gd_scene load_steps=24 format=3 uid="uid://xob6di4eecjr"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_mcwj2"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="2_13lxp"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://c7jhbewv2hitk" path="res://models/tent.glb" id="9_jqh73"]
 [ext_resource type="PackedScene" uid="uid://ctjyhip63uswh" path="res://models/greek_pillar.glb" id="11_6gmi4"]
 [ext_resource type="PackedScene" uid="uid://d2pdm8p1q867c" path="res://scene/enemies/wiifit.tscn" id="12_e6735"]
+[ext_resource type="Texture2D" uid="uid://be6bb70luef0w" path="res://image/ad/image6.png" id="13_o5spm"]
+[ext_resource type="Texture2D" uid="uid://7qm3q7pae0fn" path="res://image/ad/image7.png" id="14_6cjm1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_51gfn"]
 size = Vector3(37, 1, 35)
@@ -969,6 +971,7 @@ transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -1.6507, 0.499188
 
 [node name="WiiFit" parent="WiiFitSurPiedestal/Sketchfab_Scene2" instance=ExtResource("12_e6735")]
 transform = Transform3D(-2.6602, -0.185599, -8.1128e-09, 0, -1.16564e-07, 2.66667, -0.185599, 2.6602, 1.16281e-07, 0.119698, 0.25403, -0.316513)
+visible = false
 
 [node name="WiiFitSurPiedestal2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68498, 0, 0)
@@ -1005,3 +1008,12 @@ transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -1.6507, 0.499188
 
 [node name="WiiFit" parent="WiiFitSurPiedestal5/Sketchfab_Scene2" instance=ExtResource("12_e6735")]
 transform = Transform3D(-2.6602, -0.185599, -8.1128e-09, 0, -1.16564e-07, 2.66667, -0.185599, 2.6602, 1.16281e-07, 0.119698, 0.25403, -0.316513)
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.3749, 2.47899, 0.0669435)
+texture = ExtResource("13_o5spm")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.4837, 1.94296, 0)
+texture = ExtResource("14_6cjm1")
