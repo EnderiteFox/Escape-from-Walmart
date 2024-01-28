@@ -62,10 +62,11 @@ var credits = [
 	],[
 		"Human resource",
 		"El Profesor"
-	],[
-		"Heart Maker",
-		"ZOLDIK"
-	],[
+	],#[
+	#	"Heart Maker",
+	#	"ZOLDIK"
+	#],
+	[
 		"Ad engineer (not Active Directory engineer)",
 		"El Profesor",
 		"Thaan"
