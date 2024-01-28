@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bahl4qh1x2yjx"]
+
+[ext_resource type="Texture2D" uid="uid://brvnsy6tkm4ns" path="res://texture/wallmart/wall/yellow_plaster_diff_1k.jpg" id="1_fr3sm"]
+
+[resource]
+albedo_texture = ExtResource("1_fr3sm")
+uv1_scale = Vector3(0.34, 0.34, 0.34)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 18.3792
+uv2_scale = Vector3(1.035, 1.035, 1.035)
