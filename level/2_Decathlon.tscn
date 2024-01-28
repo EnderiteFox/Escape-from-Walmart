@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://xob6di4eecjr"]
+
+[ext_resource type="Script" path="res://script/Map.gd" id="1_mcwj2"]
+[ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="2_13lxp"]
+[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_eqj8w"]
+[ext_resource type="AudioStream" uid="uid://b8hpjswuufbnq" path="res://music/level_musics/0-Basement.ogg" id="4_t2f6x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjiuj"]
+size = Vector3(37, 1, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_whef6"]
+size = Vector3(37, 1, 35)
+
+[node name="Map" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+script = ExtResource("1_mcwj2")
+map_x_width = 43
+map_z_width = 39
+ENEMIES = Array[PackedScene]([ExtResource("2_13lxp"), ExtResource("2_13lxp")])
+EXIT_DOOR_MESH = ExtResource("3_eqj8w")
+AMBIENCE_MUSIC = ExtResource("4_t2f6x")
+metadata/_edit_lock_ = true
+
+[node name="PickupOrbs" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Spawns" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+metadata/_edit_lock_ = true
+
+[node name="PLAYER" type="Node3D" parent="Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.855, 0, -17.754)
+
+[node name="END_DOOR" type="Node3D" parent="Spawns"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.45, 0, 15.967)
+
+[node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]
+
+[node name="Enemy1" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4299, 0, 17.7323)
+
+[node name="Enemy2" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2463, 0, 17.9498)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_bjiuj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_whef6")

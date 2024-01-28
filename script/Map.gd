@@ -37,7 +37,6 @@ func _ready() -> void:
 		var orb: PickupOrb = node as PickupOrb
 		orb.orb_pickup.connect(_on_orb_pickup)
 		TOTAL_ORBS += 1
-	TOTAL_ORBS = 1
 
 func _on_orb_pickup(orb: PickupOrb) -> void:
 	collected_orbs += 1

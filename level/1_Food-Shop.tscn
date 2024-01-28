@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://bpvkviy4k0nh6"]
+[gd_scene load_steps=22 format=3 uid="uid://bpvkviy4k0nh6"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
 [ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
+[ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="3_y48lx"]
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="AudioStream" uid="uid://m5op13c2mtnv" path="res://music/level_musics/1-Food_Shop_Day.ogg" id="5_ei4qd"]
@@ -10,6 +11,7 @@
 [ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="6_pwg8p"]
 [ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="7_i27nn"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="7_o8glr"]
+[ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="12_4hk65"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr3tw"]
 size = Vector3(37, 1, 35)
@@ -46,7 +48,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("1_u3pxa")
 map_x_width = 37
 map_z_width = 35
-ENEMIES = Array[PackedScene]([ExtResource("2_47ggc")])
+ENEMIES = Array[PackedScene]([ExtResource("2_47ggc"), ExtResource("3_y48lx")])
 EXIT_DOOR_MESH = ExtResource("3_j8f0r")
 AMBIENCE_MUSIC = ExtResource("4_vue4g")
 DAY_MUSIC = ExtResource("5_ei4qd")
@@ -729,12 +731,15 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.812, 0, -15.956)
 
 [node name="END_DOOR" type="Node3D" parent="Spawns"]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 16.4613, 0, 17.4956)
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 15.7946, 0, -17.5068)
 
 [node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]
 
 [node name="Enemy1" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00370622, 4.76837e-07, -0.00794393)
+
+[node name="Enemy2" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.8622, 4.76837e-07, -16.0079)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -1528,17 +1533,6 @@ shape = SubResource("BoxShape3D_dcohm")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
-[node name="Wall" type="StaticBody3D" parent="Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 18)
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Wall"]
-mesh = SubResource("BoxMesh_xiln7")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall"]
-shape = SubResource("BoxShape3D_mfu5i")
-
 [node name="Wall2" type="StaticBody3D" parent="Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -18)
 metadata/_edit_group_ = true
@@ -1571,3 +1565,6 @@ mesh = SubResource("BoxMesh_gx2x2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Wall4"]
 shape = SubResource("BoxShape3D_0erll")
+
+[node name="WindowWall" parent="Walls" instance=ExtResource("12_4hk65")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 17.3333)
