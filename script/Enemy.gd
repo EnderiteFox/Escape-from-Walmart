@@ -60,9 +60,9 @@ func _process(delta: float) -> void:
 		_stun()
 		level.on_enemy_hit_player(self)
 		if animationPlayer != null:
-			if animationPlayer.get_animation_list().has(ATTACK_ANIMATION_NAME) != null:
+			if animationPlayer.get_animation_list().has(ATTACK_ANIMATION_NAME):
 				animationPlayer.play(ATTACK_ANIMATION_NAME, -1, ATTACK_ANIMATION_SPEED)
-				if animationPlayer.get_animation_list().has(WALKING_ANIMATION_NAME) != null:
+				if animationPlayer.get_animation_list().has(WALKING_ANIMATION_NAME):
 					animationPlayer.animation_set_next(ATTACK_ANIMATION_NAME, WALKING_ANIMATION_NAME)
 	if animationPlayer != null and not animationPlayer.is_playing() and not _is_stunned():
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
