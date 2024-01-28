@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpvkviy4k0nh6"]
+[gd_scene load_steps=19 format=3 uid="uid://bpvkviy4k0nh6"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
@@ -6,12 +6,15 @@
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="5_ss0sl"]
+[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/wallmart/floor.tres" id="6_pwg8p"]
 [ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="7_i27nn"]
+[ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wallmart/wall.tres" id="7_o8glr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr3tw"]
 size = Vector3(37, 1, 35)
 
 [sub_resource type="BoxMesh" id="BoxMesh_velsm"]
+material = ExtResource("6_pwg8p")
 size = Vector3(37, 1, 35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dvbxf"]
@@ -24,12 +27,14 @@ size = Vector3(1.36382, 0.463837, 1.37848)
 size = Vector3(0.909607, 0.457031, 0.911621)
 
 [sub_resource type="BoxMesh" id="BoxMesh_xiln7"]
+material = ExtResource("7_o8glr")
 size = Vector3(37, 7, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mfu5i"]
 size = Vector3(37, 7, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_gx2x2"]
+material = ExtResource("7_o8glr")
 size = Vector3(1, 7, 36)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0erll"]
@@ -707,6 +712,7 @@ shape = SubResource("BoxShape3D_hr3tw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_velsm")
+metadata/_edit_lock_ = true
 
 [node name="Ceiling" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
@@ -717,6 +723,7 @@ metadata/_edit_lock_ = true
 shape = SubResource("BoxShape3D_hr3tw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ceiling"]
+material_override = ExtResource("7_o8glr")
 mesh = SubResource("BoxMesh_velsm")
 
 [node name="Shelves" type="Node3D" parent="."]
