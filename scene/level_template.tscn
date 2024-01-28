@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7k5fybfdeq18"]
+[gd_scene load_steps=6 format=3 uid="uid://c7k5fybfdeq18"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
-[ext_resource type="PackedScene" uid="uid://b45cj1ux3lcsj" path="res://level/0_Basement.tscn" id="2_b6431"]
 [ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
 [ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="4_boqfy"]
 
@@ -29,10 +28,10 @@ script = ExtResource("1_wsonj")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_scepk")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_tkfbf")
-
-[node name="Map" parent="NavigationRegion3D" instance=ExtResource("2_b6431")]
 
 [node name="EnemyContainer" type="Node3D" parent="."]
 script = ExtResource("3_6iiux")

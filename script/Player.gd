@@ -38,6 +38,7 @@ func _process(delta: float) -> void:
 		health += REGEN_AMOUNT
 		timeSinceLastRegen = 0.0
 	health = clamp(health, 0, MAX_HEALTH)
+	$DebugLight.visible = LevelManager.debugMode
 	
 func _physics_process(delta: float) -> void:
 	process_input(delta)

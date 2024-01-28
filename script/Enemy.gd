@@ -29,6 +29,7 @@ class_name Enemy
 
 const ABANDON_TARGET_DISTANCE: float = 1.75
 const STUN_TIME: float = 2.0
+const SAFE_SPAWN_TIME: float = 1.0
 
 
 var lastPlayerPos: Vector3
@@ -36,10 +37,12 @@ var targetPos: Vector3
 var targetInit: bool = false
 var chasePlayer: bool = false
 var remainingStunTime: float = -1
-var inAttackHitbox: Array[Node3D]
+var inAttackHitbox: bool = false
+var timeSinceSpawn: float
 
 
 func _ready() -> void:
+	timeSinceSpawn = 0.0
 	if animationPlayer != null:
 		animationPlayer.animation_changed.connect(_on_animation_change)
 		var animation: Animation = animationPlayer.get_animation(WALKING_ANIMATION_NAME)
@@ -49,19 +52,18 @@ func _ready() -> void:
 	lastPlayerPos = player.global_position
 
 func _process(delta: float) -> void:
+	timeSinceSpawn += delta
 	remainingStunTime -= delta
 	_see_player()
 	_move(delta)
-	if not _is_stunned():
-		for body in inAttackHitbox:
-			if body is Player:
-				_stun()
-				level.on_enemy_hit_player(self)
-				if animationPlayer != null:
-					if animationPlayer.get_animation(ATTACK_ANIMATION_NAME) != null:
-						animationPlayer.play(ATTACK_ANIMATION_NAME, -1, ATTACK_ANIMATION_SPEED)
-						if animationPlayer.get_animation(WALKING_ANIMATION_NAME) != null:
-							animationPlayer.animation_set_next(ATTACK_ANIMATION_NAME, WALKING_ANIMATION_NAME)
+	if not _is_stunned() and inAttackHitbox and timeSinceSpawn > SAFE_SPAWN_TIME:
+		_stun()
+		level.on_enemy_hit_player(self)
+		if animationPlayer != null:
+			if animationPlayer.get_animation_list().has(ATTACK_ANIMATION_NAME) != null:
+				animationPlayer.play(ATTACK_ANIMATION_NAME, -1, ATTACK_ANIMATION_SPEED)
+				if animationPlayer.get_animation_list().has(WALKING_ANIMATION_NAME) != null:
+					animationPlayer.animation_set_next(ATTACK_ANIMATION_NAME, WALKING_ANIMATION_NAME)
 	if animationPlayer != null and not animationPlayer.is_playing() and not _is_stunned():
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
 
@@ -134,10 +136,12 @@ func _stun() -> void:
 	remainingStunTime = STUN_TIME
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	inAttackHitbox.append(body)
+	if body is Player:
+		inAttackHitbox = true
 
 func _on_attack_hitbox_body_exited(body: Node3D) -> void:
-	inAttackHitbox.erase(body)
+	if body is Player:
+		inAttackHitbox = false
 
 func _on_animation_change(oldAnimation: String, _newAnimation: String) -> void:
 	if oldAnimation == ATTACK_ANIMATION_NAME:

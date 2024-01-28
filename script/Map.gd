@@ -7,6 +7,8 @@ signal all_orbs_collected
 @export_range(0, 100, 1, "or_greater") var map_z_width: int
 @export var ENEMIES: Array[PackedScene]
 @export var EXIT_DOOR_MESH: PackedScene
+@export var AMBIENCE_MUSIC: AudioStream
+@export var AMBIENCE_MUSIC_VOLUME: float = 1
 
 
 var PLAYER_SPAWN: Vector3

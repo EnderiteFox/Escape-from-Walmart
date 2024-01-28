@@ -4,6 +4,7 @@ class_name Level
 @onready var exitDoor: ExitDoor = $ExitDoor
 @onready var player: Player
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
+@onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
 
 var map: Map
 var allOrbs: bool = false
@@ -23,6 +24,9 @@ func _ready() -> void:
 	exitDoor.change_door_mesh(map.EXIT_DOOR_MESH)
 	exitDoor.global_position = map.END_DOOR_SPAWN
 	exitDoor.global_rotation = map.END_DOOR_ROTATION
+	audioStreamPlayer.stream = map.AMBIENCE_MUSIC
+	audioStreamPlayer.volume_db = map.AMBIENCE_MUSIC_VOLUME
+	audioStreamPlayer.play()
 
 func _process(_delta: float) -> void:
 	player.healthDisplay.update_orb_count(map.collected_orbs, map.TOTAL_ORBS)
