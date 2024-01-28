@@ -6,7 +6,8 @@ extends Node
 @onready var deathScreen: PackedScene = preload("res://scene/death_screen.tscn")
 @onready var levels: Array[PackedScene] = [
 	preload("res://level/0_Basement.tscn"),
-	preload("res://level/1_Food-Shop.tscn")
+	preload("res://level/1_Food-Shop.tscn"),
+	preload("res://level/2_Decathlon.tscn")
 ]
 
 var currentLevel: int = 0
