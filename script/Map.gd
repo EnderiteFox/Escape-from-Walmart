@@ -9,6 +9,8 @@ signal all_orbs_collected
 @export var EXIT_DOOR_MESH: PackedScene
 @export var AMBIENCE_MUSIC: AudioStream
 @export var AMBIENCE_MUSIC_VOLUME: float = 1
+@export var DAY_MUSIC: AudioStream
+@export var DAY_MUSIC_VOLUME: float = 1
 
 
 var PLAYER_SPAWN: Vector3

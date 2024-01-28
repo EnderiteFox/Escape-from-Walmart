@@ -5,6 +5,7 @@ class_name Level
 @onready var player: Player
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
+@onready var roombaScene: PackedScene = preload("res://scene/enemies/roomba.tscn")
 
 var map: Map
 var allOrbs: bool = false
@@ -42,3 +43,11 @@ func _on_death() -> void:
 func on_all_orbs_collected() -> void:
 	player.healthDisplay.on_orbs_collected()
 	exitDoor.open()
+	if map.DAY_MUSIC != null:
+		audioStreamPlayer.stop()
+		audioStreamPlayer.stream = map.DAY_MUSIC
+		audioStreamPlayer.volume_db = map.DAY_MUSIC_VOLUME
+		audioStreamPlayer.play()
+	var roomba: Enemy = roombaScene.instantiate()
+	$EnemyContainer.add_child(roomba)
+	roomba.global_position = exitDoor.global_position

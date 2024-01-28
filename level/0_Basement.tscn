@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b8hpjswuufbnq" path="res://music/level_musics/0-Basement.ogg" id="4_0bj7b"]
 [ext_resource type="Material" uid="uid://dmvtl2hqqa280" path="res://texture/floor_textures/ceiling_tiles/ceiling_tiles_texture.tres" id="4_3irbh"]
 [ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="4_4j168"]
-[ext_resource type="PackedScene" uid="uid://c5xcdai0orq70" path="res://mesh/props/wooden_door/wooden_door.glb" id="4_yvgkc"]
+[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="4_yvgkc"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_spwsk"]
 [ext_resource type="Material" uid="uid://cf44di2gydqac" path="res://texture/basements_texture/ceiling/wallmaterial.tres" id="6_dh1nr"]
 
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 script = ExtResource("1_wcm05")
 map_x_width = 43
 map_z_width = 39
-ENEMIES = Array[PackedScene]([ExtResource("2_xxwx0")])
+ENEMIES = Array[PackedScene]([ExtResource("2_xxwx0"), ExtResource("2_xxwx0")])
 EXIT_DOOR_MESH = ExtResource("4_yvgkc")
 AMBIENCE_MUSIC = ExtResource("4_0bj7b")
 metadata/_edit_lock_ = true
@@ -674,3 +674,6 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -21.45
 
 [node name="Enemy1" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4299, 0, 17.7323)
+
+[node name="Enemy2" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2463, 0, 17.9498)
