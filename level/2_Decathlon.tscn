@@ -1011,3 +1011,11 @@ texture = ExtResource("13_o5spm")
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.4837, 1.94296, 0)
 texture = ExtResource("14_6cjm1")
+
+[node name="Lights" type="Node3D" parent="."]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+light_energy = 2.0
+omni_range = 20.0

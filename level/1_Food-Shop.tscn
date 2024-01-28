@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
-[ext_resource type="PackedScene" uid="uid://c5xcdai0orq70" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
+[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="3_y48lx"]
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="AudioStream" uid="uid://m5op13c2mtnv" path="res://music/level_musics/1-Food_Shop_Day.ogg" id="5_ei4qd"]
 [ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="5_ss0sl"]
-[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/floor_textures/floor_tiles/floor.tres" id="6_pwg8p"]
+[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="6_pwg8p"]
 [ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="7_i27nn"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="7_o8glr"]
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="12_4hk65"]
@@ -1583,3 +1583,11 @@ texture = ExtResource("14_cqvww")
 [node name="Sprite3D3" type="Sprite3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2621, 2.4136, -0.320348)
 texture = ExtResource("15_ux02a")
+
+[node name="Lights" type="Node3D" parent="."]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, 5.33333, 0)
+light_energy = 2.0
+omni_range = 30.0

@@ -6,6 +6,8 @@ class_name Level
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
 @onready var roombaScene: PackedScene = preload("res://scene/enemies/roomba_evil.tscn")
+@onready var lights: Node3D
+@onready var worldEnvironment: WorldEnvironment = $WorldEnvironment
 
 const ROOMBA_SPAWN_TIME: float = 1.0
 
@@ -16,6 +18,7 @@ var timeSinceOpen: float = 0.0
 func _ready() -> void:
 	map = LevelManager.get_current_level().instantiate()
 	NavRegion.add_child(map)
+	lights = $NavigationRegion3D/Map/Lights
 	player = preload("res://scene/Player.tscn").instantiate()
 	add_child(player)
 	player.global_position = map.PLAYER_SPAWN
@@ -31,6 +34,7 @@ func _ready() -> void:
 	audioStreamPlayer.stream = map.AMBIENCE_MUSIC
 	audioStreamPlayer.volume_db = map.AMBIENCE_MUSIC_VOLUME
 	audioStreamPlayer.play()
+	worldEnvironment.environment.volumetric_fog_enabled = true
 
 func _process(delta: float) -> void:
 	player.healthDisplay.update_orb_count(map.collected_orbs, map.TOTAL_ORBS)
@@ -59,3 +63,5 @@ func on_all_orbs_collected() -> void:
 		audioStreamPlayer.stream = map.DAY_MUSIC
 		audioStreamPlayer.volume_db = map.DAY_MUSIC_VOLUME
 		audioStreamPlayer.play()
+	lights.visible = true
+	worldEnvironment.environment.volumetric_fog_enabled = false
