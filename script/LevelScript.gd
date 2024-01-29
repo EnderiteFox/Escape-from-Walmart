@@ -2,6 +2,7 @@ extends Node3D
 class_name Level
 
 @onready var exitDoor: ExitDoor = $ExitDoor
+@onready var playerScene: PackedScene = preload("res://scene/Player.tscn")
 @onready var player: Player
 @onready var NavRegion: NavigationRegion3D = $NavigationRegion3D
 @onready var audioStreamPlayer: AudioStreamPlayer = $AudioStreamPlayer
@@ -19,7 +20,7 @@ func _ready() -> void:
 	map = LevelManager.get_current_level().instantiate()
 	NavRegion.add_child(map)
 	lights = $NavigationRegion3D/Map/Lights
-	player = preload("res://scene/Player.tscn").instantiate()
+	player = playerScene.instantiate()
 	add_child(player)
 	player.global_position = map.PLAYER_SPAWN
 	for i in range(map.ENEMIES.size()):
