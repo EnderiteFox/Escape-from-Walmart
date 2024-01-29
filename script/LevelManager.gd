@@ -25,6 +25,7 @@ func on_level_finish() -> void:
 	currentLevel += 1
 	if currentLevel == levels.size():
 		currentLevel = 0
+		deathCount = 0
 		get_tree().change_scene_to_packed(credits)
 	else:
 		get_tree().change_scene_to_packed(levelLoader)
