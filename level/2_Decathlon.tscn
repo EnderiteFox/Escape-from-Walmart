@@ -1004,12 +1004,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60569, 0, 1.7096)
 [node name="Sketchfab_Scene2" parent="WiiFitSurPiedestal5" instance=ExtResource("11_6gmi4")]
 transform = Transform3D(0.375, 0, 0, 0, 0.375, 0, 0, 0, 0.375, -1.6507, 0.499188, -13.0077)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Posters" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Posters"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.3749, 2.47899, 0.0669435)
+shaded = true
 texture = ExtResource("13_o5spm")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Sprite3D2" type="Sprite3D" parent="Posters"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.4837, 1.94296, 0)
+shaded = true
 texture = ExtResource("14_6cjm1")
 
 [node name="Lights" type="Node3D" parent="."]
@@ -1018,4 +1024,5 @@ visible = false
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 light_energy = 2.0
+shadow_enabled = true
 omni_range = 20.0

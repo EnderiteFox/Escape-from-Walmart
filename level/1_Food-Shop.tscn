@@ -1572,22 +1572,30 @@ shape = SubResource("BoxShape3D_0erll")
 [node name="WindowWall" parent="Walls" instance=ExtResource("12_4hk65")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 17.3333)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Posters" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Posters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1219, -17.4716)
+shaded = true
 texture = ExtResource("13_rh3u7")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Sprite3D2" type="Sprite3D" parent="Posters"]
 transform = Transform3D(-0.0491287, 0, 0.998793, 0, 1, 0, -0.998793, 0, -0.0491287, -18.438, 2.10856, 0)
+shaded = true
 texture = ExtResource("14_cqvww")
 
-[node name="Sprite3D3" type="Sprite3D" parent="."]
+[node name="Sprite3D3" type="Sprite3D" parent="Posters"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2621, 2.4136, -0.320348)
+shaded = true
 texture = ExtResource("15_ux02a")
 
 [node name="Lights" type="Node3D" parent="."]
 visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
-transform = Transform3D(0.666667, 0, 0, 0, 0.666667, 0, 0, 0, 0.666667, 0, 5.33333, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.33333, 0)
 light_energy = 2.0
+shadow_enabled = true
 omni_range = 30.0

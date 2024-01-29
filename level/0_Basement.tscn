@@ -680,12 +680,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.4299, 0, 17.7323)
 [node name="Enemy2" type="Node3D" parent="Spawns/ENEMY_SPAWNS"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2463, 0, 17.9498)
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="Posters" type="Node3D" parent="."]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="Posters"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33141, -19.4734)
+shaded = true
 texture = ExtResource("9_p0gem")
 
-[node name="Sprite3D2" type="Sprite3D" parent="."]
+[node name="Sprite3D2" type="Sprite3D" parent="Posters"]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.0242539, 3.18788, 19.2497)
+shaded = true
 texture = ExtResource("10_xcwax")
 
 [node name="Lights" type="Node3D" parent="."]
@@ -694,4 +700,5 @@ visible = false
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 0)
 light_energy = 2.0
+shadow_enabled = true
 omni_range = 20.0
