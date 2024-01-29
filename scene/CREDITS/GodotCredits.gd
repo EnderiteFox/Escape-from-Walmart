@@ -1,14 +1,16 @@
 extends Control
 
 @export var bg_color : Color = Color.BLACK
-@export var to_scene : PackedScene = null
+@export var to_scene : PackedScene = preload("res://scene/Menu.tscn")
 @export var title_color := Color.RED
-@export var text_color := Color.WHITE
+@export var text_color := Color.WHITE        
 @export var title_font : FontFile = null
 @export var text_font : FontFile = null
 @export var Music : AudioStream = null
 @export var Use_Video_Audio : bool = false
 @export var Video : VideoStream = null
+
+@onready var menu: PackedScene = preload("res://scene/Menu.tscn")
 
 const section_time := 2.0
 const line_time := 1.0
@@ -170,11 +172,7 @@ func _process(delta):
 func finish():
 	if not finished:
 		finished = true
-		if to_scene != null:
-			var path = to_scene.get_path()
-			get_tree().change_scene_to_file(path)
-		else:
-			get_tree().quit()
+		get_tree().change_scene_to_packed(menu)
 
 
 func add_line():
