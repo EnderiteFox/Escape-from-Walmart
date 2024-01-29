@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxko5hdjxrk57"
-path.s3tc="res://.godot/imported/tent_1.png-662dbdaed1c2a73c795417ef6e4ff0c2.s3tc.ctex"
+uid="uid://dtitx8lksq1yd"
+path.s3tc="res://.godot/imported/greek_pillar_0.png-5a5fcf7a65867bdb78316f88b340de56.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://models/tent_1.png"
-dest_files=["res://.godot/imported/tent_1.png-662dbdaed1c2a73c795417ef6e4ff0c2.s3tc.ctex"]
+source_file="res://mesh/props/greek_pillar/greek_pillar_0.png"
+dest_files=["res://.godot/imported/greek_pillar_0.png-5a5fcf7a65867bdb78316f88b340de56.s3tc.ctex"]
 
 [params]
 
@@ -25,8 +25,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=8
-roughness/src_normal="res://models/tent_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

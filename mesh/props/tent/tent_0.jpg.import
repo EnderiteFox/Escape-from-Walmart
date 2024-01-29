@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpycm2idba7ay"
-path.s3tc="res://.godot/imported/tent_2.png-ceafcb5306fd2ece53f447babeb43336.s3tc.ctex"
+uid="uid://dmtmo0iwwb13y"
+path.s3tc="res://.godot/imported/tent_0.jpg-c9fc2e878b7c28b4f32ca11bfa005dd0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://models/tent_2.png"
-dest_files=["res://.godot/imported/tent_2.png-ceafcb5306fd2ece53f447babeb43336.s3tc.ctex"]
+source_file="res://mesh/props/tent/tent_0.jpg"
+dest_files=["res://.godot/imported/tent_0.jpg-c9fc2e878b7c28b4f32ca11bfa005dd0.s3tc.ctex"]
 
 [params]
 
@@ -21,12 +21,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://models/tent_2.png"
+roughness/mode=0
+roughness/src_normal=""
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

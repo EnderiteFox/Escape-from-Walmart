@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://ctjyhip63uswh"
-path="res://.godot/imported/greek_pillar.glb-009bdbe52bd270b7abf5e4fe58b0e664.scn"
+path="res://.godot/imported/greek_pillar.glb-b917d390adc0c2da2e7c30e61e035602.scn"
 
 [deps]
 
-source_file="res://models/greek_pillar.glb"
-dest_files=["res://.godot/imported/greek_pillar.glb-009bdbe52bd270b7abf5e4fe58b0e664.scn"]
+source_file="res://mesh/props/greek_pillar/greek_pillar.glb"
+dest_files=["res://.godot/imported/greek_pillar.glb-b917d390adc0c2da2e7c30e61e035602.scn"]
 
 [params]
 

@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c7jhbewv2hitk"
-path="res://.godot/imported/tent.glb-500c3c9dad0489ff6a40b77c67d73992.scn"
+path="res://.godot/imported/tent.glb-a4ddebd97f3bb19192f5d080073283bd.scn"
 
 [deps]
 
-source_file="res://models/tent.glb"
-dest_files=["res://.godot/imported/tent.glb-500c3c9dad0489ff6a40b77c67d73992.scn"]
+source_file="res://mesh/props/tent/tent.glb"
+dest_files=["res://.godot/imported/tent.glb-a4ddebd97f3bb19192f5d080073283bd.scn"]
 
 [params]
 
