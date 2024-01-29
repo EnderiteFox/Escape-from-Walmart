@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Escape From Wallmart"
+config/name="Escape From Walmart"
 run/main_scene="res://scene/Menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon/icone.png"
