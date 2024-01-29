@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://xob6di4eecjr"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_mcwj2"]
-[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_eqj8w"]
+[ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="3_7a6h0"]
 [ext_resource type="AudioStream" uid="uid://duffrf3jris55" path="res://music/level_musics/2-Decathlon_Night.ogg" id="4_uf8tn"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_2debq"]
 [ext_resource type="AudioStream" uid="uid://bdpastqw8hr6k" path="res://music/level_musics/2-Decathlon_Day.ogg" id="5_fxbnp"]
@@ -51,7 +51,7 @@ script = ExtResource("1_mcwj2")
 map_x_width = 37
 map_z_width = 35
 ENEMIES = Array[PackedScene]([ExtResource("12_e6735"), ExtResource("12_e6735")])
-EXIT_DOOR_MESH = ExtResource("3_eqj8w")
+EXIT_DOOR_MESH = ExtResource("3_7a6h0")
 AMBIENCE_MUSIC = ExtResource("4_uf8tn")
 DAY_MUSIC = ExtResource("5_fxbnp")
 metadata/_edit_lock_ = true

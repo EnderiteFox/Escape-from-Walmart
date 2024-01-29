@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
-[ext_resource type="PackedScene" uid="uid://bcfg2rbost4uo" path="res://mesh/props/wooden_door/wooden_door.glb" id="3_j8f0r"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="3_y48lx"]
+[ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="4_3fper"]
 [ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/1-Food_Shop_Night.ogg" id="4_vue4g"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_0brsb"]
 [ext_resource type="AudioStream" uid="uid://m5op13c2mtnv" path="res://music/level_musics/1-Food_Shop_Day.ogg" id="5_ei4qd"]
@@ -52,7 +52,7 @@ script = ExtResource("1_u3pxa")
 map_x_width = 37
 map_z_width = 35
 ENEMIES = Array[PackedScene]([ExtResource("2_47ggc"), ExtResource("3_y48lx")])
-EXIT_DOOR_MESH = ExtResource("3_j8f0r")
+EXIT_DOOR_MESH = ExtResource("4_3fper")
 AMBIENCE_MUSIC = ExtResource("4_vue4g")
 DAY_MUSIC = ExtResource("5_ei4qd")
 metadata/_edit_lock_ = true
