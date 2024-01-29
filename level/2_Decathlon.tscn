@@ -649,7 +649,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5213, 0, -15.956)
 
 [node name="END_DOOR" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 15.7946, 0, -17.5068)
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 15.7946, 0, -17.4826)
 
 [node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]
 
