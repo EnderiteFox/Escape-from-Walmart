@@ -9,7 +9,7 @@ radius = 1.345
 
 [node name="Roomba" type="StaticBody3D"]
 script = ExtResource("1_5tie1")
-SPEED = 5
+SPEED = 10
 VIEW_RANGE = 10
 DAMAGE = 30
 FOV = 360.0

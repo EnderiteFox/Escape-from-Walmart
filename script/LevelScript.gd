@@ -11,6 +11,7 @@ class_name Level
 @onready var worldEnvironment: WorldEnvironment = $WorldEnvironment
 
 const ROOMBA_SPAWN_TIME: float = 1.0
+const ENEMY_LIGHT_SPEED_BUFF: int = 3
 
 var map: Map
 var allOrbs: bool = false
@@ -27,6 +28,9 @@ func _ready() -> void:
 		var enemy: Enemy = map.ENEMIES[i].instantiate()
 		$EnemyContainer.add_child(enemy)
 		enemy.global_position = map.ENEMIES_SPAWN[i]
+	for enemy in $EnemyContainer.get_children():
+		enemy.SPEED -= ENEMY_LIGHT_SPEED_BUFF
+		enemy.SPEED = max(enemy.SPEED, 1)
 	NavRegion.bake_navigation_mesh()
 	map.all_orbs_collected.connect(on_all_orbs_collected)
 	exitDoor.change_door_mesh(map.EXIT_DOOR_MESH)
@@ -66,3 +70,5 @@ func on_all_orbs_collected() -> void:
 		audioStreamPlayer.play()
 	lights.visible = true
 	worldEnvironment.environment.volumetric_fog_enabled = false
+	for enemy in $EnemyContainer.get_children():
+		enemy.SPEED += ENEMY_LIGHT_SPEED_BUFF
