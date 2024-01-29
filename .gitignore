@@ -3,3 +3,4 @@
 .vscode/
 export_presets.cfg
 *.tmp
+export
