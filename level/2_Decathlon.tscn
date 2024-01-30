@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cletk2n32wsjd"]
+[gd_scene load_steps=27 format=3 uid="uid://cletk2n32wsjd"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_mcwj2"]
 [ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="3_7a6h0"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://be6bb70luef0w" path="res://image/ad/image6.png" id="13_o5spm"]
 [ext_resource type="Texture2D" uid="uid://7qm3q7pae0fn" path="res://image/ad/image7.png" id="14_6cjm1"]
 [ext_resource type="PackedScene" uid="uid://c7jhbewv2hitk" path="res://mesh/props/tent/tent.glb" id="14_c3mg4"]
+[ext_resource type="Texture2D" uid="uid://c6wuavfh584xo" path="res://image/ad/image5.png" id="16_o4bbp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr3tw"]
 size = Vector3(37, 1, 35)
@@ -649,7 +650,7 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5213, 0, -15.956)
 
 [node name="END_DOOR" type="Node3D" parent="Spawns"]
-transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 15.7946, 0, -17.4826)
+transform = Transform3D(1, 0, 2.38419e-07, 0, 1, 0, -2.38419e-07, 0, 1, 10.2697, -4.1306, -16.5169)
 
 [node name="ENEMY_SPAWNS" type="Node3D" parent="Spawns"]
 
@@ -1137,11 +1138,16 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Posters"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -18.3749, 2.47899, 0.0669435)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.0444563, 0.999011, 1.94325e-09, -0.999011, 0.0444563, -4.36682e-08, -18.3749, 2.35482, 0.0669435)
 shaded = true
 texture = ExtResource("13_o5spm")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Posters"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.4837, 1.94296, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, -0.0320213, 0.999487, 1.3997e-09, 0.999487, 0.0320213, -4.3689e-08, 18.4837, 1.94296, 0)
 shaded = true
 texture = ExtResource("14_6cjm1")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Posters"]
+transform = Transform3D(0.682755, -0.0194646, -1.29367e-14, 0.0194646, 0.682755, -3.68812e-16, 1.2942e-14, 1.43685e-30, 0.683032, 0.0359829, 2.4136, -17.4851)
+shaded = true
+texture = ExtResource("16_o4bbp")

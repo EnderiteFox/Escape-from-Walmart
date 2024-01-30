@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bpvkviy4k0nh6"]
+[gd_scene load_steps=24 format=3 uid="uid://bpvkviy4k0nh6"]
 
 [ext_resource type="Script" path="res://script/Map.gd" id="1_u3pxa"]
 [ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="2_47ggc"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="12_4hk65"]
 [ext_resource type="Texture2D" uid="uid://c4x7fcjaw67ox" path="res://image/ad/image3.png" id="13_rh3u7"]
 [ext_resource type="Texture2D" uid="uid://dffui8arflekl" path="res://image/ad/image4.png" id="14_cqvww"]
-[ext_resource type="Texture2D" uid="uid://c6wuavfh584xo" path="res://image/ad/image5.png" id="15_ux02a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hr3tw"]
 size = Vector3(37, 1, 35)
@@ -1577,19 +1576,14 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Sprite3D" type="Sprite3D" parent="Posters"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1219, -17.4716)
+transform = Transform3D(0.993191, -0.116497, 0, 0.116497, 0.993191, 0, 0, 0, 1, 0, 2.1219, -17.4716)
 shaded = true
 texture = ExtResource("13_rh3u7")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Posters"]
-transform = Transform3D(-0.0491287, 0, 0.998793, 0, 1, 0, -0.998793, 0, -0.0491287, -18.438, 2.10856, 0)
+transform = Transform3D(-0.0491287, 8.93722e-11, 0.998793, -0.0376795, 0.999288, -0.00185338, -0.998082, -0.0377251, -0.0490937, -18.438, 2.10856, 0)
 shaded = true
 texture = ExtResource("14_cqvww")
-
-[node name="Sprite3D3" type="Sprite3D" parent="Posters"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.2621, 2.4136, -0.320348)
-shaded = true
-texture = ExtResource("15_ux02a")
 
 [node name="Lights" type="Node3D" parent="."]
 visible = false
