@@ -5,9 +5,9 @@ extends Node
 @onready var credits: PackedScene = preload("res://scene/CREDITS/Credits.tscn")
 @onready var deathScreen: PackedScene = preload("res://scene/death_screen.tscn")
 @onready var levels: Array[PackedScene] = [
-	preload("res://level/0_Basement.tscn"),
-	preload("res://level/1_Food-Shop.tscn"),
-	preload("res://level/2_Decathlon.tscn")
+	preload("res://level/1_Basement.tscn"),
+	preload("res://level/2_Food-Shop.tscn"),
+	preload("res://level/3_Decathlon.tscn")
 ]
 
 const LIVES_DEFAULT_AMOUNT: int = 2

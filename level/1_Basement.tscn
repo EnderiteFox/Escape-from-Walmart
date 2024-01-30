@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/Map.gd" id="1_wcm05"]
 [ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="2_xxwx0"]
 [ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="3_2dy8c"]
-[ext_resource type="AudioStream" uid="uid://b8hpjswuufbnq" path="res://music/level_musics/0-Basement.ogg" id="4_0bj7b"]
+[ext_resource type="AudioStream" uid="uid://b8hpjswuufbnq" path="res://music/level_musics/1-Basement.ogg" id="4_0bj7b"]
 [ext_resource type="Material" uid="uid://dmvtl2hqqa280" path="res://texture/floor_textures/ceiling_tiles/ceiling_tiles_texture.tres" id="4_3irbh"]
 [ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="4_4j168"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="5_spwsk"]
