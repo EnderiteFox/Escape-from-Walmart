@@ -1,7 +1,6 @@
 extends Control
 
 @export var bg_color : Color = Color.BLACK
-@export var to_scene : PackedScene = preload("res://scene/Menu.tscn")
 @export var title_color := Color.RED
 @export var text_color := Color.WHITE        
 @export var title_font : FontFile = null
@@ -16,6 +15,7 @@ const section_time := 2.0
 const line_time := 1.0
 const base_speed := 120
 const speed_up_multiplier := 10.0
+const to_scene : PackedScene = preload("res://scene/Menu.tscn")
 
 var scroll_speed : float = base_speed
 var speed_up := false

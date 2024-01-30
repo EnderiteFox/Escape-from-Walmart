@@ -65,13 +65,6 @@ func process_input(_delta: float) -> void:
 	Pivot.rotation.x = PI/2 - 0.05 if Pivot.rotation.x > PI/2 - 0.05 else Pivot.rotation.x
 	self.rotate_y(deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY))
 	
-	# Capturing/Freeing the cursor
-	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
 	# Sprinting
 	is_sprinting = Input.is_action_pressed("Sprint")
 

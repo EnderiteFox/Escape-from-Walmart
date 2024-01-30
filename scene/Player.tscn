@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1nxn8tsdd7h5"]
+[gd_scene load_steps=6 format=3 uid="uid://b1nxn8tsdd7h5"]
 
 [ext_resource type="Script" path="res://script/Player.gd" id="1_e4vtd"]
 [ext_resource type="PackedScene" uid="uid://bdgsh5gdbg01q" path="res://scene/health_display.tscn" id="2_4csxi"]
+[ext_resource type="PackedScene" uid="uid://5rh276ko7478" path="res://scene/pause_menu.tscn" id="2_nn2ys"]
 [ext_resource type="PackedScene" uid="uid://c86cb2eli7c8h" path="res://scene/debug_menu.tscn" id="2_u7sc5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eihgl"]
@@ -17,6 +18,10 @@ script = ExtResource("1_e4vtd")
 mouse_filter = 1
 
 [node name="DebugMenu" parent="." instance=ExtResource("2_u7sc5")]
+offset_top = -3.0
+offset_bottom = -3.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_nn2ys")]
 offset_top = -3.0
 offset_bottom = -3.0
 

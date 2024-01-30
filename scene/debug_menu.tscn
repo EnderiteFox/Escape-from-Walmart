@@ -18,15 +18,18 @@ scale = Vector2(2, 2)
 [node name="InvincibilityButton" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Makes you invincible"
+focus_mode = 0
 text = "Invincibility"
 
 [node name="LightButton" type="CheckButton" parent="VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Toggles a light around you"
+focus_mode = 0
 text = "Light"
 
 [node name="CollectAllOrbs" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 text = "Collect all orbs
 "
 
