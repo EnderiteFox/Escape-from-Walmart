@@ -1,10 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6foreds377yq"]
+[gd_scene load_steps=14 format=3 uid="uid://c6foreds377yq"]
 
 [ext_resource type="Script" path="res://script/death_screen.gd" id="1_4g5qg"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_dpgr2"]
+font_size = 128
+font_color = Color(1, 1, 1, 0)
+
 [sub_resource type="LabelSettings" id="LabelSettings_u1yhk"]
 font_size = 128
-font_color = Color(1, 0, 0, 1)
+font_color = Color(1, 0, 0, 0)
 
 [sub_resource type="Theme" id="Theme_f78y8"]
 default_font_size = 64
@@ -37,7 +41,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 0, 0, 1)]
+"values": [Color(1, 0, 0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -74,6 +78,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LifeDisplay:label_settings:font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LifeDisplay:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(596, 453)]
 }
 
 [sub_resource type="Animation" id="Animation_qtqro"]
@@ -128,10 +156,56 @@ tracks/3/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_nmamf"]
+resource_name = "life_deplete"
+length = 1.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LifeDisplay:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.85, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LifeDisplay:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.225, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(578.5, 452.5), Vector2(554, 446), Vector2(617, 491), Vector2(628, 430), Vector2(578.5, 452.5)]
+}
+
+[sub_resource type="Animation" id="Animation_6ichg"]
+resource_name = "life_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LifeDisplay:label_settings:font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpm88"]
 _data = {
 "RESET": SubResource("Animation_ys0oo"),
-"death_animation": SubResource("Animation_qtqro")
+"death_animation": SubResource("Animation_qtqro"),
+"life_deplete": SubResource("Animation_nmamf"),
+"life_fade_in": SubResource("Animation_6ichg")
 }
 
 [node name="DeathScreen" type="Control"]
@@ -151,6 +225,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="LifeDisplay" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.0
+offset_top = -87.0
+offset_right = 399.0
+offset_bottom = 88.0004
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lives left: x"
+label_settings = SubResource("LabelSettings_dpgr2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -201,3 +291,4 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
