@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c86cb2eli7c8h"]
+
+[ext_resource type="Script" path="res://script/debug_menu.gd" id="1_4evfd"]
+
+[node name="DebugMenu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 1
+script = ExtResource("1_4evfd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 137.0
+offset_bottom = 31.0
+scale = Vector2(2, 2)
+
+[node name="InvincibilityButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Makes you invincible"
+text = "Invincibility"
+
+[node name="LightButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+tooltip_text = "Toggles a light around you"
+text = "Light"
+
+[node name="CollectAllOrbs" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Collect all orbs
+"
+
+[connection signal="toggled" from="VBoxContainer/InvincibilityButton" to="." method="_on_invincibility_button_toggled"]
+[connection signal="toggled" from="VBoxContainer/LightButton" to="." method="_on_light_button_toggled"]
+[connection signal="pressed" from="VBoxContainer/CollectAllOrbs" to="." method="_on_collect_all_orbs_pressed"]

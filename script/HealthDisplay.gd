@@ -11,9 +11,6 @@ const ORB_COUNT_FADE_TIME: float = 2
 func _ready() -> void:
 	animationPlayer.play("RESET")
 
-func _process(delta: float) -> void:
-	$DebugModeDisplay.visible = LevelManager.debugMode
-
 func on_player_hurt() -> void:
 	animationPlayer.play("hurt_animation")
 

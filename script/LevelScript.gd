@@ -54,13 +54,11 @@ func _process(delta: float) -> void:
 
 func on_enemy_hit_player(enemy: Enemy) -> void:
 	player.damage(enemy.DAMAGE)
-	if player.health <= 0:
-		_on_death()
-
-func _on_death() -> void:
-	print("You're dead")
 	
 func on_all_orbs_collected() -> void:
+	map.collected_orbs = map.TOTAL_ORBS
+	for orb in map.find_child("PickupOrbs").get_children():
+		orb.queue_free()
 	player.healthDisplay.on_orbs_collected()
 	exitDoor.open()
 	if map.DAY_MUSIC != null:

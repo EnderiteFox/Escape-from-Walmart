@@ -19,13 +19,13 @@ const MAX_SLOPE_ANGLE: float = 40
 const MAX_HEALTH: int = 100
 const REGEN_TIME: float = 1.0
 const REGEN_AMOUNT: int = 1
+const MOUSE_SENSITIVITY: float = 0.15
+const RIGHT_STICK_SENSITIVITY: float = 2
 
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
 @onready var healthDisplay: HealthDisplay = $HealthDisplay
-
-var MOUSE_SENSITIVITY: float = 0.15
-const RIGHT_STICK_SENSITIVITY: float = 2
+@onready var map: Map = $"../NavigationRegion3D/Map"
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		health += REGEN_AMOUNT
 		timeSinceLastRegen = 0.0
 	health = clamp(health, 0, MAX_HEALTH)
-	$DebugLight.visible = LevelManager.debugMode
+	$DebugLight.visible = LevelManager.debugLight
 	
 func _physics_process(delta: float) -> void:
 	process_input(delta)
@@ -114,5 +114,5 @@ func damage(damageAmount: int) -> void:
 	health -= damageAmount
 	timeSinceLastRegen = 0.0
 	healthDisplay.on_player_hurt()
-	if health <= 0 and not LevelManager.debugMode:
+	if health <= 0 and not LevelManager.invincibility:
 		LevelManager.on_death()

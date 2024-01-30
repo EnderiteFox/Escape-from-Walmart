@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdgsh5gdbg01q"]
+[gd_scene load_steps=11 format=3 uid="uid://bdgsh5gdbg01q"]
 
 [ext_resource type="Texture2D" uid="uid://cl7x4kjfennsx" path="res://texture/health_bar_background.png" id="1_7hv7k"]
 [ext_resource type="Script" path="res://script/HealthDisplay.gd" id="1_uj3yb"]
@@ -10,25 +10,6 @@ font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_2fsn7"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_hm85x"]
-font_size = 32
-
-[sub_resource type="Animation" id="Animation_sj8yo"]
-resource_name = "hurt_animation"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HurtOverlay:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_qdbi4"]
 length = 0.001
@@ -71,6 +52,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 1, 0, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sj8yo"]
+resource_name = "hurt_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HurtOverlay:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_t4piv"]
@@ -131,14 +128,6 @@ offset_bottom = 45.0
 grow_horizontal = 0
 text = "Collected: 0/0"
 label_settings = SubResource("LabelSettings_2fsn7")
-
-[node name="DebugModeDisplay" type="Label" parent="."]
-visible = false
-layout_mode = 1
-offset_right = 248.0
-offset_bottom = 45.0
-text = "Debug Mode On"
-label_settings = SubResource("LabelSettings_hm85x")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
