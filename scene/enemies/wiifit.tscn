@@ -17,7 +17,7 @@ SPEED = 8
 VIEW_RANGE = 15
 DAMAGE = 30
 WALKING_ANIMATION_NAME = "Armature|mixamo_com|Layer0"
-WALKING_ANIMATION_SPEED = 0.25
+WALKING_ANIMATION_SPEED = 0.1
 
 [node name="Model" parent="." instance=ExtResource("2_kj2hl")]
 transform = Transform3D(-12.5718, 0, 1.09906e-06, 0, 12.5718, 0, -1.09906e-06, 0, -12.5718, 0, 0, 0)

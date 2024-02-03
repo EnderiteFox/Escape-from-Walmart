@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 	_see_player()
 	_move(delta)
 	if not _is_stunned() and inAttackHitbox and timeSinceSpawn > SAFE_SPAWN_TIME:
-		_stun()
+		stun(STUN_TIME)
 		level.on_enemy_hit_player(self)
 		if animationPlayer != null:
 			if animationPlayer.get_animation_list().has(ATTACK_ANIMATION_NAME):
@@ -130,10 +130,10 @@ func _move_to_point(delta: float, target: Vector3) -> void:
 func _is_stunned() -> bool:
 	return remainingStunTime > 0
 
-func _stun() -> void:
+func stun(duration: float) -> void:
 	if animationPlayer != null:
 		animationPlayer.pause()
-	remainingStunTime = STUN_TIME
+	remainingStunTime = duration
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body is Player:

@@ -23,7 +23,15 @@ var currentLevel: int = 0
 var livesCount: int = LIVES_DEFAULT_AMOUNT
 var invincibility: bool = false
 var debugLight: bool = false
+var fullscreen: bool = false
 
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("Fullscreen"):
+		fullscreen = not fullscreen
+		DisplayServer.window_set_mode(
+			DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen
+			else DisplayServer.WINDOW_MODE_MAXIMIZED
+		)
 
 func get_current_level() -> PackedScene:
 	return levels[currentLevel]
