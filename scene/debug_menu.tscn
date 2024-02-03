@@ -33,6 +33,10 @@ focus_mode = 0
 text = "Collect all orbs
 "
 
+[node name="LevelWarpMenu" type="MenuButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Change level"
+
 [connection signal="toggled" from="VBoxContainer/InvincibilityButton" to="." method="_on_invincibility_button_toggled"]
 [connection signal="toggled" from="VBoxContainer/LightButton" to="." method="_on_light_button_toggled"]
 [connection signal="pressed" from="VBoxContainer/CollectAllOrbs" to="." method="_on_collect_all_orbs_pressed"]

@@ -7,10 +7,17 @@ extends Node
 @onready var levels: Array[PackedScene] = [
 	preload("res://level/1_Basement.tscn"),
 	preload("res://level/2_Food-Shop.tscn"),
-	preload("res://level/3_Decathlon.tscn")
+	preload("res://level/3_Decathlon.tscn"),
+	preload("res://level/4_Toy-Shop.tscn")
 ]
 
 const LIVES_DEFAULT_AMOUNT: int = 2
+const LEVEL_NAMES: Array[String] = [
+	"Basement",
+	"Food Shop",
+	"Sport Shop",
+	"Toy Shop"
+]
 
 var currentLevel: int = 0
 var livesCount: int = LIVES_DEFAULT_AMOUNT

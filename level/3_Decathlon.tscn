@@ -58,7 +58,9 @@ map_z_width = 35
 ENEMIES = Array[PackedScene]([ExtResource("2_cafsf"), ExtResource("2_cafsf")])
 EXIT_DOOR_MESH = ExtResource("3_arsok")
 AMBIENCE_MUSIC = ExtResource("4_gak61")
+AMBIENCE_MUSIC_VOLUME = 0.8
 DAY_MUSIC = ExtResource("5_777qc")
+DAY_MUSIC_VOLUME = 0.8
 metadata/_edit_lock_ = true
 
 [node name="PickupOrbs" type="Node3D" parent="."]
@@ -1046,7 +1048,7 @@ mesh = SubResource("BoxMesh_gx2x2")
 shape = SubResource("BoxShape3D_0erll")
 
 [node name="WindowWall" parent="Walls" instance=ExtResource("10_t888l")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 17.3333)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, 17.3333)
 
 [node name="DisplayMannequins" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.66667)
