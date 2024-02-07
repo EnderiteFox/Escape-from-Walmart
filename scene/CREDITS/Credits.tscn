@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ca53lab0axwlu"]
+[gd_scene load_steps=12 format=3 uid="uid://ca53lab0axwlu"]
 
 [ext_resource type="PackedScene" uid="uid://cmmk31d282i46" path="res://scene/CREDITS/GodotCredits.tscn" id="1_0oedv"]
 [ext_resource type="Script" path="res://scene/CREDITS/Credits.gd" id="1_md342"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_igu3h"]
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_xg73y"]
 [ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_xyf62"]
+[ext_resource type="AudioStream" uid="uid://rw4al158w5nl" path="res://music/credit_music/HautFraise_v02.ogg" id="7_hdm6r"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
 ambient_light_source = 2
@@ -15,6 +16,33 @@ ssao_enabled = true
 ssil_enabled = true
 sdfgi_use_occlusion = true
 volumetric_fog_density = 0.1
+
+[sub_resource type="Animation" id="Animation_budo8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Map/WalkingRoomba:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.70074e-15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Map/WalkingRoomba:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0.473585, 7.70703)]
+}
 
 [sub_resource type="Animation" id="Animation_jrl1n"]
 resource_name = "walking_roomba"
@@ -43,33 +71,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0.473585, 7.70703), Vector3(20, 0.473585, 7.70703), Vector3(20, 0.473585, 7.70703), Vector3(20, 0.473585, -12.7333), Vector3(20, 0.473585, -12.7333), Vector3(0, 0.473585, -12.7333), Vector3(0, 0.473585, -12.7333), Vector3(0, 0.473585, 7.26672)]
-}
-
-[sub_resource type="Animation" id="Animation_budo8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Map/WalkingRoomba:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 3.70074e-15, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Map/WalkingRoomba:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.473585, 7.70703)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_836hy"]
@@ -107,3 +108,7 @@ environment = SubResource("Environment_d0jh2")
 libraries = {
 "": SubResource("AnimationLibrary_836hy")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hdm6r")
+autoplay = true

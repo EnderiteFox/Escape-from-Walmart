@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://blqgknc71l1vc"]
+[gd_scene load_steps=4 format=3 uid="uid://blqgknc71l1vc"]
 
 [ext_resource type="Script" path="res://script/Menu.gd" id="1_vu7oi"]
 [ext_resource type="Texture2D" uid="uid://gdso0bopub5l" path="res://image/menu_background.png" id="2_d4itf"]
+[ext_resource type="AudioStream" uid="uid://cwyx14mvftve0" path="res://music/W_theme.ogg" id="3_srgkx"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,10 @@ text = "Credits"
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_srgkx")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_pressed"]

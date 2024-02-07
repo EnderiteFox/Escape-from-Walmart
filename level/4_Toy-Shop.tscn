@@ -1,10 +1,10 @@
 [gd_scene load_steps=21 format=3 uid="uid://c36a6b5spred4"]
 
-[ext_resource type="Script" path="res://script/Map.gd" id="1_6emh3"]
+[ext_resource type="Script" path="res://script/levels/toy_shop.gd" id="1_fdm81"]
 [ext_resource type="PackedScene" uid="uid://ciagkmgi2pfge" path="res://scene/enemies/charles.tscn" id="2_avnos"]
-[ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="3_k6pco"]
-[ext_resource type="AudioStream" uid="uid://lrueydx7rbdo" path="res://music/level_musics/4-Toy_Night.ogg" id="4_ocilc"]
-[ext_resource type="AudioStream" uid="uid://dcuxo2ky7hpc7" path="res://music/level_musics/4-Toy_Day.ogg" id="5_n2xbe"]
+[ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/props/wooden_door/wooden_door.tscn" id="3_dx4f8"]
+[ext_resource type="AudioStream" uid="uid://lrueydx7rbdo" path="res://music/level_musics/4-Toy_Night.ogg" id="4_akyix"]
+[ext_resource type="AudioStream" uid="uid://dcuxo2ky7hpc7" path="res://music/level_musics/4-Toy_Day.ogg" id="5_0qosp"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="6_ywfvt"]
 [ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="7_88mj7"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="8_2or28"]
@@ -46,13 +46,13 @@ size = Vector3(15, 1, 3)
 
 [node name="Map" type="Node3D"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-script = ExtResource("1_6emh3")
+script = ExtResource("1_fdm81")
 map_x_width = 37
 map_z_width = 35
 ENEMIES = Array[PackedScene]([ExtResource("2_avnos")])
-EXIT_DOOR_MESH = ExtResource("3_k6pco")
-AMBIENCE_MUSIC = ExtResource("4_ocilc")
-DAY_MUSIC = ExtResource("5_n2xbe")
+EXIT_DOOR_MESH = ExtResource("3_dx4f8")
+AMBIENCE_MUSIC = ExtResource("4_akyix")
+DAY_MUSIC = ExtResource("5_0qosp")
 metadata/_edit_lock_ = true
 
 [node name="PickupOrbs" type="Node3D" parent="."]
