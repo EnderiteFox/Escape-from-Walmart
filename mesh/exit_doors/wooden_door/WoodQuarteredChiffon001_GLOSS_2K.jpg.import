@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlq8ladehxd8i"
-path.s3tc="res://.godot/imported/WoodQuarteredChiffon001_GLOSS_2K.jpg-e0a4bc5f76f0abd2fc86942ec8a48ba0.s3tc.ctex"
+path.s3tc="res://.godot/imported/WoodQuarteredChiffon001_GLOSS_2K.jpg-5aaddf4059445d328683f2a21f70d5d0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://mesh/props/wooden_door/WoodQuarteredChiffon001_GLOSS_2K.jpg"
-dest_files=["res://.godot/imported/WoodQuarteredChiffon001_GLOSS_2K.jpg-e0a4bc5f76f0abd2fc86942ec8a48ba0.s3tc.ctex"]
+source_file="res://mesh/exit_doors/wooden_door/WoodQuarteredChiffon001_GLOSS_2K.jpg"
+dest_files=["res://.godot/imported/WoodQuarteredChiffon001_GLOSS_2K.jpg-5aaddf4059445d328683f2a21f70d5d0.s3tc.ctex"]
 
 [params]
 

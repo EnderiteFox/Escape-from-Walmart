@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bdgsh5gdbg01q"]
 
 [ext_resource type="Texture2D" uid="uid://cl7x4kjfennsx" path="res://texture/health_bar_background.png" id="1_7hv7k"]
-[ext_resource type="Script" path="res://script/HealthDisplay.gd" id="1_uj3yb"]
+[ext_resource type="Script" path="res://script/player/HealthDisplay.gd" id="1_uj3yb"]
 [ext_resource type="Texture2D" uid="uid://3wniu0a7e0fu" path="res://texture/health_bar_front.png" id="2_xh8wg"]
 [ext_resource type="Texture2D" uid="uid://cqf0px0fkc0hj" path="res://texture/hurt_overlay.png" id="3_ns282"]
 

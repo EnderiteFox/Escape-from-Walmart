@@ -30,7 +30,7 @@ const HEAD_BOBBLE_INTENSITY: float = 0.1
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
 @onready var healthDisplay: HealthDisplay = $HealthDisplay
-@onready var map: Map = $"../NavigationRegion3D/Map"
+@onready var map: Node3D = $/root/Level/NavRegion/Map
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

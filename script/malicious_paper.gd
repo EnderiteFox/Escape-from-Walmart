@@ -6,10 +6,9 @@ extends Node
 @onready var TurnBackNotifier: VisibleOnScreenNotifier3D = $TurnBackNotifier
 @onready var SoundEffect: AudioStreamPlayer3D = $Laitier/SoundEffect
 @onready var Laitier: Enemy = $Laitier
-@onready var MusicPlayer: AudioStreamPlayer = $/root/LevelTemplate/AudioStreamPlayer
+@onready var MusicPlayer: AudioStreamPlayer = $/root/Level/AudioStreamPlayer
+@onready var player: Player = $/root/Level/Player
 
-
-var player: Player
 var isPlayerInside := false
 var isPlayerWatchingPaper := false
 
@@ -25,7 +24,7 @@ func _ready() -> void:
 	PaperFront.body_exited.connect(
 		func(body) : if body is Player: isPlayerInside = false
 	)
-	(func() : player = $"/root/LevelTemplate/Player").call_deferred()
+	(func() : player = $"/root/Level/Player").call_deferred()
 	WatchTimer.start()
 	WatchTimer.set_paused(true)
 	WatchTimer.timeout.connect(_on_watch_timer_timeout)
@@ -70,5 +69,5 @@ func _on_turn_back_trigger() -> void:
 	SoundEffect.play()
 	var pos: Vector3 = Laitier.global_position
 	self.remove_child(Laitier)
-	$"/root/LevelTemplate/EnemyContainer".add_child(Laitier)
+	$"/root/Level/EnemyContainer".add_child(Laitier)
 	Laitier.global_position = pos

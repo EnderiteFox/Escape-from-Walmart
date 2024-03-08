@@ -1,7 +1,6 @@
 extends Control
 
 
-@onready var level = preload("res://scene/level_template.tscn")
 @onready var credits = preload("res://scene/CREDITS/Credits.tscn")
 
 func _ready() -> void:
@@ -12,7 +11,7 @@ func _process(_delta: float) -> void:
 		get_tree().quit()
 
 func _on_play_pressed():
-	get_tree().change_scene_to_packed(level)
+	get_tree().change_scene_to_packed(LevelManager.get_current_level())
 	
 func _on_credits_pressed():
 	get_tree().change_scene_to_packed(credits)

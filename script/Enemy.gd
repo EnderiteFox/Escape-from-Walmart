@@ -17,13 +17,13 @@ class_name Enemy
 @export var ATTACK_ANIMATION_SPEED: float = 1.0
 
 
-@onready var NavRegion: NavigationRegion3D = $"/root/LevelTemplate/NavigationRegion3D"
+@onready var NavRegion: NavigationRegion3D = $/root/Level/NavRegion
 @onready var ViewRayCast: RayCast3D = $View/RayCast3D
 @onready var NavAgent: NavigationAgent3D = $NavigationAgent3D
-@onready var player: Player
-@onready var PlayerEyes: Node3D
-@onready var map: Map = $"/root/LevelTemplate/NavigationRegion3D/Map"
-@onready var level: Level = $"/root/LevelTemplate"
+@onready var player: Player = $/root/Level/Player
+@onready var PlayerEyes: Node3D = $/root/Level/Player/Pivot
+@onready var map: Node3D = $"/root/Level/NavRegion/Map"
+@onready var level: Level = $"/root/Level"
 @onready var animationPlayer: AnimationPlayer = get_node_or_null("Model/AnimationPlayer")
 
 
@@ -49,12 +49,7 @@ func _ready() -> void:
 		if animation != null:
 			animation.loop_mode = Animation.LOOP_LINEAR
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
-	(func():
-		player = $/root/LevelTemplate/Player
-		PlayerEyes = player.find_child("Pivot")
-		lastPlayerPos = player.global_position
-	).call_deferred()
-	lastPlayerPos = Vector3()
+	lastPlayerPos = player.global_position
 
 func _process(delta: float) -> void:
 	timeSinceSpawn += delta
@@ -73,8 +68,7 @@ func _process(delta: float) -> void:
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
 
 func _move(delta: float) -> void:
-	if _is_stunned():
-		return
+	if _is_stunned(): return
 	if chasePlayer:
 		_chase_player(delta)
 	else:
@@ -87,8 +81,8 @@ func _chase_player(delta: float) -> void:
 	_move_to_point(delta, lastPlayerPos)
 
 func _get_random_map_point() -> Vector3:
-	var x_coord: float = randf_range(-map.map_x_width / 2.0, map.map_x_width / 2.0)
-	var z_coord: float = randf_range(-map.map_z_width / 2.0, map.map_z_width / 2.0)
+	var x_coord: float = randf_range(-level.map_x_width / 2.0, level.map_x_width / 2.0)
+	var z_coord: float = randf_range(-level.map_z_width / 2.0, level.map_z_width / 2.0)
 	return NavigationServer3D \
 		.map_get_closest_point(NavRegion.get_navigation_map(), Vector3(x_coord, 0, z_coord))
 
@@ -129,7 +123,8 @@ func _move_to_point(delta: float, target: Vector3) -> void:
 	directionVector.y = 0
 	directionVector = directionVector.normalized()
 	directionVector *= delta * SPEED
-	self.look_at(self.global_position + directionVector)
+	if (self.global_position + directionVector != self.global_position):
+		self.look_at(self.global_position + directionVector)
 	self.global_position += directionVector
 
 func _is_stunned() -> bool:

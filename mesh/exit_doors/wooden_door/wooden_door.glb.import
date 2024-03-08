@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://bcfg2rbost4uo"
-path="res://.godot/imported/wooden_door.glb-552157e4ef3cc689e032730fe73cba79.scn"
+path="res://.godot/imported/wooden_door.glb-bd24c0c49b74ca7e3271c40d1e0e2c11.scn"
 
 [deps]
 
-source_file="res://mesh/props/wooden_door/wooden_door.glb"
-dest_files=["res://.godot/imported/wooden_door.glb-552157e4ef3cc689e032730fe73cba79.scn"]
+source_file="res://mesh/exit_doors/wooden_door/wooden_door.glb"
+dest_files=["res://.godot/imported/wooden_door.glb-bd24c0c49b74ca7e3271c40d1e0e2c11.scn"]
 
 [params]
 

@@ -1,8 +1,9 @@
 extends Control
 
-@onready var player: Player = $".."
+@onready var player: Player = $"/root/Level/Player"
 @onready var collectOrbsButton = $VBoxContainer/CollectAllOrbs
 @onready var levelWarpMenu = $VBoxContainer/LevelWarpMenu
+@onready var level: Level = $/root/Level
 
 func _ready() -> void:
 	var warpMenuPopup: PopupMenu = levelWarpMenu.get_popup()
@@ -30,9 +31,9 @@ func _on_light_button_toggled(toggled_on: bool) -> void:
 
 
 func _on_collect_all_orbs_pressed() -> void:
-	player.map.all_orbs_collected.emit()
+	level.on_all_orbs_collected()
 	collectOrbsButton.disabled = true
 	
 func _on_level_select_button_pressed(index: int) -> void:
 	LevelManager.currentLevel = index
-	get_tree().change_scene_to_packed(LevelManager.levelLoader)
+	get_tree().change_scene_to_packed(LevelManager.get_current_level())

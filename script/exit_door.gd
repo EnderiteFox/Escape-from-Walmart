@@ -9,7 +9,7 @@ var is_opened: bool = false
 var is_player_in_area = false
 
 func _ready() -> void:
-	change_door_mesh(preload("res://mesh/props/wooden_door/wooden_door.tscn"))
+	change_door_mesh(preload("res://mesh/exit_doors/wooden_door/wooden_door.tscn"))
 
 func change_door_mesh(doorMesh: PackedScene) -> void:
 	if doorMesh == null:

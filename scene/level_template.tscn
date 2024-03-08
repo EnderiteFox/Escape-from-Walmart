@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7k5fybfdeq18"]
+[gd_scene load_steps=5 format=3 uid="uid://c7k5fybfdeq18"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_wsonj"]
-[ext_resource type="Script" path="res://script/EnemyContainer.gd" id="3_6iiux"]
 [ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="4_boqfy"]
 
 [sub_resource type="Environment" id="Environment_scepk"]
@@ -34,7 +33,6 @@ environment = SubResource("Environment_scepk")
 navigation_mesh = SubResource("NavigationMesh_tkfbf")
 
 [node name="EnemyContainer" type="Node3D" parent="."]
-script = ExtResource("3_6iiux")
 metadata/_edit_lock_ = true
 
 [node name="ExitDoor" parent="." instance=ExtResource("4_boqfy")]

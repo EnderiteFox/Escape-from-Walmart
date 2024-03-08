@@ -1,0 +1,1619 @@
+[gd_scene load_steps=28 format=3 uid="uid://dldo0b0atqtln"]
+
+[ext_resource type="Script" path="res://script/LevelScript.gd" id="1_ubqgm"]
+[ext_resource type="AudioStream" uid="uid://c23wdkvkuivoc" path="res://music/level_musics/2-Food_Shop_Night.ogg" id="2_wq58j"]
+[ext_resource type="AudioStream" uid="uid://m5op13c2mtnv" path="res://music/level_musics/2-Food_Shop_Day.ogg" id="3_0os8w"]
+[ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="3_gpmtm"]
+[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="4_ktfe5"]
+[ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="5_nl1uh"]
+[ext_resource type="PackedScene" uid="uid://cedv5y1e0ydo2" path="res://mesh/props/crate/crate_box.glb" id="6_d57mf"]
+[ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="7_pdm54"]
+[ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="8_5rft3"]
+[ext_resource type="Texture2D" uid="uid://c4x7fcjaw67ox" path="res://image/ad/image3.png" id="9_a723c"]
+[ext_resource type="Texture2D" uid="uid://dffui8arflekl" path="res://image/ad/image4.png" id="10_sry7t"]
+[ext_resource type="PackedScene" uid="uid://cmcre55xe0735" path="res://scene/enemies/shrek.tscn" id="11_3m4u4"]
+[ext_resource type="PackedScene" uid="uid://dnshohnhcbeyy" path="res://scene/enemies/roomba.tscn" id="12_obtgc"]
+[ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="13_n0fmv"]
+[ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/exit_doors/wooden_door/wooden_door.tscn" id="14_oa5g5"]
+[ext_resource type="PackedScene" uid="uid://b1nxn8tsdd7h5" path="res://scene/player/Player.tscn" id="15_npwml"]
+
+[sub_resource type="Environment" id="Environment_scepk"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.03
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_use_occlusion = true
+volumetric_fog_density = 0.1
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_tkfbf"]
+geometry_parsed_geometry_type = 1
+cell_size = 0.15
+cell_height = 0.15
+agent_height = 3.0
+agent_radius = 0.9
+agent_max_climb = 0.15
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kqbv3"]
+size = Vector3(37, 1, 35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wpadx"]
+material = ExtResource("4_ktfe5")
+size = Vector3(37, 1, 35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tn802"]
+size = Vector3(1.36382, 0.463837, 1.37848)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_krwri"]
+size = Vector3(0.909607, 0.457031, 0.911621)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dg6pl"]
+material = ExtResource("5_nl1uh")
+size = Vector3(37, 7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3rw2s"]
+size = Vector3(37, 7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsj6a"]
+size = Vector3(0.924622, 1.82935, 11.4258)
+
+[sub_resource type="BoxMesh" id="BoxMesh_br4xg"]
+material = ExtResource("5_nl1uh")
+size = Vector3(1, 7, 36)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbhth"]
+size = Vector3(1, 7, 36)
+
+[node name="Level" type="Node3D"]
+script = ExtResource("1_ubqgm")
+map_x_width = 56
+map_z_width = 53
+AMBIENCE_MUSIC = ExtResource("2_wq58j")
+DAY_MUSIC = ExtResource("3_0os8w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_scepk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="NavRegion" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_tkfbf")
+
+[node name="Map" type="Node3D" parent="NavRegion"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="PickupOrbs" type="Node3D" parent="NavRegion/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.884275, 0)
+
+[node name="PickupOrb181" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, -11.3772)
+
+[node name="PickupOrb182" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, -11.3772)
+
+[node name="PickupOrb183" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, -10.1763)
+
+[node name="PickupOrb184" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, -10.1763)
+
+[node name="PickupOrb185" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, -11.3772)
+
+[node name="PickupOrb186" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, -11.3772)
+
+[node name="PickupOrb213" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb214" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb215" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb216" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb217" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb218" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb219" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb220" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb221" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb222" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb223" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb224" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb225" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb226" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb227" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb228" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb229" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb230" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb231" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb232" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb233" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb234" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb235" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb236" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb237" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb238" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb239" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb240" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb241" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb242" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb243" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb244" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb245" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb246" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb247" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb248" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb249" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb250" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb251" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb252" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb253" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb254" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb255" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb256" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb257" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb258" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb259" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb260" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb261" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb262" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb263" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb264" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb265" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb266" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0535, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb267" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb268" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb269" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb270" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb271" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb272" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0784, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb273" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb274" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb275" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb276" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb277" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb278" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.0549, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb279" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb280" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb281" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb282" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb283" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb284" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0798, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb285" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb286" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb287" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb288" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb289" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb290" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.0399, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb291" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb292" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb293" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb294" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb295" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.06481, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb296" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb297" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb298" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb299" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb300" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb301" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.04804, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb302" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb303" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb304" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb305" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb306" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb307" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.07294, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb308" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb309" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb310" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb311" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb312" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb313" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb314" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb315" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb316" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb317" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb318" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb319" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb320" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb321" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb322" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb323" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb324" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb325" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb326" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb327" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb328" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb329" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb330" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb331" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb332" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb333" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb334" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb335" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb336" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb337" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb338" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb339" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb340" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb341" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb342" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb343" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb344" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb345" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb346" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb347" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb348" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb349" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb350" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -13.5246)
+
+[node name="PickupOrb351" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -11.0931)
+
+[node name="PickupOrb352" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -9.68745)
+
+[node name="PickupOrb353" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -7.25591)
+
+[node name="PickupOrb354" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -5.73452)
+
+[node name="PickupOrb355" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, -3.30297)
+
+[node name="PickupOrb356" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb357" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb358" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb359" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb360" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb361" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.96464, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb362" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb363" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb364" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb365" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb366" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb367" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.93974, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb368" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb369" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb370" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb371" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb372" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb373" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.96322, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb374" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb375" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb376" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb377" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb378" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb379" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.93833, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb380" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb381" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb382" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb383" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb384" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb385" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.9782, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb386" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb387" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb388" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb389" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb390" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.9533, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb391" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb392" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb393" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb394" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb395" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb396" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9701, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb397" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 3.4182)
+
+[node name="PickupOrb398" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 5.84974)
+
+[node name="PickupOrb399" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 7.25535)
+
+[node name="PickupOrb400" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 9.68689)
+
+[node name="PickupOrb401" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 11.2083)
+
+[node name="PickupOrb402" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.9452, -8.34465e-07, 13.6398)
+
+[node name="PickupOrb187" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, -10.1763)
+
+[node name="PickupOrb188" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, -10.1763)
+
+[node name="PickupOrb189" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, -7.04915)
+
+[node name="PickupOrb190" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, -7.04915)
+
+[node name="PickupOrb191" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, -5.8482)
+
+[node name="PickupOrb192" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, -5.8482)
+
+[node name="PickupOrb193" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, -7.04915)
+
+[node name="PickupOrb194" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, -7.04915)
+
+[node name="PickupOrb195" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, -5.8482)
+
+[node name="PickupOrb196" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, -5.8482)
+
+[node name="PickupOrb197" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, 5.59368)
+
+[node name="PickupOrb198" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, 5.59368)
+
+[node name="PickupOrb199" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, 6.79463)
+
+[node name="PickupOrb200" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, 6.79463)
+
+[node name="PickupOrb201" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, 5.59368)
+
+[node name="PickupOrb202" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, 5.59368)
+
+[node name="PickupOrb203" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, 6.79463)
+
+[node name="PickupOrb204" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, 6.79463)
+
+[node name="PickupOrb205" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, 9.92177)
+
+[node name="PickupOrb206" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, 9.92177)
+
+[node name="PickupOrb207" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.64001, -5.96046e-07, 11.1227)
+
+[node name="PickupOrb208" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.39406, -5.96046e-07, 11.1227)
+
+[node name="PickupOrb209" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, 9.92177)
+
+[node name="PickupOrb210" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, 9.92177)
+
+[node name="PickupOrb211" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6877, -5.96046e-07, 11.1227)
+
+[node name="PickupOrb212" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("3_gpmtm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.93365, -5.96046e-07, 11.1227)
+
+[node name="Floor" type="StaticBody3D" parent="NavRegion/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Floor"]
+shape = SubResource("BoxShape3D_kqbv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Map/Floor"]
+mesh = SubResource("BoxMesh_wpadx")
+metadata/_edit_lock_ = true
+
+[node name="Ceiling" type="StaticBody3D" parent="NavRegion/Map"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Ceiling"]
+shape = SubResource("BoxShape3D_kqbv3")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Map/Ceiling"]
+material_override = ExtResource("5_nl1uh")
+mesh = SubResource("BoxMesh_wpadx")
+
+[node name="Crates" type="Node3D" parent="NavRegion/Map"]
+transform = Transform3D(1.08329, 0, 0, 0, 1.08329, 0, 0, 0, 1.08329, 2.053, 0, 4.00362)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CrateGroup" type="Node3D" parent="NavRegion/Map/Crates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 4.06245)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CratePile" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24473, 0, 2.21021)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile2" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24473, 0, -1.78979)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile3" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75527, 0, 2.21021)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile4" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75527, 0, -1.78979)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup/CratePile4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CrateGroup2" type="Node3D" parent="NavRegion/Map/Crates"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11.6278)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CratePile" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24473, 0, 2.21021)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup2/CratePile" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile2" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24473, 0, -1.78979)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile3" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75527, 0, 2.21021)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="CratePile4" type="StaticBody3D" parent="NavRegion/Map/Crates/CrateGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75527, 0, -1.78979)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, 0.216174)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, -0.211568, 0, -0.241842)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0.00761433, 0, -0.00761433, -3.32833e-10, 0, 0, 0, 0.00761433, 0.00541927, 0.229768, 0.210176)
+
+[node name="Sketchfab_Scene4" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene5" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.241842)
+
+[node name="Sketchfab_Scene6" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, -0.230641, 0, -0.702)
+
+[node name="Sketchfab_Scene8" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, 0.216174)
+
+[node name="Sketchfab_Scene9" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-3.32833e-10, 0, -0.00761433, 0, 0.00761433, 0, 0.00761433, 0, -3.32833e-10, 0.698264, 0, -0.241842)
+
+[node name="Sketchfab_Scene10" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.679191, 0, -0.702)
+
+[node name="Sketchfab_Scene7" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(0.00761432, 0, 0, 0, 0.00761432, 0, 0, 0, 0.00761432, 0.225908, 0, -0.702)
+
+[node name="Sketchfab_Scene11" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.456993, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene12" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(3.32833e-10, -0.00761433, 6.65666e-10, -0.00761433, -3.32833e-10, 0, 2.90972e-17, -6.65666e-10, -0.00761433, 0.702829, 0.694882, 0.0266961)
+
+[node name="Sketchfab_Scene13" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(9.98498e-10, 0, 0.00761433, 0, 0.00761433, 0, -0.00761433, 0, 9.98498e-10, 0.00210828, 0.465114, -0.435153)
+
+[node name="Sketchfab_Scene14" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4" instance=ExtResource("6_d57mf")]
+transform = Transform3D(-0.00761433, 0, 6.65665e-10, 0, 0.00761433, 0, -6.65665e-10, 0, -0.00761433, 0.019517, 0.465114, 0.0250059)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.227318, 0.229874, -0.230988)
+shape = SubResource("BoxShape3D_tn802")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavRegion/Map/Crates/CrateGroup2/CratePile4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246246, 0.6932, -0.213135)
+shape = SubResource("BoxShape3D_krwri")
+
+[node name="Walls" type="Node3D" parent="NavRegion/Map"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Wall2" type="StaticBody3D" parent="NavRegion/Map/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -18)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Map/Walls/Wall2"]
+mesh = SubResource("BoxMesh_dg6pl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Wall2"]
+shape = SubResource("BoxShape3D_3rw2s")
+
+[node name="Shelves" type="Node3D" parent="NavRegion/Map/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.053, 0, 4.00362)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ShelfGroup" type="Node3D" parent="NavRegion/Map/Walls/Shelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5354, -9.53674e-07, -16.3778)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ShelfRow" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow2" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow3" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow4" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup/ShelfRow4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfGroup2" type="Node3D" parent="NavRegion/Map/Walls/Shelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.5354, -9.53674e-07, 0.62215)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ShelfRow" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow2" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow3" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow4" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup2/ShelfRow4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfGroup3" type="Node3D" parent="NavRegion/Map/Walls/Shelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46462, -9.53674e-07, -16.3778)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ShelfRow" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow2" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow3" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow4" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup3/ShelfRow4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfGroup4" type="Node3D" parent="NavRegion/Map/Walls/Shelves"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.46462, -9.53674e-07, 0.62215)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ShelfRow" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow2" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow2" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow3" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow3" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="ShelfRow4" type="StaticBody3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0)
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sketchfab_Scene" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 0.0345707)
+
+[node name="Sketchfab_Scene2" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 3.89019)
+
+[node name="Sketchfab_Scene3" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow4" instance=ExtResource("7_pdm54")]
+transform = Transform3D(0.901136, 0, 0, 0, 0.901136, 0, 0, 0, 0.901136, -1.06533, 0, 7.75716)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Shelves/ShelfGroup4/ShelfRow4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07675, 0.892212, 3.89636)
+shape = SubResource("BoxShape3D_gsj6a")
+
+[node name="Wall3" type="StaticBody3D" parent="NavRegion/Map/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 3, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Map/Walls/Wall3"]
+mesh = SubResource("BoxMesh_br4xg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Wall3"]
+shape = SubResource("BoxShape3D_vbhth")
+
+[node name="Wall4" type="StaticBody3D" parent="NavRegion/Map/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 3, 0)
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavRegion/Map/Walls/Wall4"]
+mesh = SubResource("BoxMesh_br4xg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Walls/Wall4"]
+shape = SubResource("BoxShape3D_vbhth")
+
+[node name="WindowWall" parent="NavRegion/Map/Walls" instance=ExtResource("8_5rft3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 2, 17.3333)
+
+[node name="Posters" type="Node3D" parent="NavRegion/Map"]
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="NavRegion/Map/Posters"]
+transform = Transform3D(0.993191, -0.116497, 0, 0.116497, 0.993191, 0, 0, 0, 1, 0, 2.1219, -17.4716)
+shaded = true
+texture = ExtResource("9_a723c")
+
+[node name="Sprite3D2" type="Sprite3D" parent="NavRegion/Map/Posters"]
+transform = Transform3D(-0.0491287, 8.93722e-11, 0.998793, -0.0376795, 0.999288, -0.00185338, -0.998082, -0.0377251, -0.0490937, -18.438, 2.10856, 0)
+shaded = true
+texture = ExtResource("10_sry7t")
+
+[node name="Lights" type="Node3D" parent="NavRegion/Map"]
+visible = false
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavRegion/Map/Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.33333, 0)
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 30.0
+
+[node name="EnemyContainer" type="Node3D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Shrek" parent="EnemyContainer" instance=ExtResource("11_3m4u4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="Roomba" parent="EnemyContainer" instance=ExtResource("12_obtgc")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 24.6265, 0, -24)
+
+[node name="ExitDoor" parent="." instance=ExtResource("13_n0fmv")]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 24.5036, 0, -26.238)
+DoorMesh = ExtResource("14_oa5g5")
+
+[node name="Player" parent="." instance=ExtResource("15_npwml")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -26, 0.831107, -24)

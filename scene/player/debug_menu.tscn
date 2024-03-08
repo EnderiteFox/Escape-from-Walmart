@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c86cb2eli7c8h"]
 
-[ext_resource type="Script" path="res://script/debug_menu.gd" id="1_4evfd"]
+[ext_resource type="Script" path="res://script/player/debug_menu.gd" id="1_4evfd"]
 
 [node name="DebugMenu" type="Control"]
 visible = false
