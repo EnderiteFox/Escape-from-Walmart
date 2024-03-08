@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq8ok4slwaui2"]
+
+[ext_resource type="Texture2D" uid="uid://cmq0f3l51qxvc" path="res://mesh/props/malicious_paper/malicious_paper.png" id="1_i5m54"]
+
+[node name="MaliciousPaper" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0541059, -2.06759e-16, -4.73009e-09, -4.73009e-09, 2.36504e-09, 0.0541059, 0, 0.0541059, -2.36504e-09, 0, 0, 0)
+shaded = true
+texture = ExtResource("1_i5m54")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://by8k17s7bjed7"]
+
+[ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="1_apbxp"]
+[ext_resource type="Texture2D" uid="uid://dvclbkqdvlkyt" path="res://mesh/props/shelf/shelf_0.jpg" id="2_mb7bf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lpcr5"]
+albedo_texture = ExtResource("2_mb7bf")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lsg3x"]
+material = SubResource("StandardMaterial3D_lpcr5")
+size = Vector3(25.015, 61.64, 0.325)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_apbxp")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.0258, 31.5324, -13.0852)
+mesh = SubResource("BoxMesh_lsg3x")

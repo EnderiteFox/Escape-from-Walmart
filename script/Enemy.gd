@@ -17,13 +17,13 @@ class_name Enemy
 @export var ATTACK_ANIMATION_SPEED: float = 1.0
 
 
-@onready var NavRegion: NavigationRegion3D = $"../../NavigationRegion3D"
+@onready var NavRegion: NavigationRegion3D = $"/root/LevelTemplate/NavigationRegion3D"
 @onready var ViewRayCast: RayCast3D = $View/RayCast3D
 @onready var NavAgent: NavigationAgent3D = $NavigationAgent3D
-@onready var player: Player = $"../../Player"
-@onready var PlayerEyes: Node3D = $"../../Player/Pivot"
-@onready var map: Map = $"../../NavigationRegion3D/Map"
-@onready var level: Level = $"../.."
+@onready var player: Player
+@onready var PlayerEyes: Node3D
+@onready var map: Map = $"/root/LevelTemplate/NavigationRegion3D/Map"
+@onready var level: Level = $"/root/LevelTemplate"
 @onready var animationPlayer: AnimationPlayer = get_node_or_null("Model/AnimationPlayer")
 
 
@@ -49,7 +49,12 @@ func _ready() -> void:
 		if animation != null:
 			animation.loop_mode = Animation.LOOP_LINEAR
 		animationPlayer.play(WALKING_ANIMATION_NAME, -1, SPEED * WALKING_ANIMATION_SPEED)
-	lastPlayerPos = player.global_position
+	(func():
+		player = $/root/LevelTemplate/Player
+		PlayerEyes = player.find_child("Pivot")
+		lastPlayerPos = player.global_position
+	).call_deferred()
+	lastPlayerPos = Vector3()
 
 func _process(delta: float) -> void:
 	timeSinceSpawn += delta

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cilswg7ii3bpt"]
 
-[ext_resource type="Script" path="res://script/Enemy.gd" id="1_nb5ci"]
+[ext_resource type="Script" path="res://script/enemies/crying_angel.gd" id="1_u3bly"]
 [ext_resource type="PackedScene" uid="uid://e4m41tdptbn" path="res://mesh/enemies/mannequin/Manequin.glb" id="2_jam0u"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bigy7"]
@@ -12,10 +12,17 @@ height = 3.0
 radius = 1.75
 
 [node name="EnemyTemplate" type="StaticBody3D"]
-script = ExtResource("1_nb5ci")
-SPEED = 5
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_u3bly")
+VISIBLE_UNSTUN_TIME = 0.15
+SPEED = 17
 WALKING_ANIMATION_NAME = "Armature|mixamo_com|Layer0"
-WALKING_ANIMATION_SPEED = 0.3
+WALKING_ANIMATION_SPEED = 0.25
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 1.42109e-14, 0, 1, 0, -1.42109e-14, 0, 1, 0, 1.55094, 0)
+aabb = AABB(-0.940152, -1.60625, -0.738207, 1.8803, 3.21251, 1.47641)
 
 [node name="Model" parent="." instance=ExtResource("2_jam0u")]
 transform = Transform3D(-0.0775991, 0, 6.78392e-09, 0, 0.0775991, 0, -6.78392e-09, 0, -0.0775991, 0, 0.0105519, 0)
@@ -32,6 +39,7 @@ shape = SubResource("CylinderShape3D_tekm7")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 target_desired_distance = 0.1
+radius = 1.0
 
 [node name="View" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)

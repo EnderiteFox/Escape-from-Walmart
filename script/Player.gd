@@ -13,6 +13,8 @@ var is_sprinting: bool = false
 var dir: Vector3 = Vector3()
 var health: int = MAX_HEALTH
 var timeSinceLastRegen: float = 0.0
+var targetRotation: Vector2
+var previousBobbleX: float = 0.0
 
 const DEACCEL: float = 16
 const MAX_SLOPE_ANGLE: float = 40
@@ -21,6 +23,9 @@ const REGEN_TIME: float = 1.0
 const REGEN_AMOUNT: int = 1
 const MOUSE_SENSITIVITY: float = 0.15
 const RIGHT_STICK_SENSITIVITY: float = 2
+const ROTATION_SMOOTHING: float = 0.75
+const HEAD_BOBBLE_SPEED: float = 0.03
+const HEAD_BOBBLE_INTENSITY: float = 0.1
 
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
@@ -29,6 +34,7 @@ const RIGHT_STICK_SENSITIVITY: float = 2
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	targetRotation = Vector2(Pivot.rotation.x, self.rotation.y)
 
 func _process(delta: float) -> void:
 	$HealthDisplay/HBoxContainer/Label.text = "PV: " + str(health) + "/" + str(MAX_HEALTH)
@@ -60,10 +66,21 @@ func process_input(_delta: float) -> void:
 	
 	var camera_movement_vector: Vector2 = Input.get_vector( \
 		"Camera_Right", "Camera_Left", "Camera_Down", "Camera_Up")
-	Pivot.rotate_x(deg_to_rad(camera_movement_vector.y * RIGHT_STICK_SENSITIVITY))
-	Pivot.rotation.x = -PI/2 + 0.05 if Pivot.rotation.x < -PI/2 + 0.05 else Pivot.rotation.x
-	Pivot.rotation.x = PI/2 - 0.05 if Pivot.rotation.x > PI/2 - 0.05 else Pivot.rotation.x
-	self.rotate_y(deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY))
+	targetRotation.x += deg_to_rad(camera_movement_vector.y * RIGHT_STICK_SENSITIVITY)
+	targetRotation.x = -PI/2 + 0.05 if targetRotation.x < -PI/2 + 0.05 else targetRotation.x
+	targetRotation.x = PI/2 - 0.05 if targetRotation.x > PI/2 - 0.05 else targetRotation.x
+	targetRotation.y += deg_to_rad(camera_movement_vector.x * RIGHT_STICK_SENSITIVITY)
+	
+	Pivot.rotation.x += (targetRotation.x - Pivot.rotation.x) * (1 - ROTATION_SMOOTHING)
+	if targetRotation.y > 2*PI: targetRotation.y -= 2*PI
+	if targetRotation.y < 0: targetRotation.y += 2*PI
+	if self.rotation.y > 2*PI: self.rotation.y -= 2*PI
+	if self.rotation.y < 0: self.rotation.y += 2*PI
+	
+	var rotationYDelta = targetRotation.y - self.rotation.y
+	if abs(rotationYDelta) > PI: rotationYDelta += -2*PI if rotationYDelta > 0 else 2*PI
+	self.rotation.y += rotationYDelta * ((1 - ROTATION_SMOOTHING) if abs(rotationYDelta) < PI/2 else 1-0.7)
+	
 	
 	# Sprinting
 	is_sprinting = Input.is_action_pressed("Sprint")
@@ -90,18 +107,22 @@ func process_movement(delta) -> void:
 	hvel = hvel.lerp(target, accel * delta)
 	velocity.x = hvel.x
 	velocity.z = hvel.z
+	
+	var speed = velocity.length() if velocity.length() > 1 else 0.0
+	Pivot.position.y += (sin(previousBobbleX + speed * HEAD_BOBBLE_SPEED) \
+		- sin(previousBobbleX)) * HEAD_BOBBLE_INTENSITY
+	previousBobbleX += speed * HEAD_BOBBLE_SPEED
+	
 	floor_max_angle = deg_to_rad(MAX_SLOPE_ANGLE)
 	floor_snap_length = 0.05
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		Pivot.rotate_x(-deg_to_rad(event.relative.y * MOUSE_SENSITIVITY))
-		self.rotate_y(-deg_to_rad(event.relative.x * MOUSE_SENSITIVITY))
+		targetRotation.x += -deg_to_rad(event.relative.y * MOUSE_SENSITIVITY)
+		targetRotation.y += -deg_to_rad(event.relative.x * MOUSE_SENSITIVITY)
 		
-		var camera_rot: Vector3 = Pivot.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -89, 89)
-		Pivot.rotation_degrees = camera_rot
+		targetRotation.x = clamp(targetRotation.x, -89, 89)
 
 func damage(damageAmount: int) -> void:
 	health -= damageAmount
