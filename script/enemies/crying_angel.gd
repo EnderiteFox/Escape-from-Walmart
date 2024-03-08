@@ -47,9 +47,7 @@ func become_not_visible() -> void:
 	can_move = true
 
 func _is_visible() -> bool:
-	if visibleNotifier == null:
-		return true
-	return is_on_screen
+	return true if visibleNotifier == null else is_on_screen
 
 func _is_stunned() -> bool:
 	return super._is_stunned() or visibleNotifier == null or not can_move

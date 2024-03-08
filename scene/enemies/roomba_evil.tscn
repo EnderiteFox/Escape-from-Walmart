@@ -13,6 +13,7 @@ SPEED = 8
 VIEW_RANGE = 10
 DAMAGE = 30
 FOV = 360.0
+ALL_SEEING = true
 
 [node name="Model" parent="." instance=ExtResource("2_21pco")]
 transform = Transform3D(-1.48905e-09, 0, 0.0340654, 0, 0.0340654, 0, -0.0340654, 0, -1.48905e-09, 0, 0, 0)

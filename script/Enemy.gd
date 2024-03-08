@@ -8,6 +8,7 @@ class_name Enemy
 @export var VIEW_RANGE: int = 20
 @export var DAMAGE: int = 20
 @export var FOV: float = 60
+@export var ALL_SEEING: bool = false
 
 
 @export_category("AnimationConfig")
@@ -103,6 +104,10 @@ func _see_player() -> void:
 		and _player_is_in_fov()
 	lastPlayerPos = Vector3(player.global_position) if sees_player else lastPlayerPos
 	chasePlayer = chasePlayer or sees_player
+	if ALL_SEEING:
+		chasePlayer = true
+		lastPlayerPos = Vector3(player.global_position)
+		return
 
 func _player_is_in_fov() -> bool:
 	var direction := Vector3.FORWARD

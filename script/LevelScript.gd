@@ -76,3 +76,4 @@ func on_all_orbs_collected() -> void:
 	for enemy in $EnemyContainer.get_children():
 		enemy.SPEED += ENEMY_LIGHT_SPEED_BUFF
 		enemy.stun(0)
+		enemy.ALL_SEEING = true

@@ -8,6 +8,7 @@ extends Node
 @onready var Laitier: Enemy = $Laitier
 @onready var MusicPlayer: AudioStreamPlayer = $/root/Level/AudioStreamPlayer
 @onready var player: Player = $/root/Level/Player
+@onready var pasMalNon: Sprite3D = $PasMalNon
 
 var isPlayerInside := false
 var isPlayerWatchingPaper := false
@@ -54,6 +55,7 @@ func _process_timer() -> void:
 func _on_watch_timer_timeout() -> void:
 	hasWatched = true
 	Laitier.visible = true
+	pasMalNon.visible = true
 	
 func _on_exit_paper_zone(body: Node3D) -> void:
 	if not body is Player: return
