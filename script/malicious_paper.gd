@@ -9,6 +9,7 @@ extends Node
 @onready var MusicPlayer: AudioStreamPlayer = $/root/Level/AudioStreamPlayer
 @onready var player: Player = $/root/Level/Player
 @onready var pasMalNon: Sprite3D = $PasMalNon
+@onready var laitierMusic: AudioStream = preload("res://music/laitier_party.ogg")
 
 var isPlayerInside := false
 var isPlayerWatchingPaper := false
@@ -42,7 +43,6 @@ func _process(_delta: float) -> void:
 		and playerRotation < 1.5*PI + PAPER_VIEW_ANGLE
 	_process_timer()
 	if not hasWatched or not turnedBack: Laitier.stun(0.5)
-	if turnedBack: MusicPlayer.stream_paused = true
 
 func _process_timer() -> void:
 	if hasWatched: return
@@ -73,3 +73,5 @@ func _on_turn_back_trigger() -> void:
 	self.remove_child(Laitier)
 	$"/root/Level/EnemyContainer".add_child(Laitier)
 	Laitier.global_position = pos
+	MusicPlayer.stream = laitierMusic
+	MusicPlayer.play()
