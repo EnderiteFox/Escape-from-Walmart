@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c2typm7ndq1ek"]
+[gd_scene load_steps=37 format=3 uid="uid://c2typm7ndq1ek"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_id7x0"]
 [ext_resource type="AudioStream" uid="uid://ymlprh2s43jl" path="res://music/level_musics/5-Cloth_Night.ogg" id="2_mn0pf"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cilswg7ii3bpt" path="res://scene/enemies/mannequin.tscn" id="13_42w3k"]
 [ext_resource type="AudioStream" uid="uid://dfiukm6rbif67" path="res://sound/je-suis-le-laitier.mp3" id="13_e8pbs"]
 [ext_resource type="Texture2D" uid="uid://tw8d3ux3xesf" path="res://image/pas mal non.jpg" id="14_80k1f"]
+[ext_resource type="PackedScene" uid="uid://bqmcxwh4at3by" path="res://mesh/props/counter/counter.tscn" id="15_kii1m"]
 
 [sub_resource type="Environment" id="Environment_scepk"]
 ambient_light_source = 2
@@ -658,6 +659,9 @@ light_energy = 1.755
 shadow_enabled = true
 spot_range = 8.564
 spot_attenuation = 0.0272047
+
+[node name="counter" parent="NavRegion/Map" instance=ExtResource("15_kii1m")]
+transform = Transform3D(-6.75669e-08, 0, -1.54575, 0, 1.54575, 0, 1.54575, 0, -6.75669e-08, -8.47622, 0, 18.0502)
 
 [node name="EnemyContainer" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
