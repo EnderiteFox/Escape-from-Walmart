@@ -10,6 +10,7 @@ extends Node
 @onready var player: Player = $/root/Level/Player
 @onready var pasMalNon: Sprite3D = $PasMalNon
 @onready var laitierMusic: AudioStream = preload("res://music/laitier_party.ogg")
+@onready var level: Level = $/root/Level
 
 var isPlayerInside := false
 var isPlayerWatchingPaper := false
@@ -75,3 +76,6 @@ func _on_turn_back_trigger() -> void:
 	Laitier.global_position = pos
 	MusicPlayer.stream = laitierMusic
 	MusicPlayer.play()
+	for orb in level.getPickupOrbs():
+		orb.find_child("Sphere").visible = false
+		orb.find_child("Milk").visible = true

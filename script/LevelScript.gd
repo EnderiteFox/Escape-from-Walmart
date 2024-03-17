@@ -29,7 +29,7 @@ func _ready() -> void:
 	for enemy in $EnemyContainer.get_children():
 		enemy.SPEED -= ENEMY_LIGHT_SPEED_BUFF
 		enemy.SPEED = max(enemy.SPEED, 1)
-	for node in $NavRegion/Map/PickupOrbs.get_children():
+	for node in getPickupOrbs():
 		if not node is PickupOrb: continue
 		var orb: PickupOrb = node as PickupOrb
 		orb.orb_pickup.connect(_on_orb_pickup)
@@ -39,6 +39,13 @@ func _ready() -> void:
 	audioStreamPlayer.volume_db = AMBIENCE_MUSIC_VOLUME
 	audioStreamPlayer.play()
 	worldEnvironment.environment.volumetric_fog_enabled = true
+	
+func getPickupOrbs() -> Array[PickupOrb]:
+	var orbs: Array[PickupOrb] = []
+	for node in $NavRegion/Map/PickupOrbs.get_children():
+		if not node is PickupOrb: continue
+		orbs.append(node as PickupOrb)
+	return orbs
 
 func _process(delta: float) -> void:
 	player.healthDisplay.update_orb_count(collectedOrbs, totalOrbs)

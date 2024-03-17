@@ -37,7 +37,7 @@ func _ready() -> void:
 	targetRotation = Vector2(Pivot.rotation.x, self.rotation.y)
 
 func _process(delta: float) -> void:
-	$HealthDisplay/HBoxContainer/Label.text = "PV: " + str(health) + "/" + str(MAX_HEALTH)
+	$HealthDisplay/HBoxContainer/Label.text = "HP: " + str(health) + "/" + str(MAX_HEALTH)
 	$HealthDisplay/HBoxContainer/TextureProgressBar.value = health
 	timeSinceLastRegen += delta
 	if timeSinceLastRegen > REGEN_TIME:

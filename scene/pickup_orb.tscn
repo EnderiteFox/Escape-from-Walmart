@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpqhax0w21x46"]
+[gd_scene load_steps=6 format=3 uid="uid://bpqhax0w21x46"]
 
 [ext_resource type="Script" path="res://script/pickup_orb.gd" id="1_8xno8"]
+[ext_resource type="PackedScene" uid="uid://bhwohbm3chybl" path="res://mesh/props/milk/milk.glb" id="2_vddd2"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_urq3k"]
+radius = 0.4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjqpv"]
 albedo_color = Color(0.862745, 0, 0.878431, 1)
@@ -10,14 +14,20 @@ material = SubResource("StandardMaterial3D_tjqpv")
 radius = 0.125
 height = 0.25
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_urq3k"]
-radius = 0.4
-
 [node name="PickupOrb" type="Node3D"]
 script = ExtResource("1_8xno8")
 
-[node name="Sphere" type="Node3D" parent="."]
+[node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_urq3k")
+
+[node name="Sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("SphereMesh_gjmys")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Sphere"]
 light_color = Color(0.862745, 0, 0.878431, 1)
@@ -26,15 +36,8 @@ light_indirect_energy = 2.0
 light_volumetric_fog_energy = 2.0
 omni_range = 0.3
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Sphere"]
-mesh = SubResource("SphereMesh_gjmys")
-skeleton = NodePath("../..")
+[node name="Milk" parent="." instance=ExtResource("2_vddd2")]
+transform = Transform3D(0.47244, 0, 0, 0, 0.47244, 0, 0, 0, 0.47244, 0, 1.23162, 0)
+visible = false
 
-[node name="Area3D" type="Area3D" parent="Sphere"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere/Area3D"]
-shape = SubResource("SphereShape3D_urq3k")
-
-[connection signal="body_entered" from="Sphere/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

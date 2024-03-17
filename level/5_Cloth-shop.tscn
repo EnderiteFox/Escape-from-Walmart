@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://c2typm7ndq1ek"]
+[gd_scene load_steps=38 format=3 uid="uid://c2typm7ndq1ek"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_id7x0"]
 [ext_resource type="AudioStream" uid="uid://ymlprh2s43jl" path="res://music/level_musics/5-Cloth_Night.ogg" id="2_mn0pf"]
 [ext_resource type="AudioStream" uid="uid://8df6j2rp7ftl" path="res://music/level_musics/5-Cloth_Day.ogg" id="3_srbbx"]
+[ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="4_crylk"]
 [ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_0hnqq"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="6_yja7n"]
 [ext_resource type="PackedScene" uid="uid://by8k17s7bjed7" path="res://mesh/props/shelf/opaque_shelf.tscn" id="7_160tk"]
@@ -107,6 +108,309 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.884275, 0)
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="PickupOrb" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, -14.6796)
+
+[node name="PickupOrb2" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, -10.6796)
+
+[node name="PickupOrb3" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, -9.34624)
+
+[node name="PickupOrb4" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, -5.34624)
+
+[node name="PickupOrb5" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, -14.6796)
+
+[node name="PickupOrb6" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, -10.6796)
+
+[node name="PickupOrb7" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, -9.34624)
+
+[node name="PickupOrb8" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, -5.34624)
+
+[node name="PickupOrb9" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, -14.6796)
+
+[node name="PickupOrb10" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, -10.6796)
+
+[node name="PickupOrb11" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, -9.34624)
+
+[node name="PickupOrb12" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, -5.34624)
+
+[node name="PickupOrb13" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, -14.6796)
+
+[node name="PickupOrb14" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, -10.6796)
+
+[node name="PickupOrb15" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, -9.34624)
+
+[node name="PickupOrb16" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, -5.34624)
+
+[node name="PickupOrb17" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, -14.6796)
+
+[node name="PickupOrb18" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, -10.6796)
+
+[node name="PickupOrb19" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, -9.34624)
+
+[node name="PickupOrb20" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, -5.34624)
+
+[node name="PickupOrb21" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, -14.6796)
+
+[node name="PickupOrb22" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, -10.6796)
+
+[node name="PickupOrb23" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, -9.34624)
+
+[node name="PickupOrb24" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, -5.34624)
+
+[node name="PickupOrb25" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, -14.6796)
+
+[node name="PickupOrb26" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, -10.6796)
+
+[node name="PickupOrb27" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, -9.34624)
+
+[node name="PickupOrb28" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, -5.34624)
+
+[node name="PickupOrb29" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, -14.6796)
+
+[node name="PickupOrb30" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, -10.6796)
+
+[node name="PickupOrb31" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, -9.34624)
+
+[node name="PickupOrb32" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, -5.34624)
+
+[node name="PickupOrb33" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, -14.6796)
+
+[node name="PickupOrb34" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, -10.6796)
+
+[node name="PickupOrb35" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, -9.34624)
+
+[node name="PickupOrb36" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, -5.34624)
+
+[node name="PickupOrb37" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, -14.6796)
+
+[node name="PickupOrb38" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, -10.6796)
+
+[node name="PickupOrb39" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, -9.34624)
+
+[node name="PickupOrb40" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, -5.34624)
+
+[node name="PickupOrb45" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -14.6796)
+
+[node name="PickupOrb46" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -10.6796)
+
+[node name="PickupOrb47" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -9.34624)
+
+[node name="PickupOrb48" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -5.34624)
+
+[node name="PickupOrb41" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 5.32043)
+
+[node name="PickupOrb42" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 9.32043)
+
+[node name="PickupOrb43" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 10.6538)
+
+[node name="PickupOrb44" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 14.6538)
+
+[node name="PickupOrb49" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, 5.32043)
+
+[node name="PickupOrb50" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, 9.32043)
+
+[node name="PickupOrb51" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, 10.6538)
+
+[node name="PickupOrb52" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, 14.6538)
+
+[node name="PickupOrb53" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, 5.32043)
+
+[node name="PickupOrb54" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, 9.32043)
+
+[node name="PickupOrb55" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, 10.6538)
+
+[node name="PickupOrb56" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5297, 0.212589, 14.6538)
+
+[node name="PickupOrb57" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, 5.32043)
+
+[node name="PickupOrb58" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, 9.32043)
+
+[node name="PickupOrb59" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, 10.6538)
+
+[node name="PickupOrb60" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.67356, 0.212589, 14.6538)
+
+[node name="PickupOrb61" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, 5.32043)
+
+[node name="PickupOrb62" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, 9.32043)
+
+[node name="PickupOrb63" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, 10.6538)
+
+[node name="PickupOrb64" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.52969, 0.212589, 14.6538)
+
+[node name="PickupOrb65" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, 5.32043)
+
+[node name="PickupOrb66" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, 9.32043)
+
+[node name="PickupOrb67" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, 10.6538)
+
+[node name="PickupOrb68" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.673561, 0.212589, 14.6538)
+
+[node name="PickupOrb69" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, 5.32043)
+
+[node name="PickupOrb70" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.47031, 0.212589, 9.32043)
+
+[node name="PickupOrb73" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, 5.32043)
+
+[node name="PickupOrb74" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.32644, 0.212589, 9.32043)
+
+[node name="PickupOrb77" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, 5.32043)
+
+[node name="PickupOrb78" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.4703, 0.212589, 9.32043)
+
+[node name="PickupOrb81" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, 5.32043)
+
+[node name="PickupOrb82" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3264, 0.212589, 9.32043)
+
+[node name="PickupOrb85" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, 5.32043)
+
+[node name="PickupOrb86" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, 9.32043)
+
+[node name="PickupOrb87" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68891, 0.212589, 19.3204)
+
+[node name="PickupOrb88" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.68891, 0.212589, 17.3204)
+
+[node name="PickupOrb89" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2275, 0.212589, 17.3204)
+
+[node name="PickupOrb90" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9369, 0.212589, -0.679569)
+
+[node name="PickupOrb91" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6035, 0.212589, -0.679569)
+
+[node name="PickupOrb92" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2702, 0.212589, -0.679569)
+
+[node name="PickupOrb93" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93686, 0.212589, -0.679569)
+
+[node name="PickupOrb94" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60352, 0.212589, -0.679569)
+
+[node name="PickupOrb95" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9369, 0.212589, 0.653764)
+
+[node name="PickupOrb96" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.6035, 0.212589, 0.653764)
+
+[node name="PickupOrb97" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.2702, 0.212589, 0.653764)
+
+[node name="PickupOrb98" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.93686, 0.212589, 0.653764)
+
+[node name="PickupOrb99" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.60352, 0.212589, 0.653764)
+
+[node name="PickupOrb100" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37422, 0.212589, -0.679569)
+
+[node name="PickupOrb101" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70755, 0.212589, -0.679569)
+
+[node name="PickupOrb102" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0409, 0.212589, -0.679569)
+
+[node name="PickupOrb103" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3742, 0.212589, -0.679569)
+
+[node name="PickupOrb104" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7076, 0.212589, -0.679569)
+
+[node name="PickupOrb105" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.37422, 0.212589, 0.653764)
+
+[node name="PickupOrb106" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.70755, 0.212589, 0.653764)
+
+[node name="PickupOrb107" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0409, 0.212589, 0.653764)
+
+[node name="PickupOrb108" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3742, 0.212589, 0.653764)
+
+[node name="PickupOrb109" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7076, 0.212589, 0.653764)
 
 [node name="Lights" type="Node3D" parent="NavRegion/Map"]
 visible = false

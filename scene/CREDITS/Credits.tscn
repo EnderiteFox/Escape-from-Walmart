@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_igu3h"]
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_xg73y"]
 [ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_xyf62"]
-[ext_resource type="AudioStream" uid="uid://rw4al158w5nl" path="res://music/credit_music/HautFraise_v02.ogg" id="7_hdm6r"]
+[ext_resource type="AudioStream" uid="uid://cswf25emun8j7" path="res://music/credit_music/once_upon_a_time.mp3" id="7_hktsw"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
 ambient_light_source = 2
@@ -110,5 +110,5 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_hdm6r")
+stream = ExtResource("7_hktsw")
 autoplay = true

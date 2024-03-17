@@ -104,7 +104,7 @@ texture_progress = ExtResource("2_xh8wg")
 
 [node name="Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-text = "PV: 100/100"
+text = "HP: 100/100"
 label_settings = SubResource("LabelSettings_xdu56")
 uppercase = true
 
