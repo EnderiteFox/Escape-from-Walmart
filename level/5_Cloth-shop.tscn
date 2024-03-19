@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://c2typm7ndq1ek"]
+[gd_scene load_steps=40 format=3 uid="uid://c2typm7ndq1ek"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_id7x0"]
 [ext_resource type="AudioStream" uid="uid://ymlprh2s43jl" path="res://music/level_musics/5-Cloth_Night.ogg" id="2_mn0pf"]
@@ -20,6 +20,8 @@
 [ext_resource type="AudioStream" uid="uid://dfiukm6rbif67" path="res://sound/je-suis-le-laitier.mp3" id="13_e8pbs"]
 [ext_resource type="Texture2D" uid="uid://tw8d3ux3xesf" path="res://image/pas mal non.jpg" id="14_80k1f"]
 [ext_resource type="PackedScene" uid="uid://bqmcxwh4at3by" path="res://mesh/props/counter/counter.tscn" id="15_kii1m"]
+[ext_resource type="PackedScene" uid="uid://bpa1ear0rnfm4" path="res://mesh/props/fitting_room/fitting_room_closed.tscn" id="17_s66du"]
+[ext_resource type="PackedScene" uid="uid://drhiftxevya7m" path="res://mesh/props/fitting_room/fitting_room_open.tscn" id="18_0xfxg"]
 
 [sub_resource type="Environment" id="Environment_scepk"]
 ambient_light_source = 2
@@ -240,18 +242,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -9.34624)
 
 [node name="PickupOrb48" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3264, 0.212589, -5.34624)
-
-[node name="PickupOrb41" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 5.32043)
-
-[node name="PickupOrb42" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 9.32043)
-
-[node name="PickupOrb43" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 10.6538)
-
-[node name="PickupOrb44" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1964, 0.212589, 14.6538)
 
 [node name="PickupOrb49" parent="NavRegion/Map/PickupOrbs" instance=ExtResource("4_crylk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6919, 0.212589, 5.32043)
@@ -749,21 +739,6 @@ transform = Transform3D(0.208, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 5.447, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43195, 1.89133, -0.402649)
 shape = SubResource("BoxShape3D_yrqmj")
 
-[node name="LongShelf11" type="StaticBody3D" parent="NavRegion/Map/Shelves/ShelfGroup2"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, -1, 0, 4.37114e-08, 20.4026, 0, 5.42444)
-metadata/_edit_group_ = true
-metadata/_edit_lock_ = true
-
-[node name="Sketchfab_Scene3" parent="NavRegion/Map/Shelves/ShelfGroup2/LongShelf11" instance=ExtResource("7_160tk")]
-transform = Transform3D(0.208, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0, 0, 0)
-
-[node name="Sketchfab_Scene4" parent="NavRegion/Map/Shelves/ShelfGroup2/LongShelf11" instance=ExtResource("7_160tk")]
-transform = Transform3D(0.208, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 5.447, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/Shelves/ShelfGroup2/LongShelf11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.43195, 1.89133, -0.402649)
-shape = SubResource("BoxShape3D_yrqmj")
-
 [node name="LongShelf2" type="StaticBody3D" parent="NavRegion/Map/Shelves/ShelfGroup2"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, -1, 0, 4.37114e-08, -4.26408, 0, 5.42444)
 metadata/_edit_group_ = true
@@ -966,6 +941,18 @@ spot_attenuation = 0.0272047
 
 [node name="counter" parent="NavRegion/Map" instance=ExtResource("15_kii1m")]
 transform = Transform3D(-6.75669e-08, 0, -1.54575, 0, 1.54575, 0, 1.54575, 0, -6.75669e-08, -8.47622, 0, 18.0502)
+
+[node name="FittingRooms" type="Node3D" parent="NavRegion/Map"]
+transform = Transform3D(0.789052, 0, 0, 0, 0.789052, 0, 0, 0, 0.789052, 23.3333, 0, 10.6667)
+
+[node name="fitting_room" parent="NavRegion/Map/FittingRooms" instance=ExtResource("17_s66du")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0882416, 0, 0)
+
+[node name="fitting_room2" parent="NavRegion/Map/FittingRooms" instance=ExtResource("17_s66du")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0708408, 0, 2.15509)
+
+[node name="fitting_room3" parent="NavRegion/Map/FittingRooms" instance=ExtResource("18_0xfxg")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.0603695, 0, 4.34368)
 
 [node name="EnemyContainer" type="Node3D" parent="."]
 metadata/_edit_lock_ = true

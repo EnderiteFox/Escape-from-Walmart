@@ -25,6 +25,7 @@ target_desired_distance = 0.1
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="View"]
+collision_mask = 17
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(0.573489, 0, 0, 0, 0.573489, 0, 0, 0, 0.573489, 0, 1.31048, 0)

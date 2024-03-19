@@ -102,6 +102,10 @@ Fullscreen={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_5="Enemy View Mask"
+
 [navigation]
 
 3d/default_cell_size=0.15
