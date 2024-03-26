@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://ca53lab0axwlu"]
+[gd_scene load_steps=13 format=3 uid="uid://ca53lab0axwlu"]
 
-[ext_resource type="PackedScene" uid="uid://cmmk31d282i46" path="res://scene/CREDITS/GodotCredits.tscn" id="1_0oedv"]
-[ext_resource type="Script" path="res://scene/CREDITS/Credits.gd" id="1_md342"]
-[ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/CREDITS/CreditsBasement.tscn" id="2_2h03d"]
-[ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_igu3h"]
-[ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_xg73y"]
-[ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_xyf62"]
-[ext_resource type="AudioStream" uid="uid://cswf25emun8j7" path="res://music/credit_music/once_upon_a_time.mp3" id="7_hktsw"]
+[ext_resource type="Script" path="res://scene/credits/Credits.gd" id="1_tr7tf"]
+[ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/credits/CreditsBasement.tscn" id="2_beg7w"]
+[ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_fupat"]
+[ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_wqlwm"]
+[ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_l0ou6"]
+[ext_resource type="AudioStream" uid="uid://n8yj3a06ybsh" path="res://music/credit_music/Once_Upon_A_Time_Ending.ogg" id="6_48n18"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
 ambient_light_source = 2
@@ -79,23 +78,28 @@ _data = {
 "walking_roomba": SubResource("Animation_jrl1n")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_w75o2"]
+font_size = 40
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uin2n"]
+font_size = 40
+
 [node name="Credits" type="Node3D"]
-script = ExtResource("1_md342")
+script = ExtResource("1_tr7tf")
 
-[node name="Credits" parent="." instance=ExtResource("1_0oedv")]
+[node name="Map" parent="." instance=ExtResource("2_beg7w")]
 
-[node name="Map" parent="." instance=ExtResource("2_2h03d")]
-
-[node name="PinkRoomba" parent="Map" instance=ExtResource("3_igu3h")]
+[node name="PinkRoomba" parent="Map" instance=ExtResource("3_fupat")]
 transform = Transform3D(-0.0102606, 0, -0.0281908, 0, 0.03, 0, 0.0281908, 0, -0.0102606, 4.623, 4.516, 5.354)
 
-[node name="WalkingRoomba" parent="Map" instance=ExtResource("3_igu3h")]
+[node name="WalkingRoomba" parent="Map" instance=ExtResource("3_fupat")]
 transform = Transform3D(0.03, 0, 1.11022e-16, 0, 0.03, 0, -1.11022e-16, 0, 0.03, 0, 0.473585, 7.70703)
 
-[node name="RedRoomba" parent="Map" instance=ExtResource("4_xg73y")]
+[node name="RedRoomba" parent="Map" instance=ExtResource("4_wqlwm")]
 transform = Transform3D(-0.0152261, 0, -0.0258489, 0, 0.03, 0, 0.0258489, 0, -0.0152261, 5.286, 4.886, 5.177)
 
-[node name="BlueRoomba" parent="Map" instance=ExtResource("5_xyf62")]
+[node name="BlueRoomba" parent="Map" instance=ExtResource("5_l0ou6")]
 transform = Transform3D(-0.0174211, 0, -0.0244235, 0, 0.03, 0, 0.0244235, 0, -0.0174211, 6.06049, 4.52613, 5.25892)
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -110,5 +114,439 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_hktsw")
+stream = ExtResource("6_48n18")
 autoplay = true
+
+[node name="Credits" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -524.0
+offset_right = 524.0
+offset_bottom = 5759.0
+grow_horizontal = 2
+theme_override_constants/separation = 100
+
+[node name="Artistic Director" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Artistic Director"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Artistic Director"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Artistic Director"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Autistic Director" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Autistic Director"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Autistic Director"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Autistic Director"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FlameOfChange"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Sound Designer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Sound Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sound Designer"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Sound Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Drecland"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Sound Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FlameOfChange"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label4" type="Label" parent="Credits/Sound Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Pixel Graphist" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Pixel Graphist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Pixel Graphist"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Pixel Graphist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Drecland"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="3D Artist" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Artist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3D Artist"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/3D Artist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="3D Model Finder" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Model Finder"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3D Model Finder"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/3D Model Finder"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Azrotho"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Level Designer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Level Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Designer"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Level Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Level Designer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Game Developper" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Game Developper"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Game Developper"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Game Developper"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Human Resources" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Human Resources"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Human Resources"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Human Resources"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "El Profesor"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Ad Engineer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Ad Engineer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ad Engineer (not Active Directory engineer)"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Ad Engineer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "El Profesor"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Ad Engineer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Ad Artist" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Ad Artist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Ad Artist"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Ad Artist"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FlameOfChange"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="D&CO Producer" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/D&CO Producer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "D&CO Producer"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/D&CO Producer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Azrotho"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/D&CO Producer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Music Contributor" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Music Contributor"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FlameOfChange"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label4" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Azrotho"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label5" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Drecland"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label6" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sam_baribal"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label7" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Djé Ricane"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label8" type="Label" parent="Credits/Music Contributor"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "El Profesor"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="3D Models Used" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Subgroup" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3D Models Used"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/3D Models Used/Subgroup"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Shrek 3D Model From The Third Game"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/3D Models Used/Subgroup"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "by seifashmawi (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup2" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Human by aaron.kalvin (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup3" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Wii Fit Trainer by SAB64 (DevianArt)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup4" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup4"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Roomba by Macwithav (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup5" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup5"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Charles (Choo Choo Charles) by cthulhu903 (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label2" type="Label" parent="Credits/3D Models Used/Subgroup5"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "(edited by Azrotho)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup6" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup6"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "shelf by metal.and.wooden.furniture (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup7" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup7"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Grocery store Shelf by mizorri93 (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup8" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup8"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Crate box by KloWorks (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup9" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup9"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tent by alexxx_xarchenko (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup10" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup10"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Greek Pillar by Lazanja (Sketchfab)"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Subgroup11" type="VBoxContainer" parent="Credits/3D Models Used"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/3D Models Used/Subgroup11"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "All other models are made by Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label2" type="Label" parent="Credits/3D Models Used/Subgroup11"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Using open source textures"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Made With Godot" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Made With Godot"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Made with Godot Engine <3"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Made With Godot"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "https://godotengine.org/license"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Credit Credits" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Credit Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Credits made by"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Credit Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Thaan"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Credit Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Azrotho"
+label_settings = SubResource("LabelSettings_uin2n")
