@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c2typm7ndq1ek"]
+[gd_scene load_steps=45 format=3 uid="uid://c2typm7ndq1ek"]
 
 [ext_resource type="Script" path="res://script/LevelScript.gd" id="1_id7x0"]
 [ext_resource type="AudioStream" uid="uid://ymlprh2s43jl" path="res://music/level_musics/5-Cloth_Night.ogg" id="2_mn0pf"]
@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://dfiukm6rbif67" path="res://sound/je-suis-le-laitier.mp3" id="13_e8pbs"]
 [ext_resource type="Texture2D" uid="uid://tw8d3ux3xesf" path="res://image/pas mal non.jpg" id="14_80k1f"]
 [ext_resource type="PackedScene" uid="uid://bqmcxwh4at3by" path="res://mesh/props/counter/counter.tscn" id="15_kii1m"]
+[ext_resource type="PackedScene" uid="uid://vo25lfw5etnu" path="res://mesh/props/paper_bag/paper_bag.glb" id="17_daub0"]
 [ext_resource type="PackedScene" uid="uid://bpa1ear0rnfm4" path="res://mesh/props/fitting_room/fitting_room_closed.tscn" id="17_s66du"]
 [ext_resource type="PackedScene" uid="uid://drhiftxevya7m" path="res://mesh/props/fitting_room/fitting_room_open.tscn" id="18_0xfxg"]
 
@@ -88,12 +89,26 @@ size = Vector3(2.21832, 1.93958, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ofia1"]
 size = Vector3(0.206543, 1.97388, 3.15198)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ueb1n"]
+size = Vector3(0.273499, 2.12178, 2.52042)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nfuvc"]
+size = Vector3(2.15616, 2.12178, 0.222755)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nnde6"]
+size = Vector3(1.39937, 2.12178, 0.222755)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oujum"]
+size = Vector3(0.786072, 2.61249, 0.268494)
+
 [node name="Level" type="Node3D"]
 script = ExtResource("1_id7x0")
 map_x_width = 75
 map_z_width = 60
 AMBIENCE_MUSIC = ExtResource("2_mn0pf")
+AMBIENCE_MUSIC_VOLUME = -10.0
 DAY_MUSIC = ExtResource("3_srbbx")
+DAY_MUSIC_VOLUME = -10.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_scepk")
@@ -941,6 +956,64 @@ spot_attenuation = 0.0272047
 
 [node name="counter" parent="NavRegion/Map" instance=ExtResource("15_kii1m")]
 transform = Transform3D(-6.75669e-08, 0, -1.54575, 0, 1.54575, 0, 1.54575, 0, -6.75669e-08, -8.47622, 0, 18.0502)
+
+[node name="PaperBags" type="Node3D" parent="NavRegion/Map/counter"]
+
+[node name="paper_bag" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.144449, 0, -0.022894, 0, 0.146252, 0, 0.022894, 0, 0.144449, -0.834836, 0.639513, -0.789491)
+
+[node name="paper_bag10" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.115565, -0.0896348, -3.91806e-09, -4.32452e-16, 6.39288e-09, -0.146252, 0.0896348, 0.115565, 5.0515e-09, -0.721711, 0.617259, -1.12993)
+
+[node name="paper_bag11" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.039652, 0, -0.140774, 0, 0.146252, 0, 0.140774, 0, 0.039652, 0.0112553, 0.617259, -1.12993)
+
+[node name="paper_bag2" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.146046, 0, 0.00776384, 0, 0.146252, 0, -0.00776384, 0, 0.146046, -0.834836, 0.64318, -0.50135)
+
+[node name="paper_bag3" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.0265444, 0, -0.143823, 0, 0.146252, 0, 0.143823, 0, 0.0265444, -0.834836, 0.648741, -0.258126)
+
+[node name="paper_bag5" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.145974, 0, 0.00902017, 0, 0.146252, 0, -0.00902017, 0, 0.145974, -0.834836, 0.648741, 0.339614)
+
+[node name="paper_bag6" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.136919, 0, -0.0514074, 0, 0.146252, 0, 0.0514074, 0, 0.136919, -0.834836, 0.648741, 0.613788)
+
+[node name="paper_bag7" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.115405, 0, 0.0898404, 0, 0.146252, 0, -0.0898404, 0, 0.115405, -0.834836, 0.648741, 0.894079)
+
+[node name="paper_bag8" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.0603406, 0, 0.133224, 0, 0.146252, 0, -0.133224, 0, 0.0603406, -0.64783, 0.648741, 1.10189)
+
+[node name="paper_bag9" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(-0.0931281, 0, 0.112769, 0, 0.146252, 0, -0.112769, 0, -0.0931281, -0.385895, 0.648741, 1.14257)
+
+[node name="paper_bag12" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.0390004, 0, 0.140956, 0, 0.146252, 0, -0.140956, 0, 0.0390004, -0.117801, 0.648741, 1.14257)
+
+[node name="paper_bag4" parent="NavRegion/Map/counter/PaperBags" instance=ExtResource("17_daub0")]
+transform = Transform3D(0.145516, 0.0146576, 6.47181e-05, 6.39281e-09, -0.000645805, 0.146251, 0.0146578, -0.145514, -0.000642555, -0.834836, 0.609486, 0.0547175)
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="NavRegion/Map/counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.833405, 1.5568, 0.000991821)
+shape = SubResource("BoxShape3D_ueb1n")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="NavRegion/Map/counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107924, 1.5568, 1.14982)
+shape = SubResource("BoxShape3D_nfuvc")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="NavRegion/Map/counter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.270471, 1.5568, -1.14883)
+shape = SubResource("BoxShape3D_nnde6")
+
+[node name="CounterEntrance" type="StaticBody3D" parent="NavRegion/Map/counter"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavRegion/Map/counter/CounterEntrance"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.792409, 1.30527, -1.14886)
+shape = SubResource("BoxShape3D_oujum")
 
 [node name="FittingRooms" type="Node3D" parent="NavRegion/Map"]
 transform = Transform3D(0.789052, 0, 0, 0, 0.789052, 0, 0, 0, 0.789052, 23.3333, 0, 10.6667)

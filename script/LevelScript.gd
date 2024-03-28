@@ -4,9 +4,9 @@ class_name Level
 @export_range(0, 100, 1, "or_greater") var map_x_width: int
 @export_range(0, 100, 1, "or_greater") var map_z_width: int
 @export var AMBIENCE_MUSIC: AudioStream
-@export var AMBIENCE_MUSIC_VOLUME: float = 1
+@export var AMBIENCE_MUSIC_VOLUME: float = 0
 @export var DAY_MUSIC: AudioStream
-@export var DAY_MUSIC_VOLUME: float = 1
+@export var DAY_MUSIC_VOLUME: float = 0
 
 @onready var map: Node3D = $NavRegion/Map
 @onready var exitDoor: ExitDoor = $ExitDoor
@@ -63,6 +63,11 @@ func on_enemy_hit_player(enemy: Enemy) -> void:
 
 func _on_orb_pickup(orb: PickupOrb) -> void:
 	collectedOrbs += 1
+	var soundPlayer: AudioStreamPlayer3D = orb.pickupSoundPlayer
+	var soundPosition: Vector3 = soundPlayer.global_position
+	orb.remove_child(soundPlayer)
+	map.add_child(soundPlayer)
+	soundPlayer.global_position = soundPosition
 	orb.queue_free()
 	if collectedOrbs == totalOrbs:
 		on_all_orbs_collected()

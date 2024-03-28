@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ca53lab0axwlu"]
+[gd_scene load_steps=14 format=3 uid="uid://ca53lab0axwlu"]
 
 [ext_resource type="Script" path="res://scene/credits/Credits.gd" id="1_tr7tf"]
 [ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/credits/CreditsBasement.tscn" id="2_beg7w"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_wqlwm"]
 [ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_l0ou6"]
 [ext_resource type="AudioStream" uid="uid://n8yj3a06ybsh" path="res://music/credit_music/Once_Upon_A_Time_Ending.ogg" id="6_48n18"]
+[ext_resource type="Texture2D" uid="uid://dbincuqb7o0ik" path="res://image/laitier.jpg" id="7_b3s6n"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
 ambient_light_source = 2
@@ -550,3 +551,8 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Azrotho"
 label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Laitier" type="TextureRect" parent="Credits"]
+layout_mode = 2
+texture = ExtResource("7_b3s6n")
+stretch_mode = 3

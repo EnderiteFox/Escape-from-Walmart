@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpqhax0w21x46"]
+[gd_scene load_steps=8 format=3 uid="uid://bpqhax0w21x46"]
 
 [ext_resource type="Script" path="res://script/pickup_orb.gd" id="1_8xno8"]
+[ext_resource type="AudioStream" uid="uid://bs7juwpkjelhg" path="res://sound/orb_pickup_sound/coin1.ogg" id="2_pd3ry"]
 [ext_resource type="PackedScene" uid="uid://bhwohbm3chybl" path="res://mesh/props/milk/milk.glb" id="2_vddd2"]
+[ext_resource type="AudioStream" uid="uid://bawjuwkwpk11c" path="res://sound/orb_pickup_sound/coin5.ogg" id="3_b251s"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_urq3k"]
 radius = 0.4
@@ -16,6 +18,7 @@ height = 0.25
 
 [node name="PickupOrb" type="Node3D"]
 script = ExtResource("1_8xno8")
+pickupSounds = Array[AudioStream]([ExtResource("2_pd3ry"), ExtResource("3_b251s")])
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
@@ -39,5 +42,9 @@ omni_range = 0.3
 [node name="Milk" parent="." instance=ExtResource("2_vddd2")]
 transform = Transform3D(0.47244, 0, 0, 0, 0.47244, 0, 0, 0, 0.47244, 0, 1.23162, 0)
 visible = false
+
+[node name="PickupSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.48737, 0)
+volume_db = -32.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
