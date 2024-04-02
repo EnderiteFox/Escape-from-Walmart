@@ -185,6 +185,28 @@ size_flags_horizontal = 4
 text = "Thaan"
 label_settings = SubResource("LabelSettings_uin2n")
 
+[node name="Sounds Used" type="VBoxContainer" parent="Credits"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Credits/Sounds Used"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Sounds Used
+"
+label_settings = SubResource("LabelSettings_w75o2")
+
+[node name="Label2" type="Label" parent="Credits/Sounds Used"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Coin 1 and Coin 5"
+label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Label3" type="Label" parent="Credits/Sounds Used"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "from Kenney Game Assets All-in-1"
+label_settings = SubResource("LabelSettings_uin2n")
+
 [node name="Pixel Graphist" type="VBoxContainer" parent="Credits"]
 layout_mode = 2
 

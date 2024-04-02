@@ -1,7 +1,7 @@
-extends Map
+extends Level
 class_name ToyShop
 
-@onready var environment: Environment = $"../../WorldEnvironment".environment
+@onready var environment: Environment = $/root/Level/WorldEnvironment.environment
 
 func _ready() -> void:
 	super._ready()

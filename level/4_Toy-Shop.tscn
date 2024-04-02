@@ -1,10 +1,10 @@
 [gd_scene load_steps=25 format=3 uid="uid://c34cj21g5kjos"]
 
-[ext_resource type="Script" path="res://script/LevelScript.gd" id="1_ibgdg"]
+[ext_resource type="Script" path="res://script/levels/toy_shop.gd" id="1_fg0da"]
 [ext_resource type="AudioStream" uid="uid://lrueydx7rbdo" path="res://music/level_musics/4-Toy_Night.ogg" id="2_vnduy"]
 [ext_resource type="AudioStream" uid="uid://dcuxo2ky7hpc7" path="res://music/level_musics/4-Toy_Day.ogg" id="3_aa7h3"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="4_jxuaa"]
-[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_d5hla"]
+[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_d5hla"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="6_ap16c"]
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="8_6knsk"]
 [ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="8_fsqwt"]
@@ -64,7 +64,7 @@ size = Vector3(4, 1, 35)
 size = Vector3(15, 1, 3)
 
 [node name="Level" type="Node3D"]
-script = ExtResource("1_ibgdg")
+script = ExtResource("1_fg0da")
 map_x_width = 56
 map_z_width = 53
 AMBIENCE_MUSIC = ExtResource("2_vnduy")
