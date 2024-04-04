@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://ymlprh2s43jl" path="res://music/level_musics/5-Cloth_Night.ogg" id="2_mn0pf"]
 [ext_resource type="AudioStream" uid="uid://8df6j2rp7ftl" path="res://music/level_musics/5-Cloth_Day.ogg" id="3_srbbx"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="4_crylk"]
-[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_0hnqq"]
+[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_0hnqq"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="6_yja7n"]
 [ext_resource type="PackedScene" uid="uid://by8k17s7bjed7" path="res://mesh/props/shelf/opaque_shelf.tscn" id="7_160tk"]
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="7_y0ko2"]
@@ -914,7 +914,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.14441e-05, 0, 0.0906467)
 shape = SubResource("CylinderShape3D_db5fo")
 
 [node name="WatchTimer" type="Timer" parent="NavRegion/Map/MaliciousPaper"]
-wait_time = 2.0
+wait_time = 5.0
 one_shot = true
 
 [node name="TurnBackNotifier" type="VisibleOnScreenNotifier3D" parent="NavRegion/Map/MaliciousPaper"]
