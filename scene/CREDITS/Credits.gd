@@ -21,6 +21,9 @@ func _process(delta: float) -> void:
 	credits.position.y -= SCROLL_SPEED * delta \
 		* (FAST_SCROLL_MULTIPLIER if Input.is_action_pressed("CreditFastScroll")
 			else 1.0)
-	var last_node: Control = credits.get_children()[-1]
-	if (last_node.global_position.y + last_node.size.y + END_MARGIN < 0):
-		get_tree().change_scene_to_packed(menu)
+	#var last_node: Control = credits.get_children()[-1]
+	#if (last_node.global_position.y + last_node.size.y + END_MARGIN < 0):
+		#get_tree().change_scene_to_packed(menu)
+	
+func on_music_end() -> void:
+	get_tree().change_scene_to_packed(menu)

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bevu0ov007s0g" path="res://mesh/enemies/roomba/roomba.glb" id="3_fupat"]
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_wqlwm"]
 [ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_l0ou6"]
-[ext_resource type="AudioStream" uid="uid://n8yj3a06ybsh" path="res://music/credit_music/Once_Upon_A_Time_Ending.ogg" id="6_48n18"]
+[ext_resource type="AudioStream" uid="uid://bc7vln3dlex5y" path="res://music/credit_music/the_end.ogg" id="6_u0l4p"]
 [ext_resource type="Texture2D" uid="uid://dbincuqb7o0ik" path="res://image/laitier.jpg" id="7_b3s6n"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
@@ -115,7 +115,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_48n18")
+stream = ExtResource("6_u0l4p")
 autoplay = true
 
 [node name="Credits" type="VBoxContainer" parent="."]
@@ -574,7 +574,15 @@ size_flags_horizontal = 4
 text = "Azrotho"
 label_settings = SubResource("LabelSettings_uin2n")
 
+[node name="Label4" type="Label" parent="Credits/Credit Credits"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Endersteve_gamer"
+label_settings = SubResource("LabelSettings_uin2n")
+
 [node name="Laitier" type="TextureRect" parent="Credits"]
 layout_mode = 2
 texture = ExtResource("7_b3s6n")
 stretch_mode = 3
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="on_music_end"]
