@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var credits = preload("res://scene/CREDITS/Credits.tscn")
+@onready var credits = preload("res://scene/credits/Credits.tscn")
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -1,7 +1,7 @@
 extends Node
 
 @onready var mainMenu: PackedScene = preload("res://scene/Menu.tscn")
-@onready var credits: PackedScene = preload("res://scene/CREDITS/Credits.tscn")
+@onready var credits: PackedScene = preload("res://scene/credits/Credits.tscn")
 @onready var deathScreen: PackedScene = preload("res://scene/death_screen.tscn")
 @onready var levels: Array[PackedScene] = [
 	load("res://level/1_Basement.tscn"),
