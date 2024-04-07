@@ -535,7 +535,7 @@ label_settings = SubResource("LabelSettings_uin2n")
 [node name="Label2" type="Label" parent="Credits/3D Models Used/Subgroup11"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Using open source textures"
+text = "Using textures from Polyhaven"
 label_settings = SubResource("LabelSettings_uin2n")
 
 [node name="Made With Godot" type="VBoxContainer" parent="Credits"]
