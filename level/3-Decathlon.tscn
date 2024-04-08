@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://duffrf3jris55" path="res://music/level_musics/3-Decathlon_Night.ogg" id="2_ufovp"]
 [ext_resource type="AudioStream" uid="uid://bdpastqw8hr6k" path="res://music/level_musics/3-Decathlon_Day.ogg" id="3_ea7r0"]
 [ext_resource type="PackedScene" uid="uid://bpqhax0w21x46" path="res://scene/pickup_orb.tscn" id="4_1dkkl"]
-[ext_resource type="Material" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_dnxl7"]
+[ext_resource type="Material" uid="uid://chkmuboqvxxvb" path="res://texture/floor_textures/floor_tiles/floor.tres" id="5_dnxl7"]
 [ext_resource type="Material" uid="uid://bahl4qh1x2yjx" path="res://texture/wall_textures/yellow_plaster/wall.tres" id="6_hpde0"]
 [ext_resource type="PackedScene" uid="uid://cmhe8xyw8gwpi" path="res://mesh/props/grocery_store_shelf/grocery_store_shelf.glb" id="8_61cg7"]
 [ext_resource type="PackedScene" uid="uid://ctjyhip63uswh" path="res://mesh/props/greek_pillar/greek_pillar.glb" id="9_dr1da"]
@@ -1148,7 +1148,7 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="Sprite3D" type="Sprite3D" parent="NavRegion/Map/Posters"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0.0444563, 0.999011, 1.94325e-09, -0.999011, 0.0444563, -4.36682e-08, -18.3749, 2.35482, 0.0669435)
+transform = Transform3D(-4.37114e-08, 0, 1, 0.0444563, 0.999011, 1.94325e-09, -0.999011, 0.0444563, -4.36682e-08, -18.4562, 2.35482, 0.0669435)
 shaded = true
 texture = ExtResource("12_5fxke")
 

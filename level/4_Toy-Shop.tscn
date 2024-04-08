@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c34cj21g5kjos"]
+[gd_scene load_steps=27 format=3 uid="uid://c34cj21g5kjos"]
 
 [ext_resource type="Script" path="res://script/levels/toy_shop.gd" id="1_fg0da"]
 [ext_resource type="AudioStream" uid="uid://lrueydx7rbdo" path="res://music/level_musics/4-Toy_Night.ogg" id="2_vnduy"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://h076n7s2kreu" path="res://mesh/props/window_wall/window_wall.tscn" id="8_6knsk"]
 [ext_resource type="PackedScene" uid="uid://c2p2fh7ansppf" path="res://mesh/props/shelf/shelf.glb" id="8_fsqwt"]
 [ext_resource type="PackedScene" uid="uid://ciagkmgi2pfge" path="res://scene/enemies/charles.tscn" id="9_0i6pu"]
+[ext_resource type="Texture2D" uid="uid://cep7x2qh7ba5p" path="res://image/ad/image8.png" id="9_55bcv"]
+[ext_resource type="Texture2D" uid="uid://df0i3altggekp" path="res://image/ad/image9.png" id="10_kdfjp"]
 [ext_resource type="PackedScene" uid="uid://bxnfjapjfscuv" path="res://scene/exit_door.tscn" id="16_u1bs1"]
 [ext_resource type="PackedScene" uid="uid://bhng8ejcq6qne" path="res://mesh/exit_doors/wooden_door/wooden_door.tscn" id="17_56o1m"]
 [ext_resource type="PackedScene" uid="uid://b1nxn8tsdd7h5" path="res://scene/player/Player.tscn" id="18_fspup"]
@@ -889,6 +891,16 @@ shape = SubResource("BoxShape3D_da8cu")
 [node name="Posters" type="Node3D" parent="NavRegion/Map"]
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+
+[node name="Sprite3D" type="Sprite3D" parent="NavRegion/Map/Posters"]
+transform = Transform3D(-4.37114e-08, -1.47883e-16, 1, -0.0330854, 0.999452, -1.44621e-09, -0.999452, -0.0330854, -4.36875e-08, -18.4876, 2.78561, 0.0669435)
+shaded = true
+texture = ExtResource("9_55bcv")
+
+[node name="Sprite3D2" type="Sprite3D" parent="NavRegion/Map/Posters"]
+transform = Transform3D(-2.57619e-08, -1.70656e-09, -0.59001, 0.0118209, 0.589891, -2.22235e-09, 0.589891, -0.0118209, -2.57225e-08, 18.491, 2.45854, 0.0669435)
+shaded = true
+texture = ExtResource("10_kdfjp")
 
 [node name="CharlesLimitations" type="Node3D" parent="NavRegion/Map"]
 metadata/_edit_lock_ = true
