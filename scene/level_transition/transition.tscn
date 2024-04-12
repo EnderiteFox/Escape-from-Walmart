@@ -1,3 +1,497 @@
-[gd_scene format=3 uid="uid://oej0qtqbhdb7"]
+[gd_scene load_steps=16 format=3 uid="uid://oej0qtqbhdb7"]
 
-[node name="Transition" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://bulveq6q6u1pl" path="res://image/transition_animation/child.png" id="1_bgrtd"]
+[ext_resource type="Script" path="res://script/level_transition/transition.gd" id="1_huglk"]
+[ext_resource type="Texture2D" uid="uid://b55a7oapktv2n" path="res://image/transition_animation/escalator.png" id="2_11drv"]
+[ext_resource type="Texture2D" uid="uid://5yacq1hw41b5" path="res://image/transition_animation/background.png" id="2_wx782"]
+[ext_resource type="AudioStream" uid="uid://cwyx14mvftve0" path="res://music/W_theme.ogg" id="5_36utt"]
+
+[sub_resource type="Animation" id="Animation_5h8bp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EscalatorAnimation/Child:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(122, 783)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EscalatorAnimation/Camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(819, 371)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EscalatorAnimation/CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.156863, 0.156863, 0.156863, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EscalatorAnimation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextLevelAnimation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EscalatorAnimation/Camera:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NextLevelAnimation/NextLevel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(467, 222)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NextLevelAnimation/NextLevel:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.195473]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NextLevelAnimation/NextLevel:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.52538, 2.52538)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NextLevelAnimation/NextLevel:label_settings:font_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NextLevelAnimation/LevelTitle:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(238, 295)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("NextLevelAnimation/LevelTitle:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.230765]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NextLevelAnimation/LevelTitle:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.77204, 2.77204)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("NextLevelAnimation/LevelTitle:label_settings:font_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ri7vv"]
+resource_name = "escalator_up"
+length = 23.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EscalatorAnimation/Child:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 2.5, 3, 3.5, 4, 16),
+"transitions": PackedFloat32Array(1, 1, 0.574349, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-245, 643), Vector2(521, 643), Vector2(521, 643), Vector2(712, 601), Vector2(712, 601), Vector2(798, 598), Vector2(2712, -1340)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("EscalatorAnimation/Camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.5, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(819, 371), Vector2(3206, -1899)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EscalatorAnimation/CanvasModulate:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 9),
+"transitions": PackedFloat32Array(0.392291, 1),
+"update": 0,
+"values": [Color(0.156863, 0.156863, 0.156863, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("EscalatorAnimation:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextLevelAnimation:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("EscalatorAnimation/Camera:enabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("NextLevelAnimation/NextLevel:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(261, 242), Vector2(631, 216)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("NextLevelAnimation/NextLevel:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [-0.195473, -0.0496282]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("NextLevelAnimation/NextLevel:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(2.52538, 2.52538), Vector2(1.2507, 1.2507)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("NextLevelAnimation/NextLevel:label_settings:font_color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("NextLevelAnimation/LevelTitle:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(238, 295), Vector2(471, 519)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("NextLevelAnimation/LevelTitle:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.230765, 0.0664846]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("NextLevelAnimation/LevelTitle:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(2.77204, 2.77204), Vector2(1.65631, 1.65631)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("NextLevelAnimation/LevelTitle:label_settings:font_color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n3u0f"]
+_data = {
+"RESET": SubResource("Animation_5h8bp"),
+"escalator_up": SubResource("Animation_ri7vv")
+}
+
+[sub_resource type="SystemFont" id="SystemFont_77swv"]
+font_names = PackedStringArray("Cursive")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fe131"]
+font = SubResource("SystemFont_77swv")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3wlp"]
+font = SubResource("SystemFont_77swv")
+font_size = 100
+font_color = Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1)
+
+[sub_resource type="Gradient" id="Gradient_a7efs"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dndrd"]
+gradient = SubResource("Gradient_a7efs")
+
+[sub_resource type="Curve" id="Curve_rycci"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_v6xu7"]
+curve = SubResource("Curve_rycci")
+
+[node name="Transition" type="Node"]
+script = ExtResource("1_huglk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n3u0f")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_36utt")
+autoplay = true
+
+[node name="NextLevelAnimation" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="NextLevelAnimation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="NextLevel" type="Label" parent="NextLevelAnimation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -318.0
+offset_right = 20.9999
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.195473
+scale = Vector2(2.52538, 2.52538)
+text = "Next level:"
+label_settings = SubResource("LabelSettings_fe131")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelTitle" type="Label" parent="NextLevelAnimation"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -722.0
+offset_top = -245.0
+offset_right = -115.999
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.230765
+scale = Vector2(2.77204, 2.77204)
+text = "Lorem Ipsum"
+label_settings = SubResource("LabelSettings_c3wlp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EscalatorAnimation" type="Node2D" parent="."]
+
+[node name="Background" type="Polygon2D" parent="EscalatorAnimation"]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(-4591, 227)
+scale = Vector2(13.2366, 13.2366)
+texture = ExtResource("2_wx782")
+invert_enabled = true
+invert_border = 718.3
+polygon = PackedVector2Array(80, 50, -80, 50, -80, -50, 80, -50)
+uv = PackedVector2Array(160, 100, 0, 100, 0, 0, 160, 0)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
+
+[node name="Child" type="Sprite2D" parent="EscalatorAnimation"]
+texture_filter = 1
+position = Vector2(122, 783)
+scale = Vector2(21.6023, 21.6023)
+texture = ExtResource("1_bgrtd")
+
+[node name="Escalator" type="Sprite2D" parent="EscalatorAnimation"]
+texture_filter = 1
+position = Vector2(1961, -522)
+scale = Vector2(23.1562, 23.1562)
+texture = ExtResource("2_11drv")
+metadata/_edit_lock_ = true
+
+[node name="Shadow" type="Sprite2D" parent="EscalatorAnimation"]
+position = Vector2(2138.92, -839.625)
+rotation = -0.82607
+scale = Vector2(3.59205, 2655.37)
+texture = SubResource("GradientTexture1D_dndrd")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="EscalatorAnimation/Shadow"]
+position = Vector2(464.418, -0.00901949)
+scale = Vector2(2.64072, 1)
+texture = SubResource("CurveTexture_v6xu7")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="EscalatorAnimation"]
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="Camera" type="Camera2D" parent="EscalatorAnimation"]
+position = Vector2(819, 371)
