@@ -431,8 +431,8 @@ vertical_alignment = 1
 [node name="Background" type="Polygon2D" parent="EscalatorAnimation"]
 texture_filter = 2
 texture_repeat = 2
-position = Vector2(-4591, 227)
-scale = Vector2(13.2366, 13.2366)
+position = Vector2(-4904, 76)
+scale = Vector2(20.1796, 20.1796)
 texture = ExtResource("2_wx782")
 invert_enabled = true
 invert_border = 718.3
