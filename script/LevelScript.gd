@@ -79,10 +79,12 @@ func on_all_orbs_collected() -> void:
 	player.healthDisplay.on_orbs_collected()
 	exitDoor.open()
 	if DAY_MUSIC != null:
+		var play_time: float = audioStreamPlayer.get_playback_position()
 		audioStreamPlayer.stop()
 		audioStreamPlayer.stream = DAY_MUSIC
 		audioStreamPlayer.volume_db = DAY_MUSIC_VOLUME
 		audioStreamPlayer.play()
+		audioStreamPlayer.seek(play_time)
 	lights.visible = true
 	worldEnvironment.environment.volumetric_fog_enabled = false
 	for enemy in $EnemyContainer.get_children():

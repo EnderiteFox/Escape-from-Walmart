@@ -1,10 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://oej0qtqbhdb7"]
+[gd_scene load_steps=17 format=3 uid="uid://oej0qtqbhdb7"]
 
 [ext_resource type="Texture2D" uid="uid://bulveq6q6u1pl" path="res://image/transition_animation/child.png" id="1_bgrtd"]
 [ext_resource type="Script" path="res://script/level_transition/transition.gd" id="1_huglk"]
 [ext_resource type="Texture2D" uid="uid://b55a7oapktv2n" path="res://image/transition_animation/escalator.png" id="2_11drv"]
 [ext_resource type="Texture2D" uid="uid://5yacq1hw41b5" path="res://image/transition_animation/background.png" id="2_wx782"]
 [ext_resource type="AudioStream" uid="uid://cwyx14mvftve0" path="res://music/W_theme.ogg" id="5_36utt"]
+[ext_resource type="Texture2D" uid="uid://kx8wa4ck4qqb" path="res://image/transition_animation/sign.png" id="6_ug41l"]
 
 [sub_resource type="Animation" id="Animation_5h8bp"]
 length = 0.001
@@ -35,134 +36,146 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("EscalatorAnimation:visible")
+tracks/2/path = NodePath("CanvasLayer/NextLevelAnimation:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("NextLevelAnimation:visible")
+tracks/3/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(467, 222)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("EscalatorAnimation/Camera:enabled")
+tracks/4/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [-0.195473]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("NextLevelAnimation/NextLevel:position")
+tracks/5/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(467, 222)]
+"values": [Vector2(2.52538, 2.52538)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("NextLevelAnimation/NextLevel:rotation")
+tracks/6/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:label_settings:font_color")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.195473]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("NextLevelAnimation/NextLevel:scale")
+tracks/7/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2.52538, 2.52538)]
+"values": [Vector2(238, 295)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("NextLevelAnimation/NextLevel:label_settings:font_color")
+tracks/8/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [0.230765]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("NextLevelAnimation/LevelTitle:position")
+tracks/9/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(238, 295)]
+"values": [Vector2(2.77204, 2.77204)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("NextLevelAnimation/LevelTitle:rotation")
+tracks/10/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:label_settings:font_color")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.230765]
+"values": [Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("NextLevelAnimation/LevelTitle:scale")
+tracks/11/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2.77204, 2.77204)]
+"update": 1,
+"values": [false]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("NextLevelAnimation/LevelTitle:label_settings:font_color")
+tracks/12/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/NextLevelAnimation/Background:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1)]
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ri7vv"]
@@ -187,142 +200,154 @@ tracks/1/path = NodePath("EscalatorAnimation/CanvasModulate:color")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 9, 14, 17),
-"transitions": PackedFloat32Array(0.392291, 1, 1, 1),
+"times": PackedFloat32Array(0, 9, 14),
+"transitions": PackedFloat32Array(0.392291, 1, 1),
 "update": 0,
-"values": [Color(0.156863, 0.156863, 0.156863, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+"values": [Color(0.156863, 0.156863, 0.156863, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("EscalatorAnimation:visible")
+tracks/2/path = NodePath("CanvasLayer/NextLevelAnimation:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 18),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("NextLevelAnimation:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 18),
+"times": PackedFloat32Array(0, 14),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(5.5, 1),
+"update": 0,
+"values": [Vector2(-93, 272), Vector2(631, 216)]
+}
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("EscalatorAnimation/Camera:enabled")
+tracks/4/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 18),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("NextLevelAnimation/NextLevel:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(18, 18.5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(261, 242), Vector2(631, 216)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("NextLevelAnimation/NextLevel:rotation")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(18, 18.5),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [-0.195473, -0.0496282]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(18, 18.5),
+"transitions": PackedFloat32Array(5.5, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1.2507, 1.2507)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:label_settings:font_color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(18, 18.5, 20.5, 22.5),
+"transitions": PackedFloat32Array(0.5, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("NextLevelAnimation/NextLevel:scale")
-tracks/7/interp = 1
+tracks/7/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:position")
+tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(18, 18.5),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(5.5, 1),
 "update": 0,
-"values": [Vector2(2.52538, 2.52538), Vector2(1.2507, 1.2507)]
+"values": [Vector2(-56, 274), Vector2(471, 519)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("NextLevelAnimation/NextLevel:label_settings:font_color")
+tracks/8/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(18, 18.5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("NextLevelAnimation/LevelTitle:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(18.5, 19),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(238, 295), Vector2(471, 519)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("NextLevelAnimation/LevelTitle:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
 "times": PackedFloat32Array(18.5, 19),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
 "values": [0.230765, 0.0664846]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:scale")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(18.5, 19),
+"transitions": PackedFloat32Array(5.5, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1.65631, 1.65631)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:label_settings:font_color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(18, 18.5, 19, 20.5, 22.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("NextLevelAnimation/LevelTitle:scale")
+tracks/11/path = NodePath("CanvasLayer/NextLevelAnimation/LevelTitle:visible")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(18.5, 19),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(2.77204, 2.77204), Vector2(1.65631, 1.65631)]
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("NextLevelAnimation/LevelTitle:label_settings:font_color")
+tracks/12/path = NodePath("CanvasLayer/NextLevelAnimation/NextLevel:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(18.5, 19),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(0, 18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/NextLevelAnimation/Background:color")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(14, 17, 20.5, 22.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.67451), Color(0, 0, 0, 0.67451), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n3u0f"]
@@ -330,6 +355,17 @@ _data = {
 "RESET": SubResource("Animation_5h8bp"),
 "escalator_up": SubResource("Animation_ri7vv")
 }
+
+[sub_resource type="Gradient" id="Gradient_a7efs"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_dndrd"]
+gradient = SubResource("Gradient_a7efs")
+
+[sub_resource type="Curve" id="Curve_rycci"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_v6xu7"]
+curve = SubResource("Curve_rycci")
 
 [sub_resource type="SystemFont" id="SystemFont_77swv"]
 font_names = PackedStringArray("Cursive")
@@ -343,17 +379,6 @@ font = SubResource("SystemFont_77swv")
 font_size = 100
 font_color = Color(2.38419e-07, 2.38419e-07, 2.38419e-07, 1)
 
-[sub_resource type="Gradient" id="Gradient_a7efs"]
-colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dndrd"]
-gradient = SubResource("Gradient_a7efs")
-
-[sub_resource type="Curve" id="Curve_rycci"]
-
-[sub_resource type="CurveTexture" id="CurveTexture_v6xu7"]
-curve = SubResource("Curve_rycci")
-
 [node name="Transition" type="Node"]
 script = ExtResource("1_huglk")
 
@@ -365,66 +390,6 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_36utt")
 autoplay = true
-
-[node name="NextLevelAnimation" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="Background" type="ColorRect" parent="NextLevelAnimation"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
-
-[node name="NextLevel" type="Label" parent="NextLevelAnimation"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -493.0
-offset_top = -318.0
-offset_right = 21.0001
-offset_bottom = -177.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.195473
-scale = Vector2(2.52538, 2.52538)
-text = "Next level:"
-label_settings = SubResource("LabelSettings_fe131")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="LevelTitle" type="Label" parent="NextLevelAnimation"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -722.0
-offset_top = -245.0
-offset_right = -115.999
-offset_bottom = -104.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.230765
-scale = Vector2(2.77204, 2.77204)
-text = "Lorem Ipsum"
-label_settings = SubResource("LabelSettings_c3wlp")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="EscalatorAnimation" type="Node2D" parent="."]
 
@@ -454,6 +419,7 @@ texture = ExtResource("2_11drv")
 metadata/_edit_lock_ = true
 
 [node name="Shadow" type="Sprite2D" parent="EscalatorAnimation"]
+visible = false
 position = Vector2(2558.5, -728.246)
 rotation = -0.82607
 scale = Vector2(5.17394, 3824.76)
@@ -470,3 +436,86 @@ color = Color(0.156863, 0.156863, 0.156863, 1)
 [node name="Camera" type="Camera2D" parent="EscalatorAnimation"]
 position = Vector2(1674, -208)
 zoom = Vector2(0.5, 0.5)
+
+[node name="Sign" type="Sprite2D" parent="EscalatorAnimation"]
+texture_filter = 1
+position = Vector2(2681, 395)
+scale = Vector2(20.1172, 20.1172)
+texture = ExtResource("6_ug41l")
+
+[node name="Sign2" type="Sprite2D" parent="EscalatorAnimation"]
+texture_filter = 1
+position = Vector2(431, -869)
+rotation = -3.14159
+scale = Vector2(20.1172, 20.1172)
+texture = ExtResource("6_ug41l")
+
+[node name="Sprite2D" type="Sprite2D" parent="EscalatorAnimation"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NextLevelAnimation" type="Control" parent="CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_lock_ = true
+
+[node name="Background" type="ColorRect" parent="CanvasLayer/NextLevelAnimation"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="NextLevel" type="Label" parent="CanvasLayer/NextLevelAnimation"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = -318.0
+offset_right = 21.0155
+offset_bottom = -177.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.195473
+scale = Vector2(2.52538, 2.52538)
+text = "Next level:"
+label_settings = SubResource("LabelSettings_fe131")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelTitle" type="Label" parent="CanvasLayer/NextLevelAnimation"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -722.0
+offset_top = -245.0
+offset_right = -116.0
+offset_bottom = -103.999
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.230765
+scale = Vector2(2.77204, 2.77204)
+text = "Lorem Ipsum"
+label_settings = SubResource("LabelSettings_c3wlp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -3,6 +3,7 @@ extends Node
 @onready var mainMenu: PackedScene = preload("res://scene/Menu.tscn")
 @onready var credits: PackedScene = preload("res://scene/credits/Credits.tscn")
 @onready var deathScreen: PackedScene = preload("res://scene/death_screen.tscn")
+@onready var transition: PackedScene = preload("res://scene/level_transition/transition.tscn")
 @onready var levels: Array[PackedScene] = [
 	load("res://level/1_Basement.tscn"),
 	load("res://level/2-Food-Shop.tscn"),
@@ -44,7 +45,7 @@ func on_level_finish() -> void:
 		livesCount = LIVES_DEFAULT_AMOUNT
 		get_tree().change_scene_to_packed(credits)
 	else:
-		get_tree().change_scene_to_packed(get_current_level())
+		get_tree().change_scene_to_packed(transition)
 
 func on_death() -> void:
 	get_tree().change_scene_to_packed(deathScreen)

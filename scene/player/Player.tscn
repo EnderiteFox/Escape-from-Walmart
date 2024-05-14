@@ -1,9 +1,45 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1nxn8tsdd7h5"]
+[gd_scene load_steps=9 format=3 uid="uid://b1nxn8tsdd7h5"]
 
 [ext_resource type="Script" path="res://script/player/Player.gd" id="1_y0v6q"]
 [ext_resource type="PackedScene" uid="uid://bdgsh5gdbg01q" path="res://scene/player/health_display.tscn" id="2_heeqs"]
 [ext_resource type="PackedScene" uid="uid://c86cb2eli7c8h" path="res://scene/player/debug_menu.tscn" id="3_4u3co"]
 [ext_resource type="PackedScene" uid="uid://5rh276ko7478" path="res://scene/player/pause_menu.tscn" id="4_tkfd4"]
+
+[sub_resource type="Animation" id="Animation_6s35t"]
+resource_name = "level_fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rubjt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pcia5"]
+_data = {
+"RESET": SubResource("Animation_rubjt"),
+"level_fade_in": SubResource("Animation_6s35t")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_eihgl"]
 height = 1.65
@@ -13,6 +49,11 @@ collision_layer = 3
 collision_mask = 3
 floor_block_on_wall = false
 script = ExtResource("1_y0v6q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pcia5")
+}
 
 [node name="HealthDisplay" parent="." instance=ExtResource("2_heeqs")]
 mouse_filter = 1
@@ -38,3 +79,12 @@ visible = false
 light_energy = 3.0
 shadow_enabled = true
 omni_range = 20.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

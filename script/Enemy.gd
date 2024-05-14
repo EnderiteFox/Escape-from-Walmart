@@ -30,14 +30,14 @@ class_name Enemy
 
 const ABANDON_TARGET_DISTANCE: float = 1.75
 const STUN_TIME: float = 2.0
-const SAFE_SPAWN_TIME: float = 1.0
+const SAFE_SPAWN_TIME: float = 0.75
 
 
 var lastPlayerPos: Vector3
 var targetPos: Vector3
 var targetInit: bool = false
 var chasePlayer: bool = false
-var remainingStunTime: float = -1
+var remainingStunTime: float = 1.0
 var inAttackHitbox: bool = false
 var timeSinceSpawn: float
 

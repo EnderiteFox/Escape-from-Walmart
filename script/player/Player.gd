@@ -15,6 +15,7 @@ var health: int = MAX_HEALTH
 var timeSinceLastRegen: float = 0.0
 var targetRotation: Vector2
 var previousBobbleX: float = 0.0
+var timeSinceStart: float = 0.0
 
 const DEACCEL: float = 16
 const MAX_SLOPE_ANGLE: float = 40
@@ -26,15 +27,18 @@ const RIGHT_STICK_SENSITIVITY: float = 2
 const ROTATION_SMOOTHING: float = 0.75
 const HEAD_BOBBLE_SPEED: float = 0.03
 const HEAD_BOBBLE_INTENSITY: float = 0.1
+const START_STUN_LENGTH: float = 0.75
 
 @onready var Camera: Camera3D = $Pivot/Camera
 @onready var Pivot: Node3D = $Pivot
 @onready var healthDisplay: HealthDisplay = $HealthDisplay
 @onready var map: Node3D = $/root/Level/NavRegion/Map
+@onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	targetRotation = Vector2(Pivot.rotation.x, self.rotation.y)
+	animationPlayer.play("level_fade_in")
 
 func _process(delta: float) -> void:
 	$HealthDisplay/HBoxContainer/Label.text = "HP: " + str(health) + "/" + str(MAX_HEALTH)
@@ -45,6 +49,7 @@ func _process(delta: float) -> void:
 		timeSinceLastRegen = 0.0
 	health = clamp(health, 0, MAX_HEALTH)
 	$DebugLight.visible = LevelManager.debugLight
+	timeSinceStart += delta
 	
 func _physics_process(delta: float) -> void:
 	process_input(delta)
@@ -96,7 +101,9 @@ func process_movement(delta) -> void:
 	hvel.y = 0
 	
 	var target: Vector3 = dir
-	target *= MAX_SPEED if not is_sprinting else MAX_SPRINT_SPEED
+	var tempSpeed = MAX_SPEED if not is_sprinting else MAX_SPRINT_SPEED
+	tempSpeed = clamp(lerp(0.0, tempSpeed, timeSinceStart * (1 / START_STUN_LENGTH)), 0.0, tempSpeed)
+	target *= tempSpeed
 	
 	var accel
 	if dir.dot(hvel) > 0:
@@ -108,10 +115,11 @@ func process_movement(delta) -> void:
 	velocity.x = hvel.x
 	velocity.z = hvel.z
 	
+	var bobble_speed = clamp(lerp(0.0, HEAD_BOBBLE_SPEED, timeSinceStart * (1 / START_STUN_LENGTH)), 0.0, HEAD_BOBBLE_SPEED)
 	var speed = velocity.length() if velocity.length() > 1 else 0.0
-	Pivot.position.y += (sin(previousBobbleX + speed * HEAD_BOBBLE_SPEED) \
+	Pivot.position.y += (sin(previousBobbleX + speed * bobble_speed) \
 		- sin(previousBobbleX)) * HEAD_BOBBLE_INTENSITY
-	previousBobbleX += speed * HEAD_BOBBLE_SPEED
+	previousBobbleX += speed * bobble_speed
 	
 	floor_max_angle = deg_to_rad(MAX_SLOPE_ANGLE)
 	floor_snap_length = 0.05

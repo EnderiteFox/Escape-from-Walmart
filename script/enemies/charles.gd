@@ -4,6 +4,9 @@ class_name Charles
 var limitations: Node3D
 var playerLimitationCount: int = 0
 
+@onready var spotlight: SpotLight3D = $FrontSpotlight
+@onready var front_light: OmniLight3D = $OmniLight3D
+
 func _ready() -> void:
 	super._ready()
 	limitations = map.find_child("CharlesLimitations")
@@ -11,6 +14,15 @@ func _ready() -> void:
 		for area in limitations.get_children():
 			area.body_entered.connect(_on_player_enter_limitation)
 			area.body_exited.connect(_on_player_leave_limitation)
+			
+func _process(delta: float) -> void:
+	super._process(delta)
+	if chasePlayer:
+		spotlight.light_color = Color.RED
+		front_light.light_color = Color.RED
+	else:
+		spotlight.light_color = Color.WHITE
+		front_light.light_color = Color.WHITE
 
 func _get_random_map_point() -> Vector3:
 	var point = super._get_random_map_point()
