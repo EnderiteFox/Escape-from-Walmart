@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ca53lab0axwlu"]
+[gd_scene load_steps=17 format=3 uid="uid://ca53lab0axwlu"]
 
 [ext_resource type="Script" path="res://scene/credits/Credits.gd" id="1_tr7tf"]
 [ext_resource type="PackedScene" uid="uid://dvag6wl87jing" path="res://scene/credits/CreditsBasement.tscn" id="2_beg7w"]
@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b6cdkorfx4ioc" path="res://mesh/enemies/roomba/roomba_evil.tscn" id="4_wqlwm"]
 [ext_resource type="PackedScene" uid="uid://b2r1uyucnuvj6" path="res://mesh/enemies/roomba/roomba_blue.tscn" id="5_l0ou6"]
 [ext_resource type="AudioStream" uid="uid://bc7vln3dlex5y" path="res://music/credit_music/the_end.ogg" id="6_u0l4p"]
+[ext_resource type="Texture2D" uid="uid://djq75axx1c2jh" path="res://image/credits/image1.png" id="7_2vppt"]
 [ext_resource type="Texture2D" uid="uid://dbincuqb7o0ik" path="res://image/laitier.jpg" id="7_b3s6n"]
+[ext_resource type="Texture2D" uid="uid://dfb20h7fdtelg" path="res://image/credits/image2.png" id="8_252rr"]
+[ext_resource type="Texture2D" uid="uid://c5ky8culnvpn4" path="res://image/credits/image3.png" id="8_l6yct"]
 
 [sub_resource type="Environment" id="Environment_d0jh2"]
 ambient_light_source = 2
@@ -206,6 +209,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "from Kenney Game Assets All-in-1"
 label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Image1" type="VBoxContainer" parent="Credits"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credits/Image1"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+texture = ExtResource("7_2vppt")
+expand_mode = 2
 
 [node name="Pixel Graphist" type="VBoxContainer" parent="Credits"]
 layout_mode = 2
@@ -415,6 +428,16 @@ label_settings = SubResource("LabelSettings_uin2n")
 layout_mode = 2
 theme_override_constants/separation = 100
 
+[node name="Image3" type="VBoxContainer" parent="Credits/3D Models Used"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credits/3D Models Used/Image3"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+texture = ExtResource("8_l6yct")
+expand_mode = 2
+
 [node name="Subgroup" type="VBoxContainer" parent="Credits/3D Models Used"]
 layout_mode = 2
 
@@ -522,6 +545,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Greek Pillar by Lazanja (Sketchfab)"
 label_settings = SubResource("LabelSettings_uin2n")
+
+[node name="Image2" type="VBoxContainer" parent="Credits/3D Models Used"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Credits/3D Models Used/Image2"]
+custom_minimum_size = Vector2(960, 540)
+layout_mode = 2
+texture = ExtResource("8_252rr")
+expand_mode = 2
 
 [node name="Subgroup11" type="VBoxContainer" parent="Credits/3D Models Used"]
 layout_mode = 2

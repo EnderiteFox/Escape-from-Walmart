@@ -8,7 +8,7 @@ func _ready() -> void:
 	levelTitle.text = LevelManager.LEVEL_NAMES[LevelManager.currentLevel]
 	animation.play("escalator_up")
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("Confirm"):
 		animation.speed_scale = 3
 		music_player.pitch_scale = 1.5
