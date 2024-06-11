@@ -11,6 +11,43 @@ extends Node
 	load("res://level/4_Toy-Shop.tscn"),
 	load("res://level/5_Cloth-Shop.tscn")
 ]
+@onready var levelImages: Array[Array] = [
+	[
+		ResourceLoader.load("res://image/transition_images/level_2/donkey.png"),
+		ResourceLoader.load("res://image/transition_images/level_2/shrek.png")
+	],
+	[
+		ResourceLoader.load("res://image/transition_images/level_3/mannequin.png"),
+		ResourceLoader.load("res://image/transition_images/level_3/mannequin2.png")
+	],
+	[
+		ResourceLoader.load("res://image/transition_images/level_4/cubes.png"),
+		ResourceLoader.load("res://image/transition_images/level_4/thomas.png")
+	],
+	[
+		ResourceLoader.load("res://image/transition_images/level_5/crying_angel.png"),
+		ResourceLoader.load("res://image/transition_images/level_5/think.png")
+	]
+]
+
+@onready var levelImageSize: Array[Array] = [
+	[
+		[-1.019, -2.386, 0.084, 0.046],
+		[-0.653, -2.365, 0.045, 0.036]
+	],
+	[
+		[-0.994, -2.56, 0.021, 0.01],
+		[-0.706, -2.496, 0.03, 0.021]
+	],
+	[
+		[-1.019, -2.485, 0.085, 0.048],
+		[-1.04, -2.496, 0.059, 0.033]
+	],
+	[
+		[-1.019, -2.485, 0.066, 0.066],
+		[-0.983, -2.483, 0.018, 0.01]
+	]
+]
 
 const LIVES_DEFAULT_AMOUNT: int = 2
 const LEVEL_NAMES: Array[String] = [

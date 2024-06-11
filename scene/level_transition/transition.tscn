@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://oej0qtqbhdb7"]
+[gd_scene load_steps=19 format=3 uid="uid://oej0qtqbhdb7"]
 
 [ext_resource type="Texture2D" uid="uid://bulveq6q6u1pl" path="res://image/transition_animation/child.png" id="1_bgrtd"]
 [ext_resource type="Script" path="res://script/level_transition/transition.gd" id="1_huglk"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://5yacq1hw41b5" path="res://image/transition_animation/background.png" id="2_wx782"]
 [ext_resource type="AudioStream" uid="uid://cwyx14mvftve0" path="res://music/W_theme.ogg" id="5_36utt"]
 [ext_resource type="Texture2D" uid="uid://kx8wa4ck4qqb" path="res://image/transition_animation/sign.png" id="6_ug41l"]
+[ext_resource type="Texture2D" uid="uid://co1kb7ab2pny7" path="res://image/transition_images/level_5/crying_angel.png" id="7_pak0e"]
+[ext_resource type="Texture2D" uid="uid://cd7vxplq67kh2" path="res://image/transition_images/level_5/think.png" id="8_p12y7"]
 
 [sub_resource type="Animation" id="Animation_5h8bp"]
 length = 0.001
@@ -443,12 +445,23 @@ position = Vector2(2681, 395)
 scale = Vector2(20.1172, 20.1172)
 texture = ExtResource("6_ug41l")
 
+[node name="Sprite2D" type="Sprite2D" parent="EscalatorAnimation/Sign"]
+position = Vector2(-1.01902, -2.48543)
+scale = Vector2(0.0661678, 0.0660163)
+texture = ExtResource("7_pak0e")
+
 [node name="Sign2" type="Sprite2D" parent="EscalatorAnimation"]
 texture_filter = 1
 position = Vector2(431, -869)
 rotation = -3.14159
 scale = Vector2(20.1172, 20.1172)
 texture = ExtResource("6_ug41l")
+
+[node name="Sprite2D" type="Sprite2D" parent="EscalatorAnimation/Sign2"]
+position = Vector2(-0.983315, -2.48273)
+rotation = -3.14159
+scale = Vector2(0.0184987, 0.0103886)
+texture = ExtResource("8_p12y7")
 
 [node name="Sprite2D" type="Sprite2D" parent="EscalatorAnimation"]
 
@@ -484,10 +497,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 467.0
-offset_top = 222.0
-offset_right = 981.016
-offset_bottom = 363.0
+offset_left = -493.0
+offset_top = -318.0
+offset_right = 21.016
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = -0.195473
@@ -505,10 +518,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 238.0
-offset_top = 295.0
-offset_right = 844.0
-offset_bottom = 436.001
+offset_left = -722.0
+offset_top = -245.0
+offset_right = -116.0
+offset_bottom = -103.999
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.230765
