@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var credits = preload("res://scene/credits/Credits.tscn")
 
 func _ready() -> void:

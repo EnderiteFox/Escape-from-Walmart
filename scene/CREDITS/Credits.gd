@@ -5,7 +5,7 @@ extends Node3D
 @onready var credits: VBoxContainer = $Credits
 @onready var laitier: TextureRect = $Credits/Laitier
 @onready var shade: ColorRect = $Shade
-@onready var SHADE_LENGTH: int = DisplayServer.screen_get_size().y / 2.0
+@onready var SHADE_LENGTH: int = (int) (DisplayServer.screen_get_size().y / 2.0)
 
 const SCROLL_SPEED: float = 100
 const FAST_SCROLL_MULTIPLIER: float = 5
