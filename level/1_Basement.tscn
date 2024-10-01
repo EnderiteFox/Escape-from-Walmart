@@ -83,6 +83,8 @@ script = ExtResource("1_k0v5t")
 map_x_width = 44
 map_z_width = 40
 AMBIENCE_MUSIC = ExtResource("2_caye0")
+AMBIENCE_MUSIC_VOLUME = 1.0
+DAY_MUSIC_VOLUME = 1.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_scepk")

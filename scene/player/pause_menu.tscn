@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://5rh276ko7478"]
+[gd_scene load_steps=7 format=3 uid="uid://5rh276ko7478"]
 
 [ext_resource type="Script" path="res://script/player/pause_menu.gd" id="1_6xhv8"]
 
@@ -14,6 +14,9 @@ keycode = 4194309
 
 [sub_resource type="Shortcut" id="Shortcut_o2k87"]
 events = [SubResource("InputEventKey_g86ot")]
+
+[sub_resource type="LabelSettings" id="LabelSettings_j6w8r"]
+font_size = 32
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -68,6 +71,27 @@ theme = SubResource("Theme_adfum")
 shortcut_in_tooltip = false
 text = "Back to menu"
 flat = true
+
+[node name="SliderMargin" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 500
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/SliderMargin"]
+layout_mode = 2
+
+[node name="VolumeLabel" type="Label" parent="VBoxContainer/SliderMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume:"
+label_settings = SubResource("LabelSettings_j6w8r")
+
+[node name="HSlider" type="HSlider" parent="VBoxContainer/SliderMargin/VBoxContainer"]
+layout_mode = 2
+value = 100.0
 
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

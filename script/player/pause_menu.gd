@@ -1,6 +1,12 @@
 extends Control
 
 @onready var debugMenu: Control = $"../DebugMenu"
+@onready var volumeSlider: HSlider = $VBoxContainer/SliderMargin/VBoxContainer/HSlider
+
+func _ready() -> void:
+	volumeSlider.value = LevelManager.volume_multiplier * 100
+	volumeSlider.value_changed.connect(LevelManager.on_volume_changed)
+	
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
