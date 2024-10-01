@@ -36,9 +36,12 @@ func _ready() -> void:
 		totalOrbs += 1
 	NavRegion.bake_navigation_mesh()
 	audioStreamPlayer.stream = AMBIENCE_MUSIC
-	audioStreamPlayer.volume_db = AMBIENCE_MUSIC_VOLUME
+	change_music_volume(LevelManager.volume_multiplier)
 	audioStreamPlayer.play()
 	worldEnvironment.environment.volumetric_fog_enabled = true
+	
+func change_music_volume(volume: float) -> void:
+	audioStreamPlayer.volume_db = linear_to_db(volume)
 	
 func getPickupOrbs() -> Array[PickupOrb]:
 	var orbs: Array[PickupOrb] = []
@@ -82,7 +85,7 @@ func on_all_orbs_collected() -> void:
 		var play_time: float = audioStreamPlayer.get_playback_position()
 		audioStreamPlayer.stop()
 		audioStreamPlayer.stream = DAY_MUSIC
-		audioStreamPlayer.volume_db = DAY_MUSIC_VOLUME
+		change_music_volume(LevelManager.volume_multiplier)
 		audioStreamPlayer.play()
 		audioStreamPlayer.seek(play_time)
 	lights.visible = true

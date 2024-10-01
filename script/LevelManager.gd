@@ -63,6 +63,7 @@ var livesCount: int = LIVES_DEFAULT_AMOUNT
 var invincibility: bool = false
 var debugLight: bool = false
 var fullscreen: bool = false
+var volume_multiplier: float = 1.0
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Fullscreen"):
@@ -92,3 +93,15 @@ func on_retry() -> void:
 		livesCount = LIVES_DEFAULT_AMOUNT
 		currentLevel = 0
 	get_tree().change_scene_to_packed(get_current_level())
+	
+func on_volume_changed(value: float) -> void:
+	volume_multiplier = value / 100;
+	var node: Node = get_tree().current_scene
+	if node != null:
+		if node is Level:
+			node.change_music_volume(volume_multiplier)
+		else:
+			print("node is not Level")
+	else:
+		print("node is null")
+	

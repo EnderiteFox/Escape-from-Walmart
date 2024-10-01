@@ -1,6 +1,5 @@
 extends Node3D
 
-@onready var menu: PackedScene = preload("res://scene/Menu.tscn")
 @onready var animationPlayer: AnimationPlayer = $AnimationPlayer
 @onready var credits: VBoxContainer = $Credits
 @onready var laitier: TextureRect = $Credits/Laitier
@@ -20,13 +19,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Back"):
-		get_tree().change_scene_to_packed(menu)
+		get_tree().change_scene_to_packed(LevelManager.mainMenu)
 	credits.position.y -= SCROLL_SPEED * delta \
 		* (FAST_SCROLL_MULTIPLIER if Input.is_action_pressed("CreditFastScroll")
 			else 1.0)
 	var last_node: Control = credits.get_children()[-1]
 	if (last_node.global_position.y + last_node.size.y + END_MARGIN < 0):
-		get_tree().change_scene_to_packed(menu)
+		get_tree().change_scene_to_packed(LevelManager.mainMenu)
 	
 	var pos = clamp(get_laitier_position(), 0, SHADE_LENGTH)
 	shade.color.a = 1 - (pos / SHADE_LENGTH)
@@ -36,4 +35,4 @@ func get_laitier_position() -> float:
 	return laitier.get_screen_position().y + laitier.texture.get_size().y
 	
 func on_music_end() -> void:
-	get_tree().change_scene_to_packed(menu)
+	get_tree().change_scene_to_packed(LevelManager.mainMenu)
