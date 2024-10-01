@@ -5,6 +5,7 @@ extends Node3D
 @onready var laitier: TextureRect = $Credits/Laitier
 @onready var shade: ColorRect = $Shade
 @onready var SHADE_LENGTH: int = (int) (DisplayServer.screen_get_size().y / 2.0)
+@onready var AudioSteamPlayer := $AudioStreamPlayer
 
 const SCROLL_SPEED: float = 100
 const FAST_SCROLL_MULTIPLIER: float = 5
@@ -16,6 +17,7 @@ func _ready() -> void:
 		.loop_mode = Animation.LOOP_LINEAR
 	animationPlayer.play("walking_roomba")
 	credits.position.y = DisplayServer.screen_get_size().y
+	AudioSteamPlayer.volume_db = linear_to_db(LevelManager.volume_multiplier)
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Back"):

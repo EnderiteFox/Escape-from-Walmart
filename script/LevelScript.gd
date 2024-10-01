@@ -4,9 +4,9 @@ class_name Level
 @export_range(0, 100, 1, "or_greater") var map_x_width: int
 @export_range(0, 100, 1, "or_greater") var map_z_width: int
 @export var AMBIENCE_MUSIC: AudioStream
-@export var AMBIENCE_MUSIC_VOLUME: float = 0
+@export var AMBIENCE_MUSIC_VOLUME: float = 1
 @export var DAY_MUSIC: AudioStream
-@export var DAY_MUSIC_VOLUME: float = 0
+@export var DAY_MUSIC_VOLUME: float = 1
 
 @onready var map: Node3D = $NavRegion/Map
 @onready var exitDoor: ExitDoor = $ExitDoor
@@ -41,7 +41,9 @@ func _ready() -> void:
 	worldEnvironment.environment.volumetric_fog_enabled = true
 	
 func change_music_volume(volume: float) -> void:
-	audioStreamPlayer.volume_db = linear_to_db(volume)
+	audioStreamPlayer.volume_db = linear_to_db(
+		volume * (AMBIENCE_MUSIC_VOLUME if !allOrbs else DAY_MUSIC_VOLUME)
+	)
 	
 func getPickupOrbs() -> Array[PickupOrb]:
 	var orbs: Array[PickupOrb] = []
@@ -81,6 +83,7 @@ func on_all_orbs_collected() -> void:
 		orb.queue_free()
 	player.healthDisplay.on_orbs_collected()
 	exitDoor.open()
+	allOrbs = true
 	if DAY_MUSIC != null:
 		var play_time: float = audioStreamPlayer.get_playback_position()
 		audioStreamPlayer.stop()
